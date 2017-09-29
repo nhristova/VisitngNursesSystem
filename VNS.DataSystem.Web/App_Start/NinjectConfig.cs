@@ -1,5 +1,5 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(VNS.DataSystem.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(VNS.DataSystem.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(VNS.DataSystem.Web.App_Start.NinjectConfig), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(VNS.DataSystem.Web.App_Start.NinjectConfig), "Stop")]
 
 namespace VNS.DataSystem.Web.App_Start
 {
@@ -15,7 +15,7 @@ namespace VNS.DataSystem.Web.App_Start
     using Data.Repositories;
     using System.Data.Entity;
 
-    public static class NinjectWebCommon 
+    public static class NinjectConfig 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 

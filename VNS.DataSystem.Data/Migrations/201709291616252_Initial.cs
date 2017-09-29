@@ -35,6 +35,10 @@ namespace VNS.DataSystem.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        IsDeleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(),
+                        ModifiedOn = c.DateTime(),
+                        DeletedOn = c.DateTime(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -48,6 +52,7 @@ namespace VNS.DataSystem.Data.Migrations
                         UserName = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
+                .Index(t => t.IsDeleted)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
@@ -81,20 +86,33 @@ namespace VNS.DataSystem.Data.Migrations
                     {
                         Id = c.Guid(nullable: false),
                         Date = c.DateTime(nullable: false),
+                        Description = c.String(),
+                        IsDeleted = c.Boolean(nullable: false),
+                        CreatedOn = c.DateTime(),
+                        ModifiedOn = c.DateTime(),
+                        DeletedOn = c.DateTime(),
+                        Nurse_Id = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.Nurse_Id)
+                .Index(t => t.IsDeleted)
+                .Index(t => t.Nurse_Id);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Visits", "Nurse_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropIndex("dbo.Visits", new[] { "Nurse_Id" });
+            DropIndex("dbo.Visits", new[] { "IsDeleted" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUsers", new[] { "IsDeleted" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
