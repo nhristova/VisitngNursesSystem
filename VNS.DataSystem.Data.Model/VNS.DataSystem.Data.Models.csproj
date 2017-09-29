@@ -7,8 +7,8 @@
     <ProjectGuid>{79711143-7F87-43BE-9266-B387784E78C0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VNS.DataSystem.Data.Model</RootNamespace>
-    <AssemblyName>VNS.DataSystem.Data.Model</AssemblyName>
+    <RootNamespace>VNS.DataSystem.Data.Models</RootNamespace>
+    <AssemblyName>VNS.DataSystem.Data.Models</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

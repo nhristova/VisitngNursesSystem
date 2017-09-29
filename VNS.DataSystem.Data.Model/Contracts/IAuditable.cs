@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace VNS.DataSystem.Data.Model.Contracts
+namespace VNS.DataSystem.Data.Models.Contracts
 {
-    interface IAuditable
+    public interface IAuditable
     {
         DateTime? CreatedOn { get; set; }
 

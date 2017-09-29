@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VNS.DataSystem.Data.Model.Contracts;
+using VNS.DataSystem.Data.Models.Contracts;
 
-namespace VNS.DataSystem.Data.Model.Abstracts
+namespace VNS.DataSystem.Data.Models.Abstracts
 {
-    // TODO: Add record of user who modified data
+    // TODO: Add record of user who modified data??
     public abstract class DataModel : IAuditable, IDeletable
     {
         public DataModel()
