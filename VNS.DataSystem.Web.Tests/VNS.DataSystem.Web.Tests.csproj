@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{35E732CD-C4FA-4036-ACDB-92AEDAB631B0}</ProjectGuid>
+    <ProjectGuid>{8FAFE143-BF6F-4F2B-AE59-BA9B9A809325}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VNS.DataSystem.Web.Tests</RootNamespace>
@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VNS.DataSystem.Web\VNS.DataSystem.Web.csproj">
-      <Project>{87406EEB-127E-4235-BCCF-045EC9FABCBC}</Project>
+      <Project>{1643C16A-EFB9-4DB4-86C9-38A58E1DD312}</Project>
       <Name>VNS.DataSystem.Web</Name>
     </ProjectReference>
   </ItemGroup>
