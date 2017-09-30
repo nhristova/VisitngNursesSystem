@@ -14,6 +14,7 @@ namespace VNS.DataSystem.Web.App_Start
     using Data;
     using Data.Repositories;
     using System.Data.Entity;
+    using Services.Contracts;
 
     public static class NinjectConfig 
     {
@@ -67,9 +68,16 @@ namespace VNS.DataSystem.Web.App_Start
         {
             kernel.Bind(x => 
             {
-                x.FromThisAssembly() // Scans currently assembly
-                 .SelectAllClasses() // Retrieve all non-abstract classes
+                x.FromThisAssembly() // Scans current assembly
+                 .SelectAllClasses() // Retrieves all non-abstract classes
                  .BindDefaultInterface(); // Binds the default interface to them;
+            });
+
+            kernel.Bind(x =>
+            {
+                x.FromAssemblyContaining(typeof(IService)) // Scans assembly which has IService
+                 .SelectAllClasses() 
+                 .BindDefaultInterface(); 
             });
 
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();

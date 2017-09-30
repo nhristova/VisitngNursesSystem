@@ -19,6 +19,7 @@ namespace VNS.DataSystem.Data.Models.Abstracts
         [Index]
         public bool IsDeleted { get; set; }
 
+        // TODO: Should this be nullabe?
         [DataType(DataType.DateTime)]
         public DateTime? CreatedOn { get; set; }
 

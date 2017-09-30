@@ -6,7 +6,7 @@ namespace VNS.DataSystem.Data.Models
 {
     public class Visit : DataModel
     {
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         public virtual User Nurse { get; set; }

@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNS.DataSystem.Data", "VNS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNS.DataSystem.Data.Models", "VNS.DataSystem.Data.Model\VNS.DataSystem.Data.Models.csproj", "{79711143-7F87-43BE-9266-B387784E78C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D3B46437-0A81-485C-BD23-9E1FC344A00F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNS.DataSystem.Services", "VNS.DataSystem.Services\VNS.DataSystem.Services.csproj", "{E12D40CE-F454-4C77-BA46-1482AD8B614E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{79711143-7F87-43BE-9266-B387784E78C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79711143-7F87-43BE-9266-B387784E78C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79711143-7F87-43BE-9266-B387784E78C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E12D40CE-F454-4C77-BA46-1482AD8B614E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E12D40CE-F454-4C77-BA46-1482AD8B614E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E12D40CE-F454-4C77-BA46-1482AD8B614E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E12D40CE-F454-4C77-BA46-1482AD8B614E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +50,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{92B5A5AA-4765-4667-94FA-F1CE61AB082A} = {DC626C3A-AE4F-4944-B5F6-31373841F185}
 		{79711143-7F87-43BE-9266-B387784E78C0} = {DC626C3A-AE4F-4944-B5F6-31373841F185}
+		{E12D40CE-F454-4C77-BA46-1482AD8B614E} = {D3B46437-0A81-485C-BD23-9E1FC344A00F}
 	EndGlobalSection
 EndGlobal

@@ -63,6 +63,7 @@ namespace VNS.DataSystem.Data.Migrations
                     {
                         Nurse = context.Users.First(x => x.UserName == AdministratorUserName),
                         Description = "Sample visit " + i,
+                        Date = new DateTime(2017, 06, 01),
                         CreatedOn = DateTime.Now
                     };
 

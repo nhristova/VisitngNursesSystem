@@ -3,14 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VNS.DataSystem.Services.Contracts;
+using VNS.DataSystem.Web.Models.Home;
 
 namespace VNS.DataSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IVisitsService visitsService;
+
+        public HomeController(IVisitsService visitsService)
+        {
+            this.visitsService = visitsService;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var visits = this.visitsService
+                .GetAll()
+                .Select(v => new VisitViewModel() {
+                    Date = v.Date,
+                    NurseName = v.Nurse.UserName,
+                    Description = v.Description,
+                    CreatedOn = v.CreatedOn.Value,
+                    LastModifiedOn = v.ModifiedOn.Value
+                })
+                .ToList();
+
+            var viewModel = new HomeViewModel()
+            {
+                Visits = visits
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()
