@@ -23,7 +23,7 @@ namespace VNS.Web.Controllers
                 .GetAll()
                 .Select(v => new VisitViewModel() {
                     Date = v.Date,
-                    NurseName = v.Nurse.UserName,
+                    NurseName = v.VisitingNurse.UserName,
                     Description = v.Description,
                     CreatedOn = v.CreatedOn.Value,
                     LastModifiedOn = v.ModifiedOn.Value

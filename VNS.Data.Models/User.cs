@@ -12,11 +12,33 @@ namespace VNS.Data.Models
 {
     public class User : IdentityUser, IAuditable, IDeletable
     {
+        // TODO: Check why Steven added posts field in demo?
+        // Can't we have only a property?
         private ICollection<Visit> visits;
 
         public User()
         {
+            this.Families = new List<Family>();
+            // TODO: Check why HasShet?
             this.visits = new HashSet<Visit>();
+        }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public virtual ICollection<Family> Families { get; set; }
+        public virtual ICollection<Visit> Visits
+        {
+            get
+            {
+                return this.visits;
+            }
+
+            set
+            {
+                this.visits = value;
+            }
         }
 
         [Index]
@@ -31,18 +53,6 @@ namespace VNS.Data.Models
         [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }
 
-        public virtual ICollection<Visit> Visits
-        {
-            get
-            {
-                return this.visits;
-            }
-
-            set
-            {
-                this.visits = value;
-            }
-        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

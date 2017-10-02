@@ -61,7 +61,7 @@ namespace VNS.Data.Migrations
                 {
                     var visit = new Visit()
                     {
-                        Nurse = context.Users.First(x => x.UserName == AdministratorUserName),
+                        VisitingNurse = context.Users.First(x => x.UserName == AdministratorUserName),
                         Description = "Sample visit " + i,
                         Date = new DateTime(2017, 06, 01),
                         CreatedOn = DateTime.Now
