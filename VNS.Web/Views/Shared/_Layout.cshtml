@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using VNS.Web.Helpers
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Visiting Nurses System</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,13 +19,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="~/"><img src="~/Content/images/nurse-logo.svg" alt="VNS_logo" class="logo" />  <span class="hidden-sm hidden-xs"> Visiting Nurses System</span></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class='@Html.IsActive("Home", "Index")'>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class='@Html.IsActive("Home", "About")'>@Html.ActionLink("About", "About", "Home")</li>
+                    <li class='@Html.IsActive("Home", "Contact")'>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -32,10 +34,14 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <footer class="container">
+        <ul class="list-unstyled">
+            <li class="pull-right"><a href="https://github.com/nhristova/VisitngNursesSystem" target="_blank"><i class="fa fa-github-alt"></i> View Source</a></li>
+            <li>&copy; 2017 - VisitingNursesSystem</li>
+            <li>ASP.NET MVC Course, Telerik Academy, Season 8 </li>
+        </ul>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

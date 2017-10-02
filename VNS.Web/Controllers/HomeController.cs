@@ -40,7 +40,7 @@ namespace VNS.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Data management tool for monitoring and organizing visiting nurses work for families with young children.";
 
             return View();
         }
