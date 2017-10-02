@@ -1,0 +1,9 @@
+﻿@using VNS.Web.Models.Home
+@model VisitViewModel
+
+<div class="col-md-4">
+    <h2>@Html.DisplayFor(v => Model.Date)</h2>
+    <p>@Model.NurseName</p>
+    <p>@Model.Description</p>
+    <p>@Html.DisplayFor(v => Model.CreatedOn) - modified: @Html.DisplayFor(v => Model.LastModifiedOn)</p>
+</div>
