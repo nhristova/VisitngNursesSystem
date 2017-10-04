@@ -1,7 +1,21 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>The staff of the visiting nurses social service (`Users`) keep track of the `Families` they work with. Each family has one `Assigned Staff Member`, one or more `Family Members` and one or more `Children`. Staff members conduct `Visits` to `Families` during which they provide advice and assistance to `Family Members` for the care and welbeing of the `Children`.</p>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2>@ViewBag.Title.</h2>
+        <p>@ViewBag.Message</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3 col-xs-5">
+        <img src="~/Content/images/duck.svg" class="page-image" alt="duck"/>
+    </div>
+    <div class="col-sm-9 col-xs-12">
+        <h3>Data management tool</h3>
+        <p>The tool is used for monitoring and organizing visiting nurses work for families with young children.</p>
+        <p>The staff of the visiting nurses social service (`Users`) keep track of the `Families` they work with. Each family has one `Assigned Staff Member`, one or more `Family Members` and one or more `Children`. Staff members conduct `Visits` to `Families` during which they provide advice and assistance to `Family Members` for the care and welbeing of the `Children`.</p>
+    </div>
+</div>

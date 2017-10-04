@@ -19,6 +19,8 @@ namespace VNS.Web.Controllers
 
         public ActionResult Index()
         {
+
+            // TODO: add period filtering
             var visits = this.visitsService
                 .GetAll()
                 .Select(v => new VisitViewModel() {
@@ -40,14 +42,14 @@ namespace VNS.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Data management tool for monitoring and organizing visiting nurses work for families with young children.";
+            ViewBag.Message = "Helping nurses be better at what they do.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Help()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Documentation page.";
 
             return View();
         }

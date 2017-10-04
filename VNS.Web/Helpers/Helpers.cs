@@ -11,13 +11,12 @@ namespace VNS.Web.Helpers
             var routeAction = routeData.Values["action"].ToString();
             var routeControl = routeData.Values["controller"].ToString();
 
-            if (control == routeControl && action == routeAction)
+            if (control.ToLower() == routeControl.ToLower() && action.ToLower() == routeAction.ToLower())
             {
                 return "active";
             }
 
             return "";
         }
-
     }
 }

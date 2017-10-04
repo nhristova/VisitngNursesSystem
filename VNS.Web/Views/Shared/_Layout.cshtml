@@ -1,4 +1,13 @@
 ﻿@using VNS.Web.Helpers
+@{ 
+    string home = "Home";
+    string families = "Families";
+    string visits = "Visits";
+    string administration = "Administration";
+    string help = "Help";
+    string about = "About";
+
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +20,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,9 +32,42 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class='@Html.IsActive("Home", "Index")'>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class='@Html.IsActive("Home", "About")'>@Html.ActionLink("About", "About", "Home")</li>
-                    <li class='@Html.IsActive("Home", "Contact")'>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class='@Html.IsActive(home, "Index")'>
+                        <a href="/">
+                            <i class="fa fa-home fa-2x fa-fw hidden-md hidden-lg" title=@home data-toggle="tooltip" data-placement="bottom"></i>
+                            <span class="hidden-sm">&nbsp; @home</span>
+                        </a>
+                    </li>
+                    <li class='@Html.IsActive(families, "Index")'>
+                        <a href="/families">
+                            <i class="fa fa-users fa-2x fa-fw hidden-md hidden-lg" title=@families data-toggle="tooltip" data-placement="bottom"></i>
+                            <span class="hidden-sm">&nbsp; @families</span>
+                        </a>
+                    </li>
+                    <li class='@Html.IsActive(visits, "Index")'>
+                        <a href="/visits">
+                            <i class="fa fa-calendar fa-2x fa-fw hidden-md hidden-lg" title=@visits data-toggle="tooltip" data-placement="bottom"></i>
+                            <span class="hidden-sm">&nbsp; @visits</span>
+                        </a>
+                    </li>
+                    <li class='@Html.IsActive(administration, "Index")'>
+                        <a href="/administration">
+                            <i class="fa fa-key fa-2x fa-fw hidden-md hidden-lg" title=@administration data-toggle="tooltip" data-placement="bottom"></i>
+                            <span class="hidden-sm">&nbsp; @administration</span>
+                        </a>
+                    </li>
+                    <li class='@Html.IsActive(home, help)'>
+                        <a href="/home/help">
+                            <i class="fa fa-question fa-2x fa-fw hidden-md hidden-lg" title=@help data-toggle="tooltip" data-placement="bottom"></i>
+                            <span class="hidden-sm">&nbsp; @help</span>
+                        </a>
+                    </li>
+                    <li class='@Html.IsActive(home, about)'>
+                        <a href="/home/about">
+                            <i class="fa fa-info fa-2x fa-fw hidden-md hidden-lg" title=@about data-toggle="tooltip" data-placement="bottom"></i>
+                            <span class="hidden-sm">&nbsp; @about</span>
+                        </a>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -46,5 +88,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('i').tooltip();
+        });
+    </script>
 </body>
 </html>
