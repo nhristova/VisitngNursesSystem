@@ -15,6 +15,7 @@ namespace VNS.Web.App_Start
     using Data.Repositories;
     using System.Data.Entity;
     using Services.Contracts;
+    using Data.SaveContext;
 
     public static class NinjectConfig 
     {
@@ -82,6 +83,7 @@ namespace VNS.Web.App_Start
 
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
+            kernel.Bind<ISaveContext>().To<SaveContext>();
         }        
     }
 }

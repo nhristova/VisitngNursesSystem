@@ -14,8 +14,20 @@ namespace VNS.Data
         {
         }
 
-        public IDbSet<Visit> Visits { get; set; }
+        public IDbSet<Address> Addresses { get; set; }
 
+        public IDbSet<Child> Children { get; set; }
+
+        public IDbSet<Family> Families { get; set; }
+
+        public IDbSet<FamilyMember> FamilyMembers { get; set; }
+
+        public IDbSet<Municipality> Municipalities { get; set; }
+
+        public IDbSet<Town> Towns { get; set; }
+
+        public IDbSet<Visit> Visits { get; set; }
+        
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
@@ -40,6 +52,7 @@ namespace VNS.Data
             }
         }
 
+        // TODO: Remove??
         public static MsSqlDbContext Create()
         {
             return new MsSqlDbContext();
