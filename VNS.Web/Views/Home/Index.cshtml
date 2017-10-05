@@ -3,10 +3,10 @@
 @model HomeViewModel
 @{
     ViewBag.Title = "Home Page";
-    string visitor = "guest";
-    if(User.Identity.GetUserName() != "")
+    string visitor = User.Identity.GetUserName();
+    if (visitor == "")
     {
-        visitor = User.Identity.GetUserName();
+        visitor = "guest";
     }
 }
 
@@ -19,7 +19,7 @@
 
 <div class="row">
     <div class="col-sm-3 col-xs-5">
-        <img src="~/Content/images/parents.svg" alt="parents" class="page-image"/>
+        <img src="~/Content/images/parents.svg" alt="parents" class="page-image" />
     </div>
     <div class="col-sm-5 col-xs-12">
         <h2>Stats</h2>

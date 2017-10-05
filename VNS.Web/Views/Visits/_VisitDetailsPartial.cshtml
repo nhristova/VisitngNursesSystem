@@ -1,0 +1,26 @@
+﻿@using VNS.Web.Models.Visits
+@model VisitDetailsViewModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <img src="~/Content/images/girl-01.svg" class="profile-image pull-right" alt="profile-image" />
+        <h4>@Model.NurseName</h4>
+        <p>@Html.DisplayFor(v => Model.Date)</p>
+    </div>
+    <div class="modal-body">
+        <p>@Model.Description</p>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-warning btn-sm">Edit</button>
+            </div>
+            <div class="col-sm-6">
+                <p class="edit-info">
+                    Added: @Html.DisplayFor(v => Model.CreatedOn)<br />
+                    Edited: @Html.DisplayFor(v => Model.LastModifiedOn)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

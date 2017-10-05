@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="municipality">Municipality</label>
+                        <label for="municipality">Municipality</label><br />
                         <select class="dropdown" name="municipality">
                             <option>- All -</option>
                             @foreach (var muni in Model.Municipalities)
@@ -41,7 +41,7 @@
 
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="towns">Town</label>
+                        <label for="towns">Town</label><br />
                         <select class="dropdown" name="towns">
                             <option>- All -</option>
                             @* TODO: Filter based on selected muni *@
@@ -69,20 +69,29 @@
 <div class="row">
 
     @foreach (var visit in Model.Visits)
-    {    
-        @Html.Partial("_VisitDetailsPartial", visit)
+    {
+        @Html.Partial("_VisitCardPartial", visit)
     }
 
-    @Html.DisplayForModel()
-
-    @*@foreach (var visit in Model.Visits)
-        {
-            when @model ICollection<VisitViewModel>
-            <div class="col-md-4">
-                <h2>@Html.DisplayFor(v => @visit.Date)</h2>
-                <p>@visit.NurseName</p>
-                <p>@visit.Description</p>
-                <p>@Html.DisplayFor(v => visit.CreatedOn) - modified: @visit.LastModifiedOn</p>
-            </div>
-            }*@
 </div>
+
+
+
+<div id="visitDetailsModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div id="modal-content">Content goes here</div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $('#btnOpen').click(function (eve) {
+            $('#modal-content').load("/Visits/Open?name=" + $(this).data("name"));
+        })
+
+        $('#btnEdit').click(function (eve) {
+            $('#modal-content').load("/Visits/Edit?name=" + $(this).data("name"));
+        })
+    </script>
+}

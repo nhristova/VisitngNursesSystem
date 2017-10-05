@@ -101,7 +101,7 @@ namespace VNS.Data.Migrations
                     var visit = new Visit()
                     {
                         VisitingNurse = context.Users.First(x => x.UserName == AdministratorUserName),
-                        Description = "Sample visit " + i,
+                        Description = i.ToString() + " Lorem ipsum dolor sit amet, ad amet postulant explicari ius, duo enim blandit ei, eam corpora accusamus et.Ne has ridens dicunt conceptam, cu nec diam nonumes epicuri, cum virtute assentior no.Quo ex natum aliquid fabellas, labore voluptua vix te, ei vix aperiam ornatus voluptatum.Aeque malorum eos ne, quem viris legimus quo no.His quas novum nostrud ea.Prima impetus salutatus sit ea.",
                         Date = new DateTime(2017, 06, 01),
                         CreatedOn = DateTime.Now
                     };

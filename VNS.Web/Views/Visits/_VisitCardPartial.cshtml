@@ -1,0 +1,34 @@
+﻿@using VNS.Web.Models.Visits
+@model VisitCardViewModel
+
+<div class="col-sm-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @*<button type="button" class="btn btn-warning btn-sm btn-circle">
+                    <i class="fa fa-pencil"></i>
+                </button>*@
+            <img src="~/Content/images/girl-01.svg" class="profile-image pull-right" alt="profile-image" />
+            <h4>@Model.NurseName</h4>
+            <p>@Html.DisplayFor(v => Model.Date)</p>
+        </div>
+        <div class="panel-body">
+            <p>@Model.Description</p>
+            <p></p>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a href="#visitDetailsModal" id="btnOpen" class="btn btn-info btn-sm" data-toggle="modal" data-name="@Model.NurseName">Open</a>
+                    <a href="#visitDetailsModal" id="btnEdit" class="btn btn-warning btn-sm" data-toggle="modal" data-name="@Model.NurseName">Edit</a>
+                </div>
+                <div class="col-sm-6">
+                    <p class="edit-info">
+                        Added: @Html.DisplayFor(v => Model.CreatedOn)<br />
+                        Edited: @Html.DisplayFor(v => Model.LastModifiedOn)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

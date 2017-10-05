@@ -17,6 +17,6 @@ namespace VNS.Services
         public IQueryable<Visit> GetAll()
         {
             return this.visitRepo.All;
-        }
+        }        
     }
 }

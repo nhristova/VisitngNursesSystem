@@ -7,6 +7,7 @@ namespace VNS.Web.Controllers
 {
     public class VisitsController : Controller
     {
+
         private readonly IMunicipalitiesService municipalitiesService;
         private readonly IVisitsService visitsService;
 
@@ -19,9 +20,10 @@ namespace VNS.Web.Controllers
         public ActionResult Index()
         {
             // TODO: add period filtering
+            // TODO: is it better to truncate description here or in view model setter??
             var visits = this.visitsService
                 .GetAll()
-                .Select(v => new VisitDetailsViewModel()
+                .Select(v => new VisitCardViewModel()
                 {
                     Date = v.Date,
                     NurseName = v.VisitingNurse.UserName,
@@ -47,6 +49,44 @@ namespace VNS.Web.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public ActionResult Open(string id)
+        {
+            var test = Request.Url.Query;
+            var test2 = Request.QueryString["name"];
+
+            var v = this.visitsService.GetAll().First();
+            var vm = new VisitDetailsViewModel()
+            {
+                Date = v.Date,
+                NurseName = v.VisitingNurse.UserName,
+                Description = v.Description,
+                CreatedOn = v.CreatedOn.Value,
+                LastModifiedOn = v.ModifiedOn.Value
+            };
+
+            return PartialView("_VisitDetailsPartial", vm);
+        }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edit(int? id)
+        {
+            var test = Request.Url.Query;
+            var test2 = Request.QueryString["name"];
+
+            var v = this.visitsService.GetAll().First();
+            var vm = new VisitDetailsViewModel()
+            {
+                Date = v.Date,
+                NurseName = v.VisitingNurse.UserName,
+                Description = v.Description,
+                CreatedOn = v.CreatedOn.Value,
+                LastModifiedOn = v.ModifiedOn.Value
+            };
+
+            return PartialView("_VisitEditPartial", vm);
         }
     }
 }

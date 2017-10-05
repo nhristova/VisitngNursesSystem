@@ -1,0 +1,37 @@
+﻿@using VNS.Web.Models.Visits
+@model VisitDetailsViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            @*<button type="button" class="btn btn-warning btn-sm btn-circle">
+                    <i class="fa fa-pencil"></i>
+                </button>*@
+            <img src="~/Content/images/girl-01.svg" class="profile-image pull-right" alt="profile-image" />
+            <h4>@Model.NurseName</h4>
+            <p>@Html.DisplayFor(v => Model.Date)</p>
+        </div>
+        <div class="panel-body">
+            <p>@Model.Description</p>
+            @Html.EditorForModel()
+            <p></p>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-warning btn-sm">Save</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                </div>
+                <div class="col-sm-6">
+                    <p class="edit-info">
+                        Added: @Html.DisplayFor(v => Model.CreatedOn)<br />
+                        Edited: @Html.DisplayFor(v => Model.LastModifiedOn)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

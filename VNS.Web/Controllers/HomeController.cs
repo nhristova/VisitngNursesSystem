@@ -25,7 +25,7 @@ namespace VNS.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Helping nurses be better at what they do.";
+            ViewBag.Message = "Helping nurses help families with babies.";
 
             return View();
         }

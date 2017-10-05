@@ -5,6 +5,6 @@ namespace VNS.Web.Models.Visits
     public class VisitsViewModel
     {
         public ICollection<MunicipalityViewModel> Municipalities { get; set; }
-        public ICollection<VisitDetailsViewModel> Visits { get; set; }
+        public ICollection<VisitCardViewModel> Visits { get; set; }
     }
 }
