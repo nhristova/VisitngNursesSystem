@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201710020632343_Data models.Designer.cs">
       <DependentUpon>201710020632343_Data models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710050010577_Towns.cs" />
+    <Compile Include="Migrations\201710050010577_Towns.Designer.cs">
+      <DependentUpon>201710050010577_Towns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710020632343_Data models.resx">
       <DependentUpon>201710020632343_Data models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710050010577_Towns.resx">
+      <DependentUpon>201710050010577_Towns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

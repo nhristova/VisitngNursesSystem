@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace VNS.Web.Models.Home
+namespace VNS.Web.Models.Visits
 {
-    public class VisitViewModel
+    public class VisitDetailsViewModel
     {
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyy}")]
         public DateTime Date { get; set; }

@@ -18,11 +18,13 @@ namespace VNS.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = false;
         }
 
+        // TODO: Can we change method injection to ctor injection?
         protected override void Seed(MsSqlDbContext context)
         {
             // Creates default admin user if no roles in the database
             this.CreateAdmin(context);
-            this.CreateSampleData(context);
+            this.CreateSampleVisits(context);
+            this.CreateMunicipalities(context);
 
             // TODO: ??
             base.Seed(context);
@@ -41,7 +43,8 @@ namespace VNS.Data.Migrations
 
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
-                var user = new User {
+                var user = new User
+                {
                     UserName = AdministratorUserName,
                     Email = AdministratorUserName,
                     EmailConfirmed = true,
@@ -53,7 +56,43 @@ namespace VNS.Data.Migrations
             }
         }
 
-        private void CreateSampleData(MsSqlDbContext context)
+        private void CreateMunicipalities(MsSqlDbContext context)
+        {
+            if (!context.Municipalities.Any())
+            {
+                string[][] towns = {
+                new string[] { "Shumen", "Belokopitovo", "Blagovo", "Vasil Drumevo", "Vehtovo", "Velino", "Vetrishte", "Gradishte", "Dibich", "Drumevo", "Iliia Blyskovo", "Ivanski", "Kladenec", "Konüovec", "Kostena reka", "Lozevo", "Makak", "Mytnica", "Novosel", "Ovcharovo", "Panajot Volovo", "Radko Dimitrievo", "Srednia", "Strujno", "Carev Brod", "Cherencha", "Marash", "Salmanovo" },
+                new string[] { "Varbitsa", "Bozhurovo", "Biala reka", "Ivanovo", "Konevo", "Krajgorci", "Küolmen", "Lovec", "Malomir", "Mengishevo", "Metodievo", "Nova Biala Reka", "Stanianci", "Sushina", "Tushovica", "Chernookovo" },
+                new string[] { "Venets", "Borci", "Boian", "Bujnovica", "Gabrica", "Dennica", "Drenci", "Izgrev", "Kap. Petko", "Osenovec", "Strahilica", "Chernoglavci", "Iasenkovo" },
+                new string[] { "Hitrino", "Bojkovo", "Bliznaci", "Vyrbak", "Visoka poliana", "Dlyzhko", "Dobri Vojnikovo", "Edinakovci", "Zhivkovo", "Zvegor", "Iglika", "Kameno", "Kameniak", "Razvigorovo", "Slivak", "Stanovec", "Studenica", "Tervel", "Timarevo", "Trem", "Cherna" },
+                new string[] { "Kaspichan", "Vyrbiane", "Zl. Niva", "Kalugerica", "s. Kaspichan", "Kosovo", "Kiulevcha", "Madara", "Markovo", "Mogila", "Pliska" },
+                new string[] { "Novi Pazar", "Bedzhene", "Vojvoda", "Enevo", "Zhilino", "Z. Oreshe", "Izbul", "Mirovci", "Pamukchi", "Pisarevo", "Pravenci", "Preselka", "Sechishte", "St.Mihajlovski", "Stan", "Tyrnica" },
+                new string[] { "Kaolinovo", "Branichevo", "Gusla", "Dojranci", "Dolina", "Zagoriche", "Kliment", "Lisi vryh", "Liatno", "Naum", "Omarchevo", "Pristoe", "Sini vir", "Sredkovec", "T. Ikonomovo", "Tykach" },
+                new string[] { "Nikola Kozlevo", "Vekilski", "Vylnari", "Karavelovo", "Krasen dol", "Kriva reka", "Pet mogili", "Ruzhica", "Hyrsovo", "C. Ginchevo", "Cyrkvica" },
+                new string[] { "Veliki Preslav", "Dragoevo", "Zlatar", "Imrenchevo", "Kochovo", "Milanovo", "Mokresh", "Mostich", "Osmar", "Suha Reka", "Troica", "Han Krum" },
+                new string[] { "Smyadovo", "Aleksandrovo", "Bial Briag", "Veselinovo", "Zhelyd", "Kylnovo", "Novo Iankovo", "Rish", "Cherni vryh", "Iankovo" }
+                };
+
+                foreach (var row in towns)
+                {
+                    var muni = new Municipality()
+                    {
+                        Name = row[0],
+                        Region = "Shumen",
+                        CreatedOn = DateTime.Now
+                    };
+
+                    foreach (var townName in row)
+                    {                        
+                        muni.Towns.Add(new Town() { Name = townName, CreatedOn = DateTime.Now });
+                    }
+
+                    context.Municipalities.Add(muni);
+                }
+            }
+        }
+
+        private void CreateSampleVisits(MsSqlDbContext context)
         {
             if (!context.Visits.Any())
             {

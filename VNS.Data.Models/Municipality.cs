@@ -12,6 +12,8 @@ namespace VNS.Data.Models
 
         public string Name { get; set; }
 
+        public string Region { get; set; }
+
         public virtual ICollection<Town> Towns { get; set; }
     }
 }

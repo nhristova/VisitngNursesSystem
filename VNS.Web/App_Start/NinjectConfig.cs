@@ -74,9 +74,10 @@ namespace VNS.Web.App_Start
                  .BindDefaultInterface(); // Binds the default interface to them;
             });
 
+            // Bind Services assembly - scans assembly which has IService
             kernel.Bind(x =>
             {
-                x.FromAssemblyContaining(typeof(IService)) // Scans assembly which has IService
+                x.FromAssemblyContaining(typeof(IService)) 
                  .SelectAllClasses() 
                  .BindDefaultInterface(); 
             });

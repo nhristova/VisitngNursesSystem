@@ -1,9 +1,20 @@
-﻿@using VNS.Web.Models.Home
-@model VisitViewModel
+﻿@using VNS.Web.Models.Visits
+@model VisitDetailsViewModel
 
-<div class="col-md-4">
-    <h2>@Html.DisplayFor(v => Model.Date)</h2>
-    <p>@Model.NurseName</p>
-    <p>@Model.Description</p>
-    <p>@Html.DisplayFor(v => Model.CreatedOn) - modified: @Html.DisplayFor(v => Model.LastModifiedOn)</p>
+<div class="col-sm-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <img src="~/Content/images/girl-01.svg" class="profile-image pull-right" alt="profile-image" />
+            <h4>@Model.NurseName</h4>
+            <p>@Html.DisplayFor(v => Model.Date)</p>
+        </div>
+        <div class="panel-body">
+            <p>@Model.Description</p>
+            <p>@Html.DisplayFor(v => Model.CreatedOn) - modified: @Html.DisplayFor(v => Model.LastModifiedOn)</p>
+        </div>
+        <div class="panel-footer">
+            <button class="btn btn-info btn-sm">Open</button>
+            <button class="btn btn-warning btn-sm">Edit</button>
+        </div>
+    </div>
 </div>

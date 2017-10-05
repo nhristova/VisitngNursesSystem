@@ -18,26 +18,9 @@ namespace VNS.Web.Controllers
         }
 
         public ActionResult Index()
-        {
+        {            
 
-            // TODO: add period filtering
-            var visits = this.visitsService
-                .GetAll()
-                .Select(v => new VisitViewModel() {
-                    Date = v.Date,
-                    NurseName = v.VisitingNurse.UserName,
-                    Description = v.Description,
-                    CreatedOn = v.CreatedOn.Value,
-                    LastModifiedOn = v.ModifiedOn.Value
-                })
-                .ToList();
-
-            var viewModel = new HomeViewModel()
-            {
-                Visits = visits
-            };
-
-            return View(viewModel);
+            return View();
         }
 
         public ActionResult About()

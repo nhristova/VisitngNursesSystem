@@ -43,6 +43,10 @@ textarea {
     width: 100%;
 }
 
+.profile-image{
+    max-width: 60px;
+}
+
 .navbar button {
     padding-top: 19.5px;
     border: 0;

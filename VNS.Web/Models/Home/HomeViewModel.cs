@@ -5,13 +5,13 @@ namespace VNS.Web.Models.Home
     public class HomeViewModel
     {
 
-        public ICollection<VisitViewModel> Visits { get; set; }
+        public int VisitsTotal { get; set; }
 
-        public ICollection<VisitViewModel> Families { get; set; }
+        public int FamiliesTotal { get; set; }
 
-        public ICollection<VisitViewModel> Children { get; set; }
+        public int ChildrenTotal { get; set; }
 
-        public ICollection<VisitViewModel> Pregnant { get; set; }
+        public int PregnantTotal { get; set; }
 
 
 
