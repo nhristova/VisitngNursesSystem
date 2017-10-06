@@ -53,6 +53,7 @@ namespace VNS.Web.Controllers
 
         public ActionResult Open(string id)
         {
+            var test3 = Request;
             var test = Request.Url.Query;
             var test2 = Request.QueryString["name"];
 
@@ -69,8 +70,7 @@ namespace VNS.Web.Controllers
             return PartialView("_VisitDetailsPartial", vm);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        //[HttpGet]
         public ActionResult Edit(int? id)
         {
             var test = Request.Url.Query;
@@ -88,5 +88,25 @@ namespace VNS.Web.Controllers
 
             return PartialView("_VisitEditPartial", vm);
         }
+
+        //[HttpPost]
+        ////[ValidateAntiForgeryToken]
+        //public ActionResult Edit(int? id)
+        //{
+        //    var test = Request.Url.Query;
+        //    var test2 = Request.QueryString["name"];
+
+        //    var v = this.visitsService.GetAll().First();
+        //    var vm = new VisitDetailsViewModel()
+        //    {
+        //        Date = v.Date,
+        //        NurseName = v.VisitingNurse.UserName,
+        //        Description = v.Description,
+        //        CreatedOn = v.CreatedOn.Value,
+        //        LastModifiedOn = v.ModifiedOn.Value
+        //    };
+
+        //    return PartialView("_VisitEditPartial", vm);
+        //}
     }
 }

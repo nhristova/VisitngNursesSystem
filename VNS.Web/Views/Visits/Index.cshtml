@@ -66,6 +66,8 @@
 
 <hr />
 
+@* Visits cards *@
+
 <div class="row">
 
     @foreach (var visit in Model.Visits)
@@ -75,23 +77,29 @@
 
 </div>
 
-
+@* Modal wrapper *@
 
 <div id="visitDetailsModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div id="modal-content">Content goes here</div>
+    <div class="modal-dialog modal-lg"  id="visitDetails">
+        <div>Content goes here</div>
     </div>
 </div>
 
 
 @section Scripts{
-    <script>
+    @* TODO: don't forget to include in other pages using ajax*@
+    @Scripts.Render("~/bundles/jqueryajax")
+
+    @*<script>
+        function showModal() {
+            $('#visitDetailsModal').modal('show');
+        }
         $('#btnOpen').click(function (eve) {
-            $('#modal-content').load("/Visits/Open?name=" + $(this).data("name"));
+            $('#visitDetails').load("/Visits/Open?name=" + $(this).data("name"));
         })
 
         $('#btnEdit').click(function (eve) {
-            $('#modal-content').load("/Visits/Edit?name=" + $(this).data("name"));
+            $('#visitDetails').load("/Visits/Edit?name=" + $(this).data("name"));
         })
-    </script>
+    </script>*@
 }
