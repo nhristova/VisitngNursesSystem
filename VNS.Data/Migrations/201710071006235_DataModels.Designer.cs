@@ -7,13 +7,13 @@ namespace VNS.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Datamodels : IMigrationMetadata
+    public sealed partial class DataModels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Datamodels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DataModels));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710020632343_Data models"; }
+            get { return "201710071006235_DataModels"; }
         }
         
         string IMigrationMetadata.Source

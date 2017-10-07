@@ -57,17 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201709291616252_Initial.cs" />
-    <Compile Include="Migrations\201709291616252_Initial.Designer.cs">
-      <DependentUpon>201709291616252_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201710071002297_Initial.cs" />
+    <Compile Include="Migrations\201710071002297_Initial.Designer.cs">
+      <DependentUpon>201710071002297_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710020632343_Data models.cs" />
-    <Compile Include="Migrations\201710020632343_Data models.Designer.cs">
-      <DependentUpon>201710020632343_Data models.cs</DependentUpon>
+    <Compile Include="Migrations\201710071006235_DataModels.cs" />
+    <Compile Include="Migrations\201710071006235_DataModels.Designer.cs">
+      <DependentUpon>201710071006235_DataModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710050010577_Towns.cs" />
-    <Compile Include="Migrations\201710050010577_Towns.Designer.cs">
-      <DependentUpon>201710050010577_Towns.cs</DependentUpon>
+    <Compile Include="Migrations\201710071016140_RenameDataModels.cs" />
+    <Compile Include="Migrations\201710071016140_RenameDataModels.Designer.cs">
+      <DependentUpon>201710071016140_RenameDataModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -82,21 +82,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709291616252_Initial.resx">
-      <DependentUpon>201709291616252_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710020632343_Data models.resx">
-      <DependentUpon>201710020632343_Data models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710050010577_Towns.resx">
-      <DependentUpon>201710050010577_Towns.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\VNS.Data.Models\VNS.Data.Models.csproj">
       <Project>{79711143-7F87-43BE-9266-B387784E78C0}</Project>
       <Name>VNS.Data.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710071002297_Initial.resx">
+      <DependentUpon>201710071002297_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710071006235_DataModels.resx">
+      <DependentUpon>201710071006235_DataModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710071016140_RenameDataModels.resx">
+      <DependentUpon>201710071016140_RenameDataModels.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

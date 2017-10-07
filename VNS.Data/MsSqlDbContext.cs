@@ -27,7 +27,7 @@ namespace VNS.Data
         public IDbSet<Town> Towns { get; set; }
 
         public IDbSet<Visit> Visits { get; set; }
-        
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
@@ -56,6 +56,19 @@ namespace VNS.Data
         public static MsSqlDbContext Create()
         {
             return new MsSqlDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<IdentityUser>().ToTable("Users");
+            modelBuilder.Entity<User>().ToTable("Users");
+
+            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
+            modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
+            modelBuilder.Entity<IdentityRole>().ToTable("Roles");
         }
     }
 }

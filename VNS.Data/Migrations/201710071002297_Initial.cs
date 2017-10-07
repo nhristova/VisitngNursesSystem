@@ -35,6 +35,8 @@ namespace VNS.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        FirstName = c.String(),
+                        LastName = c.String(),
                         IsDeleted = c.Boolean(nullable: false),
                         CreatedOn = c.DateTime(),
                         ModifiedOn = c.DateTime(),
@@ -80,35 +82,14 @@ namespace VNS.Data.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
-            CreateTable(
-                "dbo.Visits",
-                c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        Date = c.DateTime(nullable: false),
-                        Description = c.String(),
-                        IsDeleted = c.Boolean(nullable: false),
-                        CreatedOn = c.DateTime(),
-                        ModifiedOn = c.DateTime(),
-                        DeletedOn = c.DateTime(),
-                        Nurse_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Nurse_Id)
-                .Index(t => t.IsDeleted)
-                .Index(t => t.Nurse_Id);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Visits", "Nurse_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropIndex("dbo.Visits", new[] { "Nurse_Id" });
-            DropIndex("dbo.Visits", new[] { "IsDeleted" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -116,7 +97,6 @@ namespace VNS.Data.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropTable("dbo.Visits");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");

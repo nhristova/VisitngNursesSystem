@@ -14,32 +14,32 @@ namespace VNS.Data.Models
     {
         // TODO: Check why Steven added posts field in demo?
         // Can't we have only a property?
-        private ICollection<Visit> visits;
+        //private ICollection<Visit> visits;
 
         public User()
         {
-            this.Families = new List<Family>();
-            // TODO: Check why HasShet?
-            this.visits = new HashSet<Visit>();
+            //this.Families = new List<Family>();
+            //// TODO: Check why HasShet?
+            //this.visits = new HashSet<Visit>();
         }
 
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        public virtual ICollection<Family> Families { get; set; }
-        public virtual ICollection<Visit> Visits
-        {
-            get
-            {
-                return this.visits;
-            }
+        //public virtual ICollection<Family> Families { get; set; }
+        //public virtual ICollection<Visit> Visits
+        //{
+        //    get
+        //    {
+        //        return this.visits;
+        //    }
 
-            set
-            {
-                this.visits = value;
-            }
-        }
+        //    set
+        //    {
+        //        this.visits = value;
+        //    }
+        //}
 
         [Index]
         public bool IsDeleted { get; set; }
