@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using VNS.Data.Models;
 
 namespace VNS.Services.Contracts
@@ -10,5 +11,7 @@ namespace VNS.Services.Contracts
         void Update(Visit visit);
 
         void Add(Visit visit);
+
+        Visit GetById(Guid id);
     }
 }

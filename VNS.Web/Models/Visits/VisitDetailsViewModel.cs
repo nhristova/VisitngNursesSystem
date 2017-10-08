@@ -10,6 +10,8 @@ namespace VNS.Web.Models.Visits
         //private readonly int descriptionMaxLen = 200;
         //private string description;
 
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "This field is required")]
         [PastDate]
         [DataType(DataType.Date)]

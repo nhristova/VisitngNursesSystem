@@ -29,6 +29,7 @@ namespace VNS.Web.Controllers
                 .GetAll()
                 .Select(v => new VisitCardViewModel()
                 {
+                    Id = v.Id,
                     Date = v.Date,
                     NurseName = v.Nurse.UserName,
                     Description = v.Description,
@@ -52,90 +53,95 @@ namespace VNS.Web.Controllers
                 Municipalities = munis
             };
 
-            // Messages
-            ViewBag.Message = TempData["message"];
-
             return View(viewModel);
         }
 
-        public ActionResult Open(string id)
+        public ActionResult Open(Guid id)
         {
-            var test3 = Request;
-            var test = Request.Url.Query;
-            var test2 = Request.QueryString["name"];
+            // TODO: Consider another way without reloading page - AjaxOnly attribute but with some feedback
+            // TODO: uncomment when dev finished, add to ather ajax methods
+            //if (!this.Request.IsAjaxRequest())
+            //{
+            //    TempData["message"] = "Not an ajax request";
+            //    return RedirectToAction("Index");
+            //}
 
-            var v = this.visitsService.GetAll().First();
+            // TODO: remove
+            //var test3 = Request;
+            //var test = Request.Url.Query;
+            //var test2 = Request.QueryString["name"];
+
+            var v = this.visitsService.GetById(id);
             var vm = new VisitDetailsViewModel()
             {
+                Id = v.Id,                
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
                 CreatedOn = v.CreatedOn, //.Value,
-                LastModifiedOn = v.ModifiedOn.Value
+                LastModifiedOn = v.ModifiedOn//.Value
             };
 
             return PartialView("_VisitDetailsPartial", vm);
         }
 
         //[HttpGet]
-        public ActionResult Edit(int? id)
+        [Authorize]
+        public ActionResult EditAjax(Guid id)
         {
-            var test = Request.Url.Query;
-            var test2 = Request.QueryString["name"];
-
-            var v = this.visitsService.GetAll().First();
+            var v = this.visitsService.GetById(id);
             var vm = new VisitDetailsViewModel()
             {
+                Id = v.Id,
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
-                CreatedOn = v.CreatedOn, //.Value,
-                LastModifiedOn = v.ModifiedOn.Value
+                CreatedOn = v.CreatedOn,
+                LastModifiedOn = v.ModifiedOn
             };
 
             return PartialView("_VisitEditPartial", vm);
         }
 
+        // TODO: Add to all post actions
         //[ValidateAntiForgeryToken]
+        //[Authorize]
         [HttpPost]
-        public ActionResult Edit(VisitDetailsViewModel visit)
+        public ActionResult EditAjax(VisitDetailsViewModel visit)
         {
-            //this.Request.IsAjaxRequest();
-            var test = Request.Url.Query;
-            var test2 = Request.QueryString["name"];
+            // find the visit to edit from database
+            var v = this.visitsService.GetById(visit.Id);
 
-            var v = this.visitsService.GetAll().First();
-            var vm = new VisitDetailsViewModel()
-            {
-                Date = v.Date,
-                NurseName = v.Nurse.UserName,
-                Description = v.Description,
-                CreatedOn = v.CreatedOn, //.Value,
-                LastModifiedOn = v.ModifiedOn.Value
-            };
+            // update
+            v.Date = visit.Date;
+            v.Description = visit.Description;
+            this.visitsService.Update(v);
 
-            return PartialView("_VisitEditPartial", vm);
+            // cheat
+            visit.LastModifiedOn = DateTime.Now;
+
+            return PartialView("_VisitDetailsPartial", visit);
         }
 
 
-        public ActionResult Form()
+        public ActionResult Edit(Guid id)
         {
-            var v = this.visitsService.GetAll().First();
+            var v = this.visitsService.GetById(id);
             var vm = new VisitDetailsViewModel()
             {
+                Id = v.Id,
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
-                CreatedOn = v.CreatedOn, //.Value,
-                LastModifiedOn = v.ModifiedOn.Value
+                CreatedOn = v.CreatedOn,
+                LastModifiedOn = v.ModifiedOn
             };
 
             return View(vm);
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Form(VisitDetailsViewModel visit)
+        public ActionResult Edit(VisitDetailsViewModel visit)
         {
             // if view model not valid
             if (!ModelState.IsValid)
@@ -143,14 +149,16 @@ namespace VNS.Web.Controllers
                 return View(visit);
             }
 
-            // TODO: find the correct visit to edit
-            var v = this.visitsService.GetAll().First();
+            // find the visit to edit from database
+            var v = this.visitsService.GetById(visit.Id);
 
-            // update in database
+            // update
             v.Date = visit.Date;
             v.Description = visit.Description;
             this.visitsService.Update(v);
 
+            // cheat
+            visit.LastModifiedOn = DateTime.Now;
             return View(visit);
         }
 

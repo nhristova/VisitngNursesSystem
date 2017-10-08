@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using VNS.Data.Models;
 using VNS.Data.Repositories;
 using VNS.Data.SaveContext;
@@ -32,6 +33,16 @@ namespace VNS.Services
         {
             this.visitRepo.Add(visit);
             this.context.Commit();
+        }
+
+        public Visit GetById(Guid id)
+        {
+            var result = this.visitRepo
+                .All
+                .Where(v => v.Id == id)
+                .First();
+
+            return result;
         }
     }
 }

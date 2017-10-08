@@ -2,69 +2,33 @@
 @model VisitsViewModel
 @{
     ViewBag.Title = "Visits";
-    if (ViewBag.Message == "") {
-        ViewBag.Message = "Page";
-    }
+    ViewBag.Message = "Page";
 }
 
 <div class="row">
     <div class="col-md-12 text-center">
         <h2>@ViewBag.Title.</h2>
-        <p>Viewbag: @ViewBag.Message</p>
-        <h1 id="msg">TempData: @TempData["message"]</h1>
+        <p>@ViewBag.Message</p>
+
+        @if(TempData["message"] != null)
+        {
+            <div id="msg" class="my-result alert alert-dismissible alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                @TempData["message"] (TempData)
+            </div>
+        }
+
     </div>
 </div>
+
+@* Search section *@
 
 <div class="row">
     <div class="col-sm-3 col-xs-5">
         <img src="~/Content/images/duck.svg" alt="duck" class="page-image" />
     </div>
     <div class="col-sm-9 col-xs-12">
-        <h3>Select criteria</h3>
-        <p>Municipality, Town, Family ref#, Nurse</p>
-
-        @* TODO: extract to partial view, to be able to use for families too *@
-        @using (Html.BeginForm("Action", "Controller", FormMethod.Get, new { id = "searchVisitsForm", @class = "", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="municipality">Municipality</label><br />
-                        <select class="dropdown" name="municipality">
-                            <option>- All -</option>
-                            @foreach (var muni in Model.Municipalities)
-                            {
-                                <option value=@muni.Name.ToLower()> @muni.Name </option>
-                            }
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="towns">Town</label><br />
-                        <select class="dropdown" name="towns">
-                            <option>- All -</option>
-                            @* TODO: Filter based on selected muni *@
-                            @foreach (var muni in Model.Municipalities)
-                            {
-                                foreach (var town in muni.Towns)
-                                {
-                                    <option value=@town.ToLower()> @town </option>
-                                }
-                            }
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <button type="reset" class="btn btn-default btn-sm">Clear</button>
-                <button type="submit" class="btn btn-info btn-sm">Search</button>
-                @Html.ActionLink("Add", "Add", "Visits", null, new { @class = "btn btn-warning btn-sm"})
-            </div>
-        }
+        @Html.Partial("_SearchPartial", Model)
     </div>
 </div>
 
@@ -97,8 +61,22 @@
 
 @section Scripts{
     @* TODO: don't forget to include in other pages using ajax*@
+    @* Validates data before form submission *@
     @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/jqueryval")
 
+    <script>
+        // Hides TempData message
+        $('#msg').delay(3000).fadeOut(300);
+
+        // Clears the content of the modal when closed
+        $('#visitDetailsModal').on('hidden.bs.modal', function () {
+            $('#visitDetails').html('<div class="modal-content"><div class="modal-body text-center"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span></div></div>');
+        })
+    </script>
+
+    @* Script to load visit card details when using regular anchor tag 
+        instead of  ajax.actionlink *@
     @*<script>
         function showModal() {
             $('#visitDetailsModal').modal('show');

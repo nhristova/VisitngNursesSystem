@@ -8,7 +8,9 @@ namespace VNS.Web.Models.Visits
         private readonly int descriptionMaxLen = 200;
         private string description;
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public Guid Id { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yy}")]
         public DateTime Date { get; set; }
 
         public string NurseName { get; set; }
@@ -27,10 +29,10 @@ namespace VNS.Web.Models.Visits
             }
         }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yy HH:mm}")]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yy HH:mm}")]
         public DateTime CreatedOn { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yy HH:mm}")]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yy HH:mm}")]
         public DateTime? LastModifiedOn { get; set; }
     }
 }
