@@ -1,0 +1,42 @@
+﻿@using VNS.Web.Models.Visits
+@model VisitDetailsViewModel
+
+<p>Add new visit form</p>
+
+
+@using (Html.BeginForm("Add", "Visits", FormMethod.Post, new { @class = "small" }))
+{
+    @*@Html.AntiForgeryToken()*@
+
+    <fieldset>
+        <div class="form-group">
+            @Html.LabelFor(v => v.Date, new { @class = "control-label" })
+            @Html.EditorFor(v => v.Date, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            @Html.ValidationMessageFor(v => v.Date)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(v => v.NurseName, new { @class = "control-label" })
+            @* TODO: Admins should be able to add visits for other users *@
+            <input class="form-control input-sm" name="NurseName" value=@Context.User.Identity.Name readonly="readonly"/>
+            @*@Html.TextBoxFor(v => Context.User.Identity.Name, new  { @class = "form-control input-sm", name="NurseName", @readonly = "true" })*@
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(v => v.Description, new { @class = "control-label" })
+            @Html.EditorFor(v => v.Description, new { htmlAttributes = new { @class = "form-control input-sm" } })
+            @Html.ValidationMessageFor(v => v.Description, "", new { @class = "text-danger" })
+        </div>
+
+
+    </fieldset>
+    <div class="clearfix">
+        <button type="submit" class="btn btn-warning btn-sm pull-left">Save</button>
+        <p class="edit-info pull-right">
+            Added: @Html.DisplayFor(v => Model.CreatedOn)<br />
+            Edited: @Html.DisplayFor(v => Model.LastModifiedOn)
+        </p>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

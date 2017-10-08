@@ -2,13 +2,16 @@
 @model VisitsViewModel
 @{
     ViewBag.Title = "Visits";
-    ViewBag.Message = "Page";
+    if (ViewBag.Message == "") {
+        ViewBag.Message = "Page";
+    }
 }
 
 <div class="row">
     <div class="col-md-12 text-center">
         <h2>@ViewBag.Title.</h2>
-        <p>@ViewBag.Message</p>
+        <p>Viewbag: @ViewBag.Message</p>
+        <h1 id="msg">TempData: @TempData["message"]</h1>
     </div>
 </div>
 
@@ -57,8 +60,9 @@
                 </div>
             </div>
             <div class="row">
-                <button type="reset" class="col-sm-2 col-sm-offset-1 btn btn-default btn-sm">Clear</button>
-                <button type="submit" class="col-sm-3 col-sm-offset-1 btn btn-info btn-sm">Search</button>
+                <button type="reset" class="btn btn-default btn-sm">Clear</button>
+                <button type="submit" class="btn btn-info btn-sm">Search</button>
+                @Html.ActionLink("Add", "Add", "Visits", null, new { @class = "btn btn-warning btn-sm"})
             </div>
         }
     </div>

@@ -26,6 +26,12 @@ namespace VNS.Services
         {
             this.visitRepo.Update(visit);
             this.context.Commit();
-        }        
+        } 
+        
+        public void Add(Visit visit)
+        {
+            this.visitRepo.Add(visit);
+            this.context.Commit();
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace VNS.Data.Models.Abstracts
 
         // TODO: Check should this be nullabe?
         [DataType(DataType.DateTime)]
-        public DateTime? CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime? ModifiedOn { get; set; }

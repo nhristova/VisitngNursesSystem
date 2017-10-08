@@ -8,5 +8,7 @@ namespace VNS.Services.Contracts
         IQueryable<Visit> GetAll();
 
         void Update(Visit visit);
+
+        void Add(Visit visit);
     }
 }

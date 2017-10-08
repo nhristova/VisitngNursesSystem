@@ -24,6 +24,7 @@ namespace VNS.Data.Models
         //[StringLength(Rules.DescriptionMaxLength, ErrorMessage = Rules.StringLengthError, MinimumLength = Rules.DescriptionMinLength)]
         public string Description { get; set; }
 
+        //[Required]
         public virtual User Nurse { get; set; }
 
         public virtual Family Family { get; set; }

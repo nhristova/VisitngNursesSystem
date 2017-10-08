@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,10 +45,12 @@
   <ItemGroup>
     <Compile Include="Contracts\IMunicipalitiesService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="Contracts\IVisitsService.cs" />
     <Compile Include="FamiliesService.cs" />
     <Compile Include="Contracts\IFamiliesService.cs" />
     <Compile Include="MunicipalitiesService.cs" />
+    <Compile Include="UsersService.cs" />
     <Compile Include="VisitsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,11 +12,13 @@ namespace VNS.Web.Controllers
 
         private readonly IMunicipalitiesService municipalitiesService;
         private readonly IVisitsService visitsService;
+        private readonly IUsersService usersService;
 
-        public VisitsController(IVisitsService visitsService, IMunicipalitiesService municipalitiesService)
+        public VisitsController(IVisitsService visitsService, IMunicipalitiesService municipalitiesService, IUsersService usersService)
         {
             this.visitsService = visitsService;
             this.municipalitiesService = municipalitiesService;
+            this.usersService = usersService;
         }
 
         public ActionResult Index()
@@ -30,7 +32,7 @@ namespace VNS.Web.Controllers
                     Date = v.Date,
                     NurseName = v.Nurse.UserName,
                     Description = v.Description,
-                    CreatedOn = v.CreatedOn.Value,
+                    CreatedOn = v.CreatedOn, //.Value,
                     LastModifiedOn = v.ModifiedOn.Value
                 })
                 .ToList();
@@ -50,6 +52,9 @@ namespace VNS.Web.Controllers
                 Municipalities = munis
             };
 
+            // Messages
+            ViewBag.Message = TempData["message"];
+
             return View(viewModel);
         }
 
@@ -65,7 +70,7 @@ namespace VNS.Web.Controllers
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
-                CreatedOn = v.CreatedOn.Value,
+                CreatedOn = v.CreatedOn, //.Value,
                 LastModifiedOn = v.ModifiedOn.Value
             };
 
@@ -84,7 +89,7 @@ namespace VNS.Web.Controllers
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
-                CreatedOn = v.CreatedOn.Value,
+                CreatedOn = v.CreatedOn, //.Value,
                 LastModifiedOn = v.ModifiedOn.Value
             };
 
@@ -105,7 +110,7 @@ namespace VNS.Web.Controllers
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
-                CreatedOn = v.CreatedOn.Value,
+                CreatedOn = v.CreatedOn, //.Value,
                 LastModifiedOn = v.ModifiedOn.Value
             };
 
@@ -121,7 +126,7 @@ namespace VNS.Web.Controllers
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
-                CreatedOn = v.CreatedOn.Value,
+                CreatedOn = v.CreatedOn, //.Value,
                 LastModifiedOn = v.ModifiedOn.Value
             };
 
@@ -147,6 +152,37 @@ namespace VNS.Web.Controllers
             this.visitsService.Update(v);
 
             return View(visit);
+        }
+
+        [Authorize]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Add(VisitDetailsViewModel visit)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(visit);
+            }
+
+            var v = new Visit()
+            {
+                Date = visit.Date,
+                Description = visit.Description,
+                // TODO: check if works search based on username
+                Nurse = this.usersService.GetByName(visit.NurseName)
+            };
+
+            this.visitsService.Add(v);
+
+            // add success message, redirect??
+            TempData["message"] = "Visit added successfully";
+            return Redirect("Index");
         }
     }
 }

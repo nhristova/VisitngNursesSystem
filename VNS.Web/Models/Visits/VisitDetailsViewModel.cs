@@ -28,7 +28,7 @@ namespace VNS.Web.Models.Visits
         public DateTime CreatedOn { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd.MM.yy HH:mm}")]
-        public DateTime LastModifiedOn { get; set; }
+        public DateTime? LastModifiedOn { get; set; }
 
         // TODO: add other fields
         // TODO: extract validation messages??
