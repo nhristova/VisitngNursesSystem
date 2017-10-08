@@ -15,15 +15,49 @@
             <p>@Html.DisplayFor(v => Model.Date)</p>
         </div>
         <div class="panel-body">
-            <p>@Model.Description</p>
-            @Html.EditorForModel()
+            @using (Html.BeginForm("Edit", "Visits", FormMethod.Post, new { @class = "form-horizontal" })) {
+                    @Html.EditorForModel()
+                    <button type="submit" class="btn btn-warning btn-sm">Save</button>
+                }
             <p></p>
+
+            @using (Html.BeginForm("Edit", "Visits", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @*@Html.AntiForgeryToken*@
+                <div class="form-group">
+                    @Html.LabelFor(v => v.Description, new { @class = "control-label" })
+                    @Html.EditorFor(v => v.Description, new { @class = "input" })
+                </div>
+                @Ajax.ActionLink("Save", "Edit", "Visits", null, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "visitDetails",
+                    }, new
+                    {
+                        @class = "btn btn-success btn-sm",
+                        //data_toggle = "modal",
+                        //data_target = "#visitDetailsModal",
+                    })
+            }
         </div>
         <div class="panel-footer">
             <div class="row">
                 <div class="col-sm-6">
-                    <button type="submit" class="btn btn-warning btn-sm">Save</button>
                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                    @*<button type="submit" class="btn btn-warning btn-sm">Save</button>*@
+
+                    @Ajax.ActionLink("Save", "Edit", "Visits", null, new AjaxOptions
+                           {
+                               HttpMethod = "Post",
+                               InsertionMode = InsertionMode.Replace,
+                               UpdateTargetId = "visitDetails",
+                           }, new
+                           {
+                               @class = "btn btn-success btn-sm",
+                               data_toggle = "modal",
+                               data_target = "#visitDetailsModal",
+                           })
                 </div>
                 <div class="col-sm-6">
                     <p class="edit-info">

@@ -91,12 +91,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VNS.Web\VNS.Web.csproj">
-      <Project>{1643C16A-EFB9-4DB4-86C9-38A58E1DD312}</Project>
-      <Name>VNS.Web</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

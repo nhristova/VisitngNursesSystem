@@ -16,45 +16,41 @@
             <p></p>
         </div>
         <div class="panel-footer">
-            <div class="row">
-                <div class="col-sm-6">
-                    @*<a href="#visitDetailsModal" id="btnOpen" class="btn btn-info btn-sm" data-toggle="modal" data-name="@Model.NurseName">Open</a>
-                    <a href="#visitDetailsModal" id="btnEdit" class="btn btn-warning btn-sm" data-toggle="modal" data-name="@Model.NurseName">Edit</a>*@
-                    @Ajax.ActionLink("Open", "Open", "Visits", null, new AjaxOptions
-                                   {
-                                       //HttpMethod = "Get",
-                                       InsertionMode = InsertionMode.Replace,
-                                       UpdateTargetId = "visitDetails",
-                                       //OnSuccess = "showModal"
-                                   }, new
-                                   {
-                                       @class = "btn btn-info btn-sm",
-                                       data_toggle = "modal",
-                                       data_target= "#visitDetailsModal",
-                                       //href = "#visitDetailsModal"
-                                   })
+            @*<a href="#visitDetailsModal" id="btnOpen" class="btn btn-info btn-sm" data-toggle="modal" data-name="@Model.NurseName">Open</a>
+                <a href="#visitDetailsModal" id="btnEdit" class="btn btn-warning btn-sm" data-toggle="modal" data-name="@Model.NurseName">Edit</a>*@
 
-                    @Ajax.ActionLink("Edit", "Edit", "Visits", null, new AjaxOptions
-                                   {
-                                       //HttpMethod = "Get",
-                                       InsertionMode = InsertionMode.Replace,
-                                       UpdateTargetId = "visitDetails",
-                                       //OnSuccess = "showModal"
-                                   }, new
-                                   {
-                                       @class = "btn btn-warning btn-sm",
-                                       data_toggle = "modal",
-                                       data_target = "#visitDetailsModal",
-                                       //href = "#visitDetailsModal"
-                                   })
-                </div>
-                <div class="col-sm-6">
-                    <p class="edit-info">
-                        Added: @Html.DisplayFor(v => Model.CreatedOn)<br />
-                        Edited: @Html.DisplayFor(v => Model.LastModifiedOn)
-                    </p>
-                </div>
-            </div>
+            @Ajax.ActionLink("Open", "Open", "Visits", null, new AjaxOptions
+               {
+                   //HttpMethod = "Get",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "visitDetails",
+                   //OnSuccess = "showModal"
+               }, new
+               {
+                   @class = "btn btn-info btn-sm",
+                   data_toggle = "modal",
+                   data_target = "#visitDetailsModal",
+                   //href = "#visitDetailsModal"
+               })
+
+            @Ajax.ActionLink("Edit", "Edit", "Visits", null, new AjaxOptions
+               {
+                   //HttpMethod = "Get",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "visitDetails",
+                   //OnSuccess = "showModal"
+               }, new
+               {
+                   @class = "btn btn-warning btn-sm",
+                   data_toggle = "modal",
+                   data_target = "#visitDetailsModal",
+                   //href = "#visitDetailsModal"
+               })
+            
+            <p class="edit-info text-right">
+                Added: @Html.DisplayFor(v => Model.CreatedOn)<br />
+                Edited: @Html.DisplayFor(v => Model.LastModifiedOn)
+            </p>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VNS.Web.Controllers;
+//using VNS.Web.Controllers;
 
 namespace VNS.Web.Tests.Controllers
 {

@@ -71,6 +71,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Town.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="ValidationRules\PastDateAttribute.cs" />
+    <Compile Include="ValidationRules\PropertiesConstraints.cs" />
     <Compile Include="Visit.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using VNS.Data.Models;
 using VNS.Services.Contracts;
 using VNS.Web.Models.Visits;
 
@@ -26,7 +28,7 @@ namespace VNS.Web.Controllers
                 .Select(v => new VisitCardViewModel()
                 {
                     Date = v.Date,
-                    NurseName = v.VisitingNurse.UserName,
+                    NurseName = v.Nurse.UserName,
                     Description = v.Description,
                     CreatedOn = v.CreatedOn.Value,
                     LastModifiedOn = v.ModifiedOn.Value
@@ -45,7 +47,7 @@ namespace VNS.Web.Controllers
             var viewModel = new VisitsViewModel()
             {
                 Visits = visits,
-                Municipalities = munis                
+                Municipalities = munis
             };
 
             return View(viewModel);
@@ -61,7 +63,7 @@ namespace VNS.Web.Controllers
             var vm = new VisitDetailsViewModel()
             {
                 Date = v.Date,
-                NurseName = v.VisitingNurse.UserName,
+                NurseName = v.Nurse.UserName,
                 Description = v.Description,
                 CreatedOn = v.CreatedOn.Value,
                 LastModifiedOn = v.ModifiedOn.Value
@@ -80,7 +82,7 @@ namespace VNS.Web.Controllers
             var vm = new VisitDetailsViewModel()
             {
                 Date = v.Date,
-                NurseName = v.VisitingNurse.UserName,
+                NurseName = v.Nurse.UserName,
                 Description = v.Description,
                 CreatedOn = v.CreatedOn.Value,
                 LastModifiedOn = v.ModifiedOn.Value
@@ -89,24 +91,62 @@ namespace VNS.Web.Controllers
             return PartialView("_VisitEditPartial", vm);
         }
 
-        //[HttpPost]
-        ////[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int? id)
-        //{
-        //    var test = Request.Url.Query;
-        //    var test2 = Request.QueryString["name"];
+        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult Edit(VisitDetailsViewModel visit)
+        {
+            //this.Request.IsAjaxRequest();
+            var test = Request.Url.Query;
+            var test2 = Request.QueryString["name"];
 
-        //    var v = this.visitsService.GetAll().First();
-        //    var vm = new VisitDetailsViewModel()
-        //    {
-        //        Date = v.Date,
-        //        NurseName = v.VisitingNurse.UserName,
-        //        Description = v.Description,
-        //        CreatedOn = v.CreatedOn.Value,
-        //        LastModifiedOn = v.ModifiedOn.Value
-        //    };
+            var v = this.visitsService.GetAll().First();
+            var vm = new VisitDetailsViewModel()
+            {
+                Date = v.Date,
+                NurseName = v.Nurse.UserName,
+                Description = v.Description,
+                CreatedOn = v.CreatedOn.Value,
+                LastModifiedOn = v.ModifiedOn.Value
+            };
 
-        //    return PartialView("_VisitEditPartial", vm);
-        //}
+            return PartialView("_VisitEditPartial", vm);
+        }
+
+
+        public ActionResult Form()
+        {
+            var v = this.visitsService.GetAll().First();
+            var vm = new VisitDetailsViewModel()
+            {
+                Date = v.Date,
+                NurseName = v.Nurse.UserName,
+                Description = v.Description,
+                CreatedOn = v.CreatedOn.Value,
+                LastModifiedOn = v.ModifiedOn.Value
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Form(VisitDetailsViewModel visit)
+        {
+            // if view model not valid
+            if (!ModelState.IsValid)
+            {
+                return View(visit);
+            }
+
+            // TODO: find the correct visit to edit
+            var v = this.visitsService.GetAll().First();
+
+            // update in database
+            v.Date = visit.Date;
+            v.Description = visit.Description;
+            this.visitsService.Update(v);
+
+            return View(visit);
+        }
     }
 }

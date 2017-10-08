@@ -11,6 +11,7 @@ Tasks:
 - Test if data models work
 - Data models validation
 - Rename the dbo tables automatically created for users - remove aspnet from name
+- Switch to minified css and js
 
 ### Project Description
 
