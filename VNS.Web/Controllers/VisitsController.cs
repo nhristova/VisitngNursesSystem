@@ -27,14 +27,13 @@ namespace VNS.Web.Controllers
             // TODO: is it better to truncate description here or in view model setter??
             var visits = this.visitsService
                 .GetAll()
+                .OrderByDescending(v => v.CreatedOn)
                 .Select(v => new VisitCardViewModel()
                 {
                     Id = v.Id,
                     Date = v.Date,
                     NurseName = v.Nurse.UserName,
-                    Description = v.Description,
-                    CreatedOn = v.CreatedOn, //.Value,
-                    LastModifiedOn = v.ModifiedOn.Value
+                    Description = v.Description
                 })
                 .ToList();
 
@@ -58,7 +57,8 @@ namespace VNS.Web.Controllers
 
         public ActionResult Open(Guid id)
         {
-            // TODO: Consider another way without reloading page - AjaxOnly attribute but with some feedback
+            // TODO: Consider another way to stop non-ajax requests
+            // without reloading page - AjaxOnly attribute but with some feedback
             // TODO: uncomment when dev finished, add to ather ajax methods
             //if (!this.Request.IsAjaxRequest())
             //{
@@ -109,6 +109,12 @@ namespace VNS.Web.Controllers
         [HttpPost]
         public ActionResult EditAjax(VisitDetailsViewModel visit)
         {
+            // if view model not valid
+            if (!ModelState.IsValid)
+            {
+                return PartialView("_VisitEditPartial", visit);
+            }
+
             // find the visit to edit from database
             var v = this.visitsService.GetById(visit.Id);
 
@@ -123,44 +129,6 @@ namespace VNS.Web.Controllers
             return PartialView("_VisitDetailsPartial", visit);
         }
 
-
-        public ActionResult Edit(Guid id)
-        {
-            var v = this.visitsService.GetById(id);
-            var vm = new VisitDetailsViewModel()
-            {
-                Id = v.Id,
-                Date = v.Date,
-                NurseName = v.Nurse.UserName,
-                Description = v.Description,
-                CreatedOn = v.CreatedOn,
-                LastModifiedOn = v.ModifiedOn
-            };
-
-            return View(vm);
-        }
-
-        [HttpPost]
-        public ActionResult Edit(VisitDetailsViewModel visit)
-        {
-            // if view model not valid
-            if (!ModelState.IsValid)
-            {
-                return View(visit);
-            }
-
-            // find the visit to edit from database
-            var v = this.visitsService.GetById(visit.Id);
-
-            // update
-            v.Date = visit.Date;
-            v.Description = visit.Description;
-            this.visitsService.Update(v);
-
-            // cheat
-            visit.LastModifiedOn = DateTime.Now;
-            return View(visit);
-        }
 
         [Authorize]
         public ActionResult Add()
@@ -188,7 +156,7 @@ namespace VNS.Web.Controllers
 
             this.visitsService.Add(v);
 
-            // add success message, redirect??
+            // TODO: review - add success message, redirect??
             TempData["message"] = "Visit added successfully";
             return Redirect("Index");
         }

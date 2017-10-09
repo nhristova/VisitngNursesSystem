@@ -15,32 +15,16 @@
             <p>@Model.Description</p>
         </div>
         <div class="panel-footer">
-            @*<a href="#visitDetailsModal" id="btnOpen" class="btn btn-info btn-sm" data-toggle="modal" data-name="@Model.NurseName">Open</a>
-                <a href="#visitDetailsModal" id="btnEdit" class="btn btn-warning btn-sm" data-toggle="modal" data-name="@Model.NurseName">Edit</a>*@
-            @Html.ActionLink("Open", "Open", "Visits",
-                new { Id = Model.Id },
-                new { @class = "btn btn-info btn-sm" })
-
-            @Html.ActionLink("Edit", "Edit", "Visits",
-                new { Id = Model.Id },
-                new { @class = "btn btn-warning btn-sm" })
-
-            <p>Ajax</p>
-
-            @Ajax.ActionLink("OpenAjax", "Open", "Visits",
+            @Ajax.ActionLink("Open*", "Open", "Visits",
                 new { Id = Model.Id },
                 new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "visitDetails" },
                 new { @class = "btn btn-info btn-sm", data_toggle = "modal", data_target = "#visitDetailsModal" })
 
-            @Ajax.ActionLink("EditAjax", "EditAjax", "Visits",
+            @Ajax.ActionLink("Edit*", "EditAjax", "Visits",
                 new { Id = Model.Id },
                 new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "visitDetails" },
                 new { @class = "btn btn-warning btn-sm", data_toggle = "modal", data_target = "#visitDetailsModal" })
 
-            <p class="edit-info text-right">
-                Added: @Html.DisplayFor(v => Model.CreatedOn)<br />
-                Edited: @Html.DisplayFor(v => Model.LastModifiedOn)
-            </p>
         </div>
     </div>
 </div>
