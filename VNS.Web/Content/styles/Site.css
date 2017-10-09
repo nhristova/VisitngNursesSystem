@@ -24,7 +24,7 @@ textarea {
 }
 
 /* --------- */
-/* My styles */
+/* VNS styles */
 /* --------- */
 
 .body-content {
@@ -66,6 +66,7 @@ textarea {
     width: 100%;
 }
 
+
 .profile-image {
     max-width: 60px;
 }
@@ -87,7 +88,7 @@ textarea {
 /* TempData message */
 /* ---------------- */
 
-.my-result {
+.vns-message {
     position: absolute;
     top:10px;
     width: 100%;

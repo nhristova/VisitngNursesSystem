@@ -1,14 +1,4 @@
-﻿@using VNS.Web.Helpers
-@{ 
-    string home = "Home";
-    string families = "Families";
-    string visits = "Visits";
-    string administration = "Administration";
-    string help = "Help";
-    string about = "About";
-
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -20,63 +10,14 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top ">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="~/"><img src="~/Content/images/nurse-logo.svg" alt="VNS_logo" class="logo" />  <span class="hidden-sm hidden-xs"> Visiting Nurses System</span></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class='@Html.IsActive(home, "Index")'>
-                        <a href="/">
-                            <i class="fa fa-home fa-2x fa-fw hidden-md hidden-lg" title=@home data-toggle="tooltip" data-placement="bottom"></i>
-                            <span class="hidden-sm">&nbsp; @home</span>
-                        </a>
-                    </li>
-                    <li class='@Html.IsActive(families, "Index")'>
-                        <a href="/families">
-                            <i class="fa fa-users fa-2x fa-fw hidden-md hidden-lg" title=@families data-toggle="tooltip" data-placement="bottom"></i>
-                            <span class="hidden-sm">&nbsp; @families</span>
-                        </a>
-                    </li>
-                    <li class='@Html.IsActive(visits, "Index")'>
-                        <a href="/visits">
-                            <i class="fa fa-calendar fa-2x fa-fw hidden-md hidden-lg" title=@visits data-toggle="tooltip" data-placement="bottom"></i>
-                            <span class="hidden-sm">&nbsp; @visits</span>
-                        </a>
-                    </li>
-                    <li class='@Html.IsActive(administration, "Index")'>
-                        <a href="/administration">
-                            <i class="fa fa-key fa-2x fa-fw hidden-md hidden-lg" title=@administration data-toggle="tooltip" data-placement="bottom"></i>
-                            <span class="hidden-sm">&nbsp; @administration</span>
-                        </a>
-                    </li>
-                    <li class='@Html.IsActive(home, help)'>
-                        <a href="/home/help">
-                            <i class="fa fa-question fa-2x fa-fw hidden-md hidden-lg" title=@help data-toggle="tooltip" data-placement="bottom"></i>
-                            <span class="hidden-sm">&nbsp; @help</span>
-                        </a>
-                    </li>
-                    <li class='@Html.IsActive(home, about)'>
-                        <a href="/home/about">
-                            <i class="fa fa-info fa-2x fa-fw hidden-md hidden-lg" title=@about data-toggle="tooltip" data-placement="bottom"></i>
-                            <span class="hidden-sm">&nbsp; @about</span>
-                        </a>
-                    </li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+    <nav class="navbar navbar-inverse navbar-fixed-top ">
+        @Html.Partial("_NavbarPartial")
+    </nav>
+
+    <main class="container body-content">
         @RenderBody()
         <hr />
-    </div>
+    </main>
     <footer class="container">
         <ul class="list-unstyled">
             <li class="pull-right"><a href="https://github.com/nhristova/VisitngNursesSystem" target="_blank"><i class="fa fa-github-alt"></i> View Source</a></li>

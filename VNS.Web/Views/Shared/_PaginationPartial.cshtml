@@ -1,0 +1,30 @@
+﻿@* To use in view, pass only the pageCount from parent, not the whole model *@
+
+@{ 
+    var pageCount = Model;
+}
+
+<ul class="pagination pagination-sm">
+    @{
+        string currentPage = Context.Request.QueryString["page"];
+        currentPage = currentPage != null ? currentPage : "1";
+        string firstPage = currentPage == "1" ? "disabled" : "";
+        string lastPage = currentPage == pageCount.ToString() ? "disabled" : "";
+        string isPageActive = "";
+    }
+    <li class="@firstPage">
+        @Html.ActionLink("«", "Index", new { page = 1 }, null)
+    </li>
+
+    @for (var i = 1; i <= pageCount; i++)
+    {
+        isPageActive = currentPage == i.ToString() ? "active" : "";
+
+        <li class="@isPageActive">
+            @Html.ActionLink(i.ToString(), "Index", new { page = i }, null)
+        </li>
+    }
+    <li class="@lastPage">
+        @Html.ActionLink("»", "Index", new { page = pageCount }, null)
+    </li>
+</ul>

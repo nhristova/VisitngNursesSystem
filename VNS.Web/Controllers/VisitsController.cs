@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Web.Mvc;
 using VNS.Data.Models;
@@ -21,21 +22,25 @@ namespace VNS.Web.Controllers
             this.usersService = usersService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(short page = 1, short pageSize = 9, string orderBy = "CreatedOn")
         {
             // TODO: add period filtering
             // TODO: is it better to truncate description here or in view model setter??
-            var visits = this.visitsService
-                .GetAll()
-                .OrderByDescending(v => v.CreatedOn)
+            var pagedVisits = this.visitsService
+                .GetPage(page, pageSize, orderBy)
                 .Select(v => new VisitCardViewModel()
                 {
                     Id = v.Id,
                     Date = v.Date,
                     NurseName = v.Nurse.UserName,
                     Description = v.Description
-                })
-                .ToList();
+                });
+
+            // Round page count up to include last page if visit.Count % pageSize != 0
+            //var pages = (short)Math.Ceiling((double)this.visitsService.Count / pageSize);
+
+            var pages = this.visitsService.Count / pageSize;
+            pages = this.visitsService.Count % pageSize == 0 ? pages : ++pages;
 
             var munis = this.municipalitiesService
                 .GetAll()
@@ -48,8 +53,9 @@ namespace VNS.Web.Controllers
 
             var viewModel = new VisitsViewModel()
             {
-                Visits = visits,
-                Municipalities = munis
+                Visits = pagedVisits,
+                Municipalities = munis,
+                PageCount = pages
             };
 
             return View(viewModel);
