@@ -1,6 +1,5 @@
-﻿@using VNS.Web.Helpers
-@using VNS.Web.Models.Visits
-@model VisitsViewModel
+﻿@using VNS.Web.Models.Visits
+@model SearchViewModel
 @{
     ViewBag.Title = "Visits";
     ViewBag.Message = "Page";
@@ -33,31 +32,16 @@
 
 <hr />
 
-<section id="vns-cards" class="row">
+<section id="vns-cards-content" class="row">
 
-    @* TODO: Visits is IEnumerable but has Count(). How?? *@
-    @if (Model.Visits.Count() == 0)
-    {
-        <p class="text-center">No visits to show</p>
-    }
-
-    @foreach (var visit in Model.Visits)
-    {
-        @Html.Partial("_VisitCardPartial", visit)
-    }
-
-</section>
-
-<section id="vns-pagination" class="row text-center">
-
-    @Html.Partial("_PaginationPartial", Model.PageCount)
-
+    @Html.Action("List")
+    
 </section>
 
 @* Modal wrapper *@
 
 <div id="vns-visit-modal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" id="vns-visit-content">
+    <div class="modal-dialog modal-lg" id="vns-modal-content">
         <div class="modal-content">
             <div class="modal-body text-center">
                 <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
@@ -80,7 +64,7 @@
 
         // Clears the content of the modal when closed
         $('#vns-visit-modal').on('hidden.bs.modal', function () {
-            $('#vns-visit-content').html('<div class="modal-content"><div class="modal-body text-center"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span></div></div>');
+            $('#vns-modal-content').html('<div class="modal-content"><div class="modal-body text-center"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span></div></div>');
         })
     </script>
 
@@ -92,11 +76,11 @@
                 $('#vns-visit-modal').modal('show');
             }
             $('#btnOpen').click(function (eve) {
-                $('#vns-visit-content').load("/Visits/Open?name=" + $(this).data("name"));
+                $('#vns-modal-content').load("/Visits/Open?name=" + $(this).data("name"));
             })
 
             $('#btnEdit').click(function (eve) {
-                $('#vns-visit-content').load("/Visits/Edit?name=" + $(this).data("name"));
+                $('#vns-modal-content').load("/Visits/Edit?name=" + $(this).data("name"));
             })
         </script>*@
 }

@@ -16,9 +16,9 @@
             <div class="col-sm-6">
                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
 
-                @Ajax.ActionLink("EditAjax", "EditAjax", "Visits",
+                @Ajax.ActionLink("Edit", "Edit", "Visits",
                 new { Id = Model.Id },
-                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-visit-content" },
+                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-modal-content" },
                 new { @class = "btn btn-warning btn-sm", data_target = "#vns-visit-modal" })
             </div>
             <div class="col-sm-6">

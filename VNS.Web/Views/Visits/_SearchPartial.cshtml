@@ -1,5 +1,5 @@
 ﻿@using VNS.Web.Models.Visits
-@model VisitsViewModel
+@model SearchViewModel
 
 <h3>Select criteria</h3>
 <p>Municipality, Town, Family ref#, Nurse</p>
@@ -43,7 +43,7 @@
 
     <div class="row">
         <button type="reset" class="btn btn-default btn-sm">Clear</button>
-        <button type="submit" class="btn btn-info btn-sm">Search</button>
-        @Html.ActionLink("Add", "Add", "Visits", null, new { @class = "btn btn-success btn-sm" })
+        <button type="submit" class="btn btn-success btn-sm">Search</button>
+        @Html.ActionLink("Add", "Add", "Visits", null, new { @class = "btn btn-info btn-sm" })
     </div>
 }

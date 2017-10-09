@@ -15,14 +15,14 @@
             <p>@Model.Description</p>
         </div>
         <div class="panel-footer">
-            @Ajax.ActionLink("Open*", "Open", "Visits",
+            @Ajax.ActionLink("Open", "Open", "Visits",
                 new { Id = Model.Id },
-                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-visit-content" },
-                new { @class = "btn btn-info btn-sm", data_toggle = "modal", data_target = "#vns-visit-modal" })
+                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-modal-content" },
+                new { @class = "btn btn-success btn-sm", data_toggle = "modal", data_target = "#vns-visit-modal" })
 
-            @Ajax.ActionLink("Edit*", "EditAjax", "Visits",
+            @Ajax.ActionLink("Edit", "Edit", "Visits",
                 new { Id = Model.Id },
-                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-visit-content" },
+                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-modal-content" },
                 new { @class = "btn btn-warning btn-sm", data_toggle = "modal", data_target = "#vns-visit-modal" })
 
         </div>

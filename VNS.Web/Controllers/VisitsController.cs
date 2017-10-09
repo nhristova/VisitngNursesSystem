@@ -25,23 +25,6 @@ namespace VNS.Web.Controllers
         public ActionResult Index(short page = 1, short pageSize = 9, string orderBy = "CreatedOn")
         {
             // TODO: add period filtering
-            // TODO: is it better to truncate description here or in view model setter??
-            var pagedVisits = this.visitsService
-                .GetPage(page, pageSize, orderBy)
-                .Select(v => new VisitCardViewModel()
-                {
-                    Id = v.Id,
-                    Date = v.Date,
-                    NurseName = v.Nurse.UserName,
-                    Description = v.Description
-                });
-
-            // Round page count up to include last page if visit.Count % pageSize != 0
-            //var pages = (short)Math.Ceiling((double)this.visitsService.Count / pageSize);
-
-            var pages = this.visitsService.Count / pageSize;
-            pages = this.visitsService.Count % pageSize == 0 ? pages : ++pages;
-
             var munis = this.municipalitiesService
                 .GetAll()
                 .Select(m => new MunicipalityViewModel()
@@ -51,11 +34,9 @@ namespace VNS.Web.Controllers
                 })
                 .ToList();
 
-            var viewModel = new VisitsViewModel()
+            var viewModel = new SearchViewModel()
             {
-                Visits = pagedVisits,
-                Municipalities = munis,
-                PageCount = pages
+                Municipalities = munis,             
             };
 
             return View(viewModel);
@@ -93,7 +74,7 @@ namespace VNS.Web.Controllers
 
         //[HttpGet]
         [Authorize]
-        public ActionResult EditAjax(Guid id)
+        public ActionResult Edit(Guid id)
         {
             var v = this.visitsService.GetById(id);
             var vm = new VisitDetailsViewModel()
@@ -113,7 +94,7 @@ namespace VNS.Web.Controllers
         //[ValidateAntiForgeryToken]
         //[Authorize]
         [HttpPost]
-        public ActionResult EditAjax(VisitDetailsViewModel visit)
+        public ActionResult Edit(VisitDetailsViewModel visit)
         {
             // if view model not valid
             if (!ModelState.IsValid)
@@ -165,6 +146,30 @@ namespace VNS.Web.Controllers
             // TODO: review - add success message, redirect??
             TempData["message"] = "Visit added successfully";
             return Redirect("Index");
+        }
+
+        public ActionResult List(short page = 1, short pageSize = 9, string orderBy = "CreatedOn")
+        {
+            var pagedVisits = this.visitsService
+                .GetPage(page, pageSize, orderBy)
+                .Select(v => new VisitCardViewModel()
+                {
+                    Id = v.Id,
+                    Date = v.Date,
+                    NurseName = v.Nurse.UserName,
+                    Description = v.Description
+                });
+
+            var pages = this.visitsService.Count / pageSize;
+            pages = this.visitsService.Count % pageSize == 0 ? pages : ++pages;
+            
+            var vm = new VisitsViewModel()
+            {
+                Visits = pagedVisits,
+                PageCount = pages
+            };
+
+            return PartialView("_VisitsListPartial", vm);
         }
     }
 }

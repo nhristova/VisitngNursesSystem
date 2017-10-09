@@ -204,6 +204,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\Visits\MunicipalityViewModel.cs" />
+    <Compile Include="Models\Visits\SearchViewModel.cs" />
     <Compile Include="Models\Visits\VisitCardViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Visits\VisitDetailsViewModel.cs" />
@@ -231,6 +232,7 @@
     <Content Include="Content\scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Content\scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Visits\_VisitEditPartial.cshtml" />
+    <Content Include="Views\Visits\_VisitsListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\styles\bootstrap-flatly.css" />

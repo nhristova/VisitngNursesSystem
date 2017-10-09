@@ -11,14 +11,14 @@
         <p>@Model.Date.ToString("dd.MM.yy")</p>
     </div>
     
-    @using (Ajax.BeginForm("EditAjax", "Visits",
+    @using (Ajax.BeginForm("Edit", "Visits",
         new AjaxOptions
         {
             HttpMethod = "POST",
             InsertionMode = InsertionMode.Replace,
             // TODO: Find a better way to notify
             OnSuccess = "alert('Updated successfully')",
-            UpdateTargetId = "vns-visit-content"
+            UpdateTargetId = "vns-modal-content"
         },
         new { @class = "small" }))
     {
