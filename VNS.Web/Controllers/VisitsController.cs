@@ -87,8 +87,8 @@ namespace VNS.Web.Controllers
                 Date = v.Date,
                 NurseName = v.Nurse.UserName,
                 Description = v.Description,
-                CreatedOn = v.CreatedOn,
-                LastModifiedOn = v.ModifiedOn
+                CreatedOn = v.CreatedOn, //.Value,
+                LastModifiedOn = v.ModifiedOn//.Value
             };
 
             return PartialView("_VisitEditPartial", vm);

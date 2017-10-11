@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using VNS.Web.Models;
 using VNS.Data.Models;
+using System;
 
 namespace VNS.Web.Controllers
 {
@@ -149,7 +150,13 @@ namespace VNS.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    // TODO: Check if CreatedOn can be set in data layer
+                    // TODO: consider extracting user creation to UserService
+                    CreatedOn = DateTime.Now 
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

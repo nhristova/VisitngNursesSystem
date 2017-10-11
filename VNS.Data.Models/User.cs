@@ -44,7 +44,7 @@ namespace VNS.Data.Models
         [Index]
         public bool IsDeleted { get; set; }
 
-        // TODO check if createdOn should be nullable
+        // TODO CreatedOn should probably be non-nullable
         [DataType(DataType.DateTime)]
         public DateTime CreatedOn { get; set; }
 
