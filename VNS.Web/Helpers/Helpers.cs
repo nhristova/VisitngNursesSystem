@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace VNS.Web.Helpers
 {
@@ -17,6 +18,24 @@ namespace VNS.Web.Helpers
             }
 
             return "";
+        }
+
+		// TODO: remove if not used
+        [AttributeUsage(AttributeTargets.Method)]
+        public class AjaxOnlyAttribute : ActionFilterAttribute
+        {
+            public override void OnActionExecuting(ActionExecutingContext filterContext)
+            {
+                if (!filterContext.HttpContext.Request.IsAjaxRequest())
+                {
+                    filterContext.HttpContext.Response.Write("NOT AJAX");
+                    //filterContext.Result = new HttpNotFoundResult();
+                }
+                else
+                {
+                    base.OnActionExecuting(filterContext);
+                }
+            }
         }
     }
 }

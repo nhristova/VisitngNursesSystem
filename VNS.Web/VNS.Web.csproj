@@ -211,9 +211,14 @@
     <Compile Include="Models\Visits\VisitsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Content Include="Content\images\duck.svg" />
+    <Content Include="Content\images\girl-01.svg" />
+    <Content Include="Content\images\nurse-logo.svg" />
+    <Content Include="Content\images\parents.svg" />
     <Content Include="Views\Shared\_PaginationPartial.cshtml" />
     <Content Include="Views\Shared\_NavbarPartial.cshtml" />
-    <None Include="Views\Visits\_SearchPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
+    <Content Include="Views\Visits\_SearchPartial.cshtml" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Views\Visits\Add.cshtml" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -221,18 +226,20 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
-    <None Include="Views\Visits\Edit.cshtml" />
+    <Content Include="Views\Visits\Edit.cshtml" />
     <Content Include="Content\styles\bootstrap-theme.css" />
     <Content Include="Content\styles\bootstrap-theme.min.css" />
     <Content Include="Content\styles\bootstrap-theme.css.map" />
     <Content Include="Content\styles\bootstrap-theme.min.css.map" />
-    <None Include="Views\Visits\_VisitDetailsPartial.cshtml" />
+    <Content Include="Views\Visits\_VisitDetailsPartial.cshtml" />
     <Content Include="Content\scripts\bootstrap.js" />
     <Content Include="Content\scripts\bootstrap.min.js" />
     <Content Include="Content\scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Content\scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Visits\_VisitEditPartial.cshtml" />
     <Content Include="Views\Visits\_VisitsListPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\visiting-nurses-system - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\visiting-nurses-system - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\styles\bootstrap-flatly.css" />
@@ -257,7 +264,9 @@
     <Content Include="Content\scripts\respond.js" />
     <Content Include="Content\scripts\respond.min.js" />
     <Content Include="Content\scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -297,7 +306,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
     <Folder Include="Models\Families\" />
   </ItemGroup>
   <ItemGroup>

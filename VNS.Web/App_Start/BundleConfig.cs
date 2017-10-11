@@ -8,6 +8,7 @@ namespace VNS.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // TODO: Enable to test bundling before deploying
             // BundleTable.EnableOptimizations = true;
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -28,7 +29,7 @@ namespace VNS.Web
                       "~/Content/scripts/bootstrap.js",
                       "~/Content/scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/styles/css").Include(
                       //"~/Content/styles/bootstrap.css",
                       "~/Content/styles/bootstrap-flatly.css",
                       "~/Content/styles/font-awesome.css",

@@ -10,6 +10,8 @@ namespace VNS.Web.Controllers
 {
     public class HomeController : Controller
     {
+        // TODO: Add caching 
+        //[OutputCache(CacheProfile = "aa", Duration = 200)]
         private readonly IVisitsService visitsService;
 
         public HomeController(IVisitsService visitsService)

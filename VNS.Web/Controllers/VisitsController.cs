@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using VNS.Data.Models;
 using VNS.Services.Contracts;
 using VNS.Web.Models.Visits;
+using static VNS.Web.Helpers.Helpers;
 
 namespace VNS.Web.Controllers
 {
@@ -42,6 +43,8 @@ namespace VNS.Web.Controllers
             return View(viewModel);
         }
 
+		// TODO : consider adding ajaxOnly check
+        //[AjaxOnly]
         public ActionResult Open(Guid id)
         {
             // TODO: Consider another way to stop non-ajax requests
@@ -72,6 +75,7 @@ namespace VNS.Web.Controllers
             return PartialView("_VisitDetailsPartial", vm);
         }
 
+        // TODO: Fix redirect not working for not logged user
         //[HttpGet]
         [Authorize]
         public ActionResult Edit(Guid id)
