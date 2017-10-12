@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/github/nhristova/VisitngNursesSystem?branch=master&svg=true)](https://ci.appveyor.com/project/nhristova/visitngnursessystem)
+[![Coverage status](https://coveralls.io/repos/github/nhristova/VisitngNursesSystem/badge.svg?branch=master)](https://coveralls.io/github/nhristova/VisitngNursesSystem?branch=master)
+
 # Visitng Nurses System
 
 ### Individual course project by Nadezhda Hristova
