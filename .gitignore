@@ -5,7 +5,7 @@
 
 #NH added
 #CodeCover reports
-CodeCoverage/
+GeneratedReports/
 
 # User-specific files
 *.suo
