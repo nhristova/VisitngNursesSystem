@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Bytes2you.Validation;
 using System.Web.Mvc;
 using VNS.Services.Contracts;
-using VNS.Web.Models.Home;
 
 namespace VNS.Web.Controllers
 {
@@ -16,6 +12,7 @@ namespace VNS.Web.Controllers
 
         public HomeController(IVisitsService visitsService)
         {
+            Guard.WhenArgument(visitsService, "visitsService").IsNull().Throw();
             this.visitsService = visitsService;
         }
 

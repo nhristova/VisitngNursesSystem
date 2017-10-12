@@ -4,7 +4,7 @@ using VNS.Web.Controllers;
 using VNS.Services.Contracts;
 using Moq;
 
-namespace VNS.Web.Tests.Controllers
+namespace VNS.Web.Tests.Controllers.HomeControllerTests
 {
     [TestClass]
     public class HomeControllerTest
