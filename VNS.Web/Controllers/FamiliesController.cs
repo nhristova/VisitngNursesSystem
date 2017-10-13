@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace VNS.Web.Controllers
 
         public FamiliesController(IFamiliesService familiesService)
         {
+            Guard.WhenArgument(familiesService, "familiesService").IsNull().Throw();
             this.familiesService = familiesService;
         }
 

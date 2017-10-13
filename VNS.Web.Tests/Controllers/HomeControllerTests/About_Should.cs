@@ -1,29 +1,28 @@
-﻿using System.Web.Mvc;
-using VNS.Web.Controllers;
-using VNS.Services.Contracts;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Web.Mvc;
+using VNS.Services.Contracts;
+using VNS.Web.Controllers;
 
 namespace VNS.Web.Tests.Controllers.HomeControllerTests
 {
     public partial class HomeControllerTests
     {
         [TestClass]
-        public class Index_Should
+        public class About_Should
         {
             [TestMethod]
-            public void ReturnViewResultInstance_WhenCalled()
+            public void PassCorrectViewBagMessage_WhenCalled()
             {
                 // Arrange
                 var visitServiceMock = new Mock<IVisitsService>();
                 HomeController controller = new HomeController(visitServiceMock.Object);
 
                 // Act
-                var result = controller.Index();
+                var result = controller.About() as ViewResult;
 
                 // Assert
-                Assert.IsNotNull(result);
-                Assert.IsInstanceOfType(result, typeof(ViewResult));
+                Assert.AreEqual("Helping nurses help families with babies.", result.ViewBag.Message);
             }
         }
     }

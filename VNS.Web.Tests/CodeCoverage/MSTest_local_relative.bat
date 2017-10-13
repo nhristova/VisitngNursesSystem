@@ -35,6 +35,7 @@ FOR /D /R %%X IN (%USERNAME%*) DO RD /S /Q "%%X"
 exit /b %errorlevel%
 
 :RunOpenCoverUnitTestMetrics
+echo ================================= >CON
 "%~dp0..\..\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe" ^
 -register:user ^
 -target:"%VS140COMNTOOLS%\..\IDE\mstest.exe" ^
@@ -46,16 +47,19 @@ exit /b %errorlevel%
 exit /b %errorlevel%
 
 :RunConvert
+echo ================================= >CON
 "%~dp0..\..\packages\OpenCoverToCoberturaConverter.0.2.6.0\tools\OpenCoverToCoberturaConverter.exe" ^
 -input:"%~dp0\GeneratedReports\VNS-OpenCover-Report.xml" -output:"%~dp0\GeneratedReports\VNS-Converted-Report.xml" -sources:"%~dp0"
 exit /b %errorlevel%
  
 :RunReportGeneratorOutput
+echo ================================= >CON
 "%~dp0..\..\packages\ReportGenerator.3.0.2\tools\ReportGenerator.exe" ^
 -reports:"%~dp0\GeneratedReports\VNS-OpenCover-Report.xml" ^
 -targetdir:"%~dp0\GeneratedReports\ReportGenerator_Output"
 exit /b %errorlevel%
  
 :RunLaunchReport
+echo ================================= >CON
 start "report" "%~dp0\GeneratedReports\ReportGenerator_Output\index.htm"
 exit /b %errorlevel%

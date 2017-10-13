@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using VNS.Web.Models;
+using Bytes2you.Validation;
 
 namespace VNS.Web.Controllers
 {
@@ -22,6 +23,8 @@ namespace VNS.Web.Controllers
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
+            Guard.WhenArgument(userManager, "userManager").IsNull().Throw();
+            Guard.WhenArgument(signInManager, "signInManager").IsNull().Throw();
             UserManager = userManager;
             SignInManager = signInManager;
         }

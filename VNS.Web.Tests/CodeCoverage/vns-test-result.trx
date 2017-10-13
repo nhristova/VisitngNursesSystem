@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TestRun id="02d3db77-4252-48e3-b738-732d974253ab" name="Rover@ROVER-NB 2017-10-12 23:22:22" runUser="Rover-NB\Rover" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <TestSettings name="Default Test Settings" id="4392b685-aac6-43bc-b330-1cc0ac68e4a8">
-    <Deployment userDeploymentRoot="D:\Telerik-HW\Teamwork-mvc\VisitingNursesSystem\VNS.Web.Tests\CodeCoverage" useDefaultDeploymentRoot="false" runDeploymentRoot="Rover_ROVER-NB 2017-10-12 23_22_22" />
+<TestRun id="3c7de0b4-fce5-4023-a541-89098f0be0e9" name="Rover@ROVER-NB 2017-10-13 03:29:06" runUser="Rover-NB\Rover" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="46bc066e-0544-419b-bc85-4181f03bbc59">
+    <Deployment userDeploymentRoot="D:\Telerik-HW\Teamwork-mvc\VisitingNursesSystem\VNS.Web.Tests\CodeCoverage" useDefaultDeploymentRoot="false" runDeploymentRoot="Rover_ROVER-NB 2017-10-13 03_29_06" />
     <Execution>
       <TestTypeSpecific />
       <AgentRule name="Execution Agents">
@@ -9,41 +9,61 @@
     </Execution>
     <Properties />
   </TestSettings>
-  <Times creation="2017-10-12T23:22:22.5544736+03:00" queuing="2017-10-12T23:22:26.4486963+03:00" start="2017-10-12T23:22:26.7647144+03:00" finish="2017-10-12T23:22:30.6249352+03:00" />
-  <ResultSummary outcome="Warning">
-    <Counters total="5" executed="5" passed="5" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  <Times creation="2017-10-13T03:29:06.3996396+03:00" queuing="2017-10-13T03:29:11.6579404+03:00" start="2017-10-13T03:29:12.3459797+03:00" finish="2017-10-13T03:29:14.7331163+03:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="10" executed="10" passed="9" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
     <RunInfos>
-      <RunInfo computerName="ROVER-NB" outcome="Warning" timestamp="2017-10-12T23:22:24.8526050+03:00">
+      <RunInfo computerName="ROVER-NB" outcome="Warning" timestamp="2017-10-13T03:29:10.3078631+03:00">
         <Text>Warning: Test Run deployment issue: The assembly or module 'WebGrease' directly or indirectly referenced by the test container 'd:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll' was not found.</Text>
       </RunInfo>
-      <RunInfo computerName="ROVER-NB" outcome="Warning" timestamp="2017-10-12T23:22:24.8536051+03:00">
+      <RunInfo computerName="ROVER-NB" outcome="Warning" timestamp="2017-10-13T03:29:10.3088632+03:00">
         <Text>Warning: Test Run deployment issue: The assembly or module 'Microsoft.Owin.Security.OAuth' directly or indirectly referenced by the test container 'd:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll' was not found.</Text>
       </RunInfo>
-      <RunInfo computerName="ROVER-NB" outcome="Warning" timestamp="2017-10-12T23:22:24.8536051+03:00">
+      <RunInfo computerName="ROVER-NB" outcome="Warning" timestamp="2017-10-13T03:29:10.3088632+03:00">
         <Text>Warning: Test Run deployment issue: The assembly or module 'Ninject.Extensions.Factory' directly or indirectly referenced by the test container 'd:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll' was not found.</Text>
       </RunInfo>
     </RunInfos>
   </ResultSummary>
   <TestDefinitions>
-    <UnitTest name="Index" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="ec3c4786-ed6d-997f-448f-1ba296ca1cf6">
-      <Execution id="352d7b1c-f7f8-4b21-afbe-7973edce3642" />
-      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTest, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    <UnitTest name="ReturnViewResultInstance_WhenCalled" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="40a2a903-7795-07af-6a00-3f4abc5816ef">
+      <Execution id="a30d9e4c-4c5c-4950-996d-b512458ca3b8" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTests+Help_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReturnViewResultInstance_WhenCalled" />
     </UnitTest>
-    <UnitTest name="Help" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="72636255-8a1c-3866-c801-bdbd8212b72e">
-      <Execution id="14d1c5c4-b493-4651-8c03-a990d18dd4ea" />
-      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTest, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Help" />
+    <UnitTest name="ReturnViewResultInstance_WhenCalled" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="d94ba40d-4c4c-2e4f-1cd7-2c16b0faffda">
+      <Execution id="7e6f8ccd-ae59-4508-ba06-7d0a25db24aa" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.FamiliesControllerTests.FamiliesControllerTests+Index_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReturnViewResultInstance_WhenCalled" />
     </UnitTest>
-    <UnitTest name="ReturnAnInstance_WhenParameterIsNotNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="dfc73071-0711-fb43-ef45-7d55f17827c7">
-      <Execution id="cba016f8-5fd3-430a-9964-85468adec704" />
-      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReturnAnInstance_WhenParameterIsNotNull" />
+    <UnitTest name="ThrowArgumentNullException_WhenParameterIsNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="17a9fefe-2ed4-0e01-aea3-b064c62c7f9d">
+      <Execution id="044de331-8cea-4584-ac80-0b5e6ab83815" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.FamiliesControllerTests.FamiliesControllerTests+Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ThrowArgumentNullException_WhenParameterIsNull" />
     </UnitTest>
-    <UnitTest name="ThrowArgumentNullException_WhenParameterIsNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="af219d70-ea41-823d-6c63-0a6665a57f92">
-      <Execution id="c078fe43-6b87-4cb1-a6d6-6cabd3bae8fa" />
-      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ThrowArgumentNullException_WhenParameterIsNull" />
+    <UnitTest name="CreateIControllerInstance_WhenParameterIsNotNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="fc1daef3-cc72-e7bf-b809-8d86a669cebf">
+      <Execution id="7f273fa4-f06a-41b8-80d0-196689efb042" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.AccountControllerTests.AccountControllerTests+Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateIControllerInstance_WhenParameterIsNotNull" />
     </UnitTest>
-    <UnitTest name="About" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="bc85e9c2-b456-5824-0832-b4340275aeb1">
-      <Execution id="c60c6439-441d-47b1-af39-7a5386c79580" />
-      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTest, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    <UnitTest name="CreateControllerInstance_WhenParameterIsNotNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="9dff1958-9d97-06d6-4b4c-5b7be30152b7">
+      <Execution id="b3b9db6f-4659-418e-916c-c0d3853a9c91" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTests+Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateControllerInstance_WhenParameterIsNotNull" />
+    </UnitTest>
+    <UnitTest name="ThrowArgumentNullException_WhenParametersAreNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="e1743056-9a93-0cab-0da8-0e7e72fefcea">
+      <Execution id="df7a6c3b-eb9a-4002-bf02-612a03388475" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.AccountControllerTests.AccountControllerTests+Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ThrowArgumentNullException_WhenParametersAreNull" />
+    </UnitTest>
+    <UnitTest name="ThrowArgumentNullException_WhenParameterIsNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="cfbd8e32-8aba-9ac4-11ce-e4194e125295">
+      <Execution id="e9df6c9d-8c63-43e8-9460-0823e7b730ba" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTests+Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ThrowArgumentNullException_WhenParameterIsNull" />
+    </UnitTest>
+    <UnitTest name="CreateIControllerInstance_WhenParameterIsNotNull" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="d796f598-f66a-bc4c-a102-98f1ddaddbca">
+      <Execution id="0733754f-a067-45ea-83c3-709c35abe043" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.FamiliesControllerTests.FamiliesControllerTests+Constructor_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateIControllerInstance_WhenParameterIsNotNull" />
+    </UnitTest>
+    <UnitTest name="ReturnViewResultInstance_WhenCalled" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="95d0c922-64e4-6856-70a7-e94923648a77">
+      <Execution id="7a91a406-dcda-42a6-90c3-8b630aae4589" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTests+Index_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReturnViewResultInstance_WhenCalled" />
+    </UnitTest>
+    <UnitTest name="PassCorrectViewBagMessage_WhenCalled" storage="d:\telerik-hw\teamwork-mvc\visitingnursessystem\vns.web.tests\bin\debug\vns.web.tests.dll" id="2e09830a-a51c-fcb9-863c-4b1e7153deed">
+      <Execution id="67d9379e-9b99-4710-a0dd-64829227856a" />
+      <TestMethod codeBase="D:/Telerik-HW/Teamwork-mvc/VisitingNursesSystem/VNS.Web.Tests/bin/Debug/VNS.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="VNS.Web.Tests.Controllers.HomeControllerTests.HomeControllerTests+About_Should, VNS.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PassCorrectViewBagMessage_WhenCalled" />
     </UnitTest>
   </TestDefinitions>
   <TestLists>
@@ -51,22 +71,48 @@
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
   <TestEntries>
-    <TestEntry testId="dfc73071-0711-fb43-ef45-7d55f17827c7" executionId="cba016f8-5fd3-430a-9964-85468adec704" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="af219d70-ea41-823d-6c63-0a6665a57f92" executionId="c078fe43-6b87-4cb1-a6d6-6cabd3bae8fa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="bc85e9c2-b456-5824-0832-b4340275aeb1" executionId="c60c6439-441d-47b1-af39-7a5386c79580" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="72636255-8a1c-3866-c801-bdbd8212b72e" executionId="14d1c5c4-b493-4651-8c03-a990d18dd4ea" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="ec3c4786-ed6d-997f-448f-1ba296ca1cf6" executionId="352d7b1c-f7f8-4b21-afbe-7973edce3642" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fc1daef3-cc72-e7bf-b809-8d86a669cebf" executionId="7f273fa4-f06a-41b8-80d0-196689efb042" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1743056-9a93-0cab-0da8-0e7e72fefcea" executionId="df7a6c3b-eb9a-4002-bf02-612a03388475" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d796f598-f66a-bc4c-a102-98f1ddaddbca" executionId="0733754f-a067-45ea-83c3-709c35abe043" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="17a9fefe-2ed4-0e01-aea3-b064c62c7f9d" executionId="044de331-8cea-4584-ac80-0b5e6ab83815" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d94ba40d-4c4c-2e4f-1cd7-2c16b0faffda" executionId="7e6f8ccd-ae59-4508-ba06-7d0a25db24aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2e09830a-a51c-fcb9-863c-4b1e7153deed" executionId="67d9379e-9b99-4710-a0dd-64829227856a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9dff1958-9d97-06d6-4b4c-5b7be30152b7" executionId="b3b9db6f-4659-418e-916c-c0d3853a9c91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cfbd8e32-8aba-9ac4-11ce-e4194e125295" executionId="e9df6c9d-8c63-43e8-9460-0823e7b730ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="40a2a903-7795-07af-6a00-3f4abc5816ef" executionId="a30d9e4c-4c5c-4950-996d-b512458ca3b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="95d0c922-64e4-6856-70a7-e94923648a77" executionId="7a91a406-dcda-42a6-90c3-8b630aae4589" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <Results>
-    <UnitTestResult executionId="cba016f8-5fd3-430a-9964-85468adec704" testId="dfc73071-0711-fb43-ef45-7d55f17827c7" testName="ReturnAnInstance_WhenParameterIsNotNull" computerName="ROVER-NB" duration="00:00:01.3561920" startTime="2017-10-12T23:22:26.9007222+03:00" endTime="2017-10-12T23:22:29.1258494+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cba016f8-5fd3-430a-9964-85468adec704">
+    <UnitTestResult executionId="7f273fa4-f06a-41b8-80d0-196689efb042" testId="fc1daef3-cc72-e7bf-b809-8d86a669cebf" testName="CreateIControllerInstance_WhenParameterIsNotNull" computerName="ROVER-NB" duration="00:00:00.3026779" startTime="2017-10-13T03:29:12.6489970+03:00" endTime="2017-10-13T03:29:13.6200526+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7f273fa4-f06a-41b8-80d0-196689efb042">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method VNS.Web.Tests.Controllers.AccountControllerTests.AccountControllerTests+Constructor_Should.CreateIControllerInstance_WhenParameterIsNotNull threw exception: 
+System.ArgumentNullException: The argument is null.
+Parameter name: userManager</Message>
+          <StackTrace>    at Bytes2you.Validation.ValidatableArgumentFluentExtension.Throw[T](IValidatableArgument`1 validatableArgument)
+   at VNS.Web.Controllers.AccountController..ctor(ApplicationUserManager userManager, ApplicationSignInManager signInManager) in D:\Telerik-HW\Teamwork-mvc\VisitingNursesSystem\VNS.Web\Controllers\AccountController.cs:line 27
+   at VNS.Web.Tests.Controllers.AccountControllerTests.AccountControllerTests.Constructor_Should.CreateIControllerInstance_WhenParameterIsNotNull() in D:\Telerik-HW\Teamwork-mvc\VisitingNursesSystem\VNS.Web.Tests\Controllers\AccountControllerTests\Constructor_Should.cs:line 27
+</StackTrace>
+        </ErrorInfo>
+      </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="c078fe43-6b87-4cb1-a6d6-6cabd3bae8fa" testId="af219d70-ea41-823d-6c63-0a6665a57f92" testName="ThrowArgumentNullException_WhenParameterIsNull" computerName="ROVER-NB" duration="00:00:00.0122187" startTime="2017-10-12T23:22:29.1708520+03:00" endTime="2017-10-12T23:22:29.2188547+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c078fe43-6b87-4cb1-a6d6-6cabd3bae8fa">
+    <UnitTestResult executionId="df7a6c3b-eb9a-4002-bf02-612a03388475" testId="e1743056-9a93-0cab-0da8-0e7e72fefcea" testName="ThrowArgumentNullException_WhenParametersAreNull" computerName="ROVER-NB" duration="00:00:00.0191065" startTime="2017-10-13T03:29:13.6630550+03:00" endTime="2017-10-13T03:29:13.7090577+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="df7a6c3b-eb9a-4002-bf02-612a03388475">
     </UnitTestResult>
-    <UnitTestResult executionId="c60c6439-441d-47b1-af39-7a5386c79580" testId="bc85e9c2-b456-5824-0832-b4340275aeb1" testName="About" computerName="ROVER-NB" duration="00:00:01.0483047" startTime="2017-10-12T23:22:29.2238550+03:00" endTime="2017-10-12T23:22:30.2949163+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c60c6439-441d-47b1-af39-7a5386c79580">
+    <UnitTestResult executionId="0733754f-a067-45ea-83c3-709c35abe043" testId="d796f598-f66a-bc4c-a102-98f1ddaddbca" testName="CreateIControllerInstance_WhenParameterIsNotNull" computerName="ROVER-NB" duration="00:00:00.2906232" startTime="2017-10-13T03:29:13.7240585+03:00" endTime="2017-10-13T03:29:14.0290760+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0733754f-a067-45ea-83c3-709c35abe043">
     </UnitTestResult>
-    <UnitTestResult executionId="14d1c5c4-b493-4651-8c03-a990d18dd4ea" testId="72636255-8a1c-3866-c801-bdbd8212b72e" testName="Help" computerName="ROVER-NB" duration="00:00:00.0066568" startTime="2017-10-12T23:22:30.3509195+03:00" endTime="2017-10-12T23:22:30.3689205+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="14d1c5c4-b493-4651-8c03-a990d18dd4ea">
+    <UnitTestResult executionId="044de331-8cea-4584-ac80-0b5e6ab83815" testId="17a9fefe-2ed4-0e01-aea3-b064c62c7f9d" testName="ThrowArgumentNullException_WhenParameterIsNull" computerName="ROVER-NB" duration="00:00:00.0006633" startTime="2017-10-13T03:29:14.0330762+03:00" endTime="2017-10-13T03:29:14.0370764+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="044de331-8cea-4584-ac80-0b5e6ab83815">
     </UnitTestResult>
-    <UnitTestResult executionId="352d7b1c-f7f8-4b21-afbe-7973edce3642" testId="ec3c4786-ed6d-997f-448f-1ba296ca1cf6" testName="Index" computerName="ROVER-NB" duration="00:00:00.0031387" startTime="2017-10-12T23:22:30.3789211+03:00" endTime="2017-10-12T23:22:30.3939220+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="352d7b1c-f7f8-4b21-afbe-7973edce3642">
+    <UnitTestResult executionId="7e6f8ccd-ae59-4508-ba06-7d0a25db24aa" testId="d94ba40d-4c4c-2e4f-1cd7-2c16b0faffda" testName="ReturnViewResultInstance_WhenCalled" computerName="ROVER-NB" duration="00:00:00.0229641" startTime="2017-10-13T03:29:14.0400766+03:00" endTime="2017-10-13T03:29:14.0670782+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e6f8ccd-ae59-4508-ba06-7d0a25db24aa">
+    </UnitTestResult>
+    <UnitTestResult executionId="67d9379e-9b99-4710-a0dd-64829227856a" testId="2e09830a-a51c-fcb9-863c-4b1e7153deed" testName="PassCorrectViewBagMessage_WhenCalled" computerName="ROVER-NB" duration="00:00:00.5290951" startTime="2017-10-13T03:29:14.0700783+03:00" endTime="2017-10-13T03:29:14.6031088+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="67d9379e-9b99-4710-a0dd-64829227856a">
+    </UnitTestResult>
+    <UnitTestResult executionId="b3b9db6f-4659-418e-916c-c0d3853a9c91" testId="9dff1958-9d97-06d6-4b4c-5b7be30152b7" testName="CreateControllerInstance_WhenParameterIsNotNull" computerName="ROVER-NB" duration="00:00:00.0010685" startTime="2017-10-13T03:29:14.6151095+03:00" endTime="2017-10-13T03:29:14.6211098+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3b9db6f-4659-418e-916c-c0d3853a9c91">
+    </UnitTestResult>
+    <UnitTestResult executionId="e9df6c9d-8c63-43e8-9460-0823e7b730ba" testId="cfbd8e32-8aba-9ac4-11ce-e4194e125295" testName="ThrowArgumentNullException_WhenParameterIsNull" computerName="ROVER-NB" duration="00:00:00.0007346" startTime="2017-10-13T03:29:14.6251101+03:00" endTime="2017-10-13T03:29:14.6301104+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e9df6c9d-8c63-43e8-9460-0823e7b730ba">
+    </UnitTestResult>
+    <UnitTestResult executionId="a30d9e4c-4c5c-4950-996d-b512458ca3b8" testId="40a2a903-7795-07af-6a00-3f4abc5816ef" testName="ReturnViewResultInstance_WhenCalled" computerName="ROVER-NB" duration="00:00:00.0027744" startTime="2017-10-13T03:29:14.6331105+03:00" endTime="2017-10-13T03:29:14.6401109+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a30d9e4c-4c5c-4950-996d-b512458ca3b8">
+    </UnitTestResult>
+    <UnitTestResult executionId="7a91a406-dcda-42a6-90c3-8b630aae4589" testId="95d0c922-64e4-6856-70a7-e94923648a77" testName="ReturnViewResultInstance_WhenCalled" computerName="ROVER-NB" duration="00:00:00.0009939" startTime="2017-10-13T03:29:14.6451112+03:00" endTime="2017-10-13T03:29:14.6501115+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a91a406-dcda-42a6-90c3-8b630aae4589">
     </UnitTestResult>
   </Results>
 </TestRun>

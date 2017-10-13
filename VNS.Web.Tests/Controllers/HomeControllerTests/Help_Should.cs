@@ -1,15 +1,15 @@
-﻿using System.Web.Mvc;
-using VNS.Web.Controllers;
-using VNS.Services.Contracts;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Web.Mvc;
+using VNS.Services.Contracts;
+using VNS.Web.Controllers;
 
 namespace VNS.Web.Tests.Controllers.HomeControllerTests
-{
+{    
     public partial class HomeControllerTests
     {
         [TestClass]
-        public class Index_Should
+        public class Help_Should
         {
             [TestMethod]
             public void ReturnViewResultInstance_WhenCalled()
@@ -19,7 +19,7 @@ namespace VNS.Web.Tests.Controllers.HomeControllerTests
                 HomeController controller = new HomeController(visitServiceMock.Object);
 
                 // Act
-                var result = controller.Index();
+                var result = controller.Help();
 
                 // Assert
                 Assert.IsNotNull(result);

@@ -5,34 +5,33 @@ using System.Web.Mvc;
 using VNS.Services.Contracts;
 using VNS.Web.Controllers;
 
-namespace VNS.Web.Tests.Controllers.HomeControllerTests
+namespace VNS.Web.Tests.Controllers.FamiliesControllerTests
 {
     [TestClass]
-    public partial class HomeControllerTests
+    public partial class FamiliesControllerTests
     {
-
         [TestClass]
         public class Constructor_Should
         {
             [TestMethod]
-            public void CreateControllerInstance_WhenParameterIsNotNull()
+            public void CreateIControllerInstance_WhenParameterIsNotNull()
             {
                 // Arrange
-                var visitsServiceMock = new Mock<IVisitsService>();
+                var familiesServiceMock = new Mock<IFamiliesService>();
 
                 // Act
-                var homeController = new HomeController(visitsServiceMock.Object);
+                var familiesController = new FamiliesController(familiesServiceMock.Object);
 
                 // Assert
-                Assert.IsNotNull(homeController);
-                Assert.IsInstanceOfType(homeController, typeof(Controller));
+                Assert.IsNotNull(familiesController);
+                Assert.IsInstanceOfType(familiesController, typeof(Controller));
             }
 
             [TestMethod]
             public void ThrowArgumentNullException_WhenParameterIsNull()
             {
                 // Arrange & Act & Assert
-                Assert.ThrowsException<ArgumentNullException>(() => new HomeController(null));
+                Assert.ThrowsException<ArgumentNullException>(() => new FamiliesController(null));
             }
 
         }

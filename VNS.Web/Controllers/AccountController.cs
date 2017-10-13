@@ -8,6 +8,7 @@ using Microsoft.Owin.Security;
 using VNS.Web.Models;
 using VNS.Data.Models;
 using System;
+using Bytes2you.Validation;
 
 namespace VNS.Web.Controllers
 {
@@ -23,6 +24,8 @@ namespace VNS.Web.Controllers
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
+            Guard.WhenArgument(userManager, "userManager").IsNull().Throw();
+            Guard.WhenArgument(signInManager, "signInManager").IsNull().Throw();
             UserManager = userManager;
             SignInManager = signInManager;
         }

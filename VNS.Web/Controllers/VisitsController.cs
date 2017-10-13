@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using System;
 using System.Collections;
 using System.Linq;
 using System.Web.Mvc;
@@ -18,6 +19,9 @@ namespace VNS.Web.Controllers
 
         public VisitsController(IVisitsService visitsService, IMunicipalitiesService municipalitiesService, IUsersService usersService)
         {
+            Guard.WhenArgument(visitsService, "visitsService").IsNull().Throw();
+            Guard.WhenArgument(municipalitiesService, "municipalitiesService").IsNull().Throw();
+            Guard.WhenArgument(usersService, "usersService").IsNull().Throw();
             this.visitsService = visitsService;
             this.municipalitiesService = municipalitiesService;
             this.usersService = usersService;
