@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 using VNS.Data.Models;
 using VNS.Data.Repositories;
 using VNS.Data.SaveContext;

@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Data.Entity;
 using VNS.Data.Models;
 using VNS.Data.Repositories;
 using VNS.Data.SaveContext;
