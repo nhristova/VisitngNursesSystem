@@ -9,7 +9,7 @@ using VNS.Web.Models.Visits;
 
 namespace VNS.Web.Tests.Controllers.VisitsControllerTests
 {
-    public partial class VisitsContrllerTests
+    public partial class VisitsControllerTests
     {
 
         [TestClass]

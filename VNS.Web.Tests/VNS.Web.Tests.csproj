@@ -40,6 +40,10 @@
       <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\VNS.Services\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\VNS.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
@@ -122,6 +126,12 @@
     <Compile Include="Controllers\VisitsControllerTests\Open_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
+    <Compile Include="Services\VisitsServiceTests\Add_Should.cs" />
+    <Compile Include="Services\VisitsServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\VisitsServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\VisitsServiceTests\GetById_Should.cs" />
+    <Compile Include="Services\VisitsServiceTests\GetPage_Should.cs" />
+    <Compile Include="Services\VisitsServiceTests\Update_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -133,6 +143,10 @@
     <ProjectReference Include="..\VNS.Data.Models\VNS.Data.Models.csproj">
       <Project>{79711143-7f87-43be-9266-b387784e78c0}</Project>
       <Name>VNS.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VNS.Data\VNS.Data.csproj">
+      <Project>{92B5A5AA-4765-4667-94FA-F1CE61AB082A}</Project>
+      <Name>VNS.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\VNS.Services\VNS.Services.csproj">
       <Project>{E12D40CE-F454-4C77-BA46-1482AD8B614E}</Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using VNS.Data.Models;
@@ -15,6 +16,8 @@ namespace VNS.Services
 
         public VisitsService(IEfRepository<Visit> visitRepo, ISaveContext context)
         {
+            Guard.WhenArgument(visitRepo, "visitRepo").IsNull().Throw();
+            Guard.WhenArgument(context, "context").IsNull().Throw();
             this.visitRepo = visitRepo;
             this.context = context;
         }
@@ -38,6 +41,9 @@ namespace VNS.Services
             // TODO: add different order types with if statements??
             // TODO: does returning a list slow app, if I call ToList() in service too ??
             // TODO: add checks for zero and negative values
+            page = page > 0 ? page : (short)1;
+            pageSize = pageSize > 0 ? pageSize : (short)9;
+
             var skipCount = (page - 1) * pageSize;
             var result = this.visitRepo
                 .All
@@ -51,12 +57,18 @@ namespace VNS.Services
 
         public void Update(Visit visit)
         {
+            // TODO need this?
+            Guard.WhenArgument(visit, "visit").IsNull().Throw();
+
             this.visitRepo.Update(visit);
             this.context.Commit();
         }
 
         public void Add(Visit visit)
         {
+            // TODO need this?
+            Guard.WhenArgument(visit, "visit").IsNull().Throw();
+
             this.visitRepo.Add(visit);
             this.context.Commit();
         }
