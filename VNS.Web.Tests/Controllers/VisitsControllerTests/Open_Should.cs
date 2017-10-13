@@ -6,6 +6,7 @@ using VNS.Data.Models;
 using VNS.Services.Contracts;
 using VNS.Web.Controllers;
 using VNS.Web.Models.Visits;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace VNS.Web.Tests.Controllers.VisitsControllerTests
 {
@@ -30,6 +31,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 {
                     Id = testId,
                     Date = new DateTime(2017, 10, 18),
+                    // TODO: UserName is a field from IdentityUser which User inherits. Find out why this breaks the build
                     Nurse = new User() { UserName = "test" },
                     Description = "Test description",
                 };
