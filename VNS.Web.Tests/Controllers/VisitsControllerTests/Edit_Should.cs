@@ -6,6 +6,7 @@ using VNS.Data.Models;
 using VNS.Services.Contracts;
 using VNS.Web.Controllers;
 using VNS.Web.Models.Visits;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace VNS.Web.Tests.Controllers.VisitsControllerTests
 {
@@ -29,7 +30,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 {
                     Id = testId,
                     Date = new DateTime(2017, 10, 18),
-                    Nurse = new User() { UserName = "test" },
+                    Nurse = new User() { UserName = "test" },                    
                     Description = "Test description",
                 };
 
