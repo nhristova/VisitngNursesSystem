@@ -40,6 +40,10 @@
       <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\VNS.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -110,8 +114,12 @@
     <Compile Include="Controllers\HomeControllerTests\About_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Help_Should.cs" />
+    <Compile Include="Controllers\VisitsControllerTests\Add_Should.cs" />
     <Compile Include="Controllers\VisitsControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\VisitsControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\VisitsControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\VisitsControllerTests\List_Should.cs" />
+    <Compile Include="Controllers\VisitsControllerTests\Open_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
   </ItemGroup>
@@ -135,6 +143,7 @@
       <Name>VNS.Web</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

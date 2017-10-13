@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace VNS.Web.Helpers
 {
-    public static class Helpers
+    public static class HtmlHelpers
     {
         public static string IsActive(this HtmlHelper html, string control, string action)
         {
@@ -19,22 +19,22 @@ namespace VNS.Web.Helpers
 
             return "";
         }
+    }
 
-		// TODO: remove if not used
-        [AttributeUsage(AttributeTargets.Method)]
-        public class AjaxOnlyAttribute : ActionFilterAttribute
+    // TODO: remove if not used
+    [AttributeUsage(AttributeTargets.Method)]
+    public class AjaxOnlyAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            public override void OnActionExecuting(ActionExecutingContext filterContext)
+            if (!filterContext.HttpContext.Request.IsAjaxRequest())
             {
-                if (!filterContext.HttpContext.Request.IsAjaxRequest())
-                {
-                    filterContext.HttpContext.Response.Write("NOT AJAX");
-                    //filterContext.Result = new HttpNotFoundResult();
-                }
-                else
-                {
-                    base.OnActionExecuting(filterContext);
-                }
+                filterContext.HttpContext.Response.Write("NOT AJAX");
+                //filterContext.Result = new HttpNotFoundResult();
+            }
+            else
+            {
+                base.OnActionExecuting(filterContext);
             }
         }
     }

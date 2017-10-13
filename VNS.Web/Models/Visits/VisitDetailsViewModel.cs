@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using VNS.Data.Models;
 using VNS.Data.Models.ValidationRules;
 using Rules = VNS.Data.Models.ValidationRules.PropertiesConstraints;
 
@@ -9,6 +10,25 @@ namespace VNS.Web.Models.Visits
     {
         //private readonly int descriptionMaxLen = 200;
         //private string description;
+
+        public VisitDetailsViewModel()
+        {
+
+        }
+
+        public VisitDetailsViewModel(Visit visit)
+        {
+            if (visit != null)
+            {
+                Id = visit.Id;
+                Date = visit.Date;
+                NurseName = visit.Nurse.UserName;
+                Description = visit.Description;
+                CreatedOn = visit.CreatedOn; //.Value,
+                LastModifiedOn = visit.ModifiedOn;//.Value
+            }
+        }
+
 
         public Guid Id { get; set; }
 

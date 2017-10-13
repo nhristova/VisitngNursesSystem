@@ -1,8 +1,8 @@
 "D:\Telerik-HW\Teamwork-mvc\VisitingNursesSystem\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe" ^
 -register:user ^
 -target:"%VS140COMNTOOLS%\..\IDE\mstest.exe" ^
--targetargs:"/testcontainer:\"D:\Telerik-HW\Teamwork-mvc\VisitingNursesSystem\VNS.Web.Tests\bin\Debug\VNS.Web.Tests.dll\" /resultsfile:\"%~dp0vns-test-result-9.trx\"" ^
--filter:"+[VNS*]* -[VNS.Web.Tests]* -[VNS.Data*]*Migrations* -[*]*ViewModel" ^
+-targetargs:"/testcontainer:\"D:\Telerik-HW\Teamwork-mvc\VisitingNursesSystem\VNS.Web.Tests\bin\Debug\VNS.Web.Tests.dll\" /resultsfile:\"%~dp0vns-test-result.trx\"" ^
+-filter:"+[VNS*]* -[VNS.Web.Tests]* -[VNS.Data*]*Migrations*" ^
 -mergebyhash ^
 -skipautoprops ^
 -output:"%~dp0GeneratedReports\VNS-Report.xml"

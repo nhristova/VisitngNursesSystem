@@ -6,6 +6,7 @@
 #NH added
 #CodeCover reports
 GeneratedReports/
+*.trx
 
 # User-specific files
 *.suo
@@ -290,3 +291,4 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+

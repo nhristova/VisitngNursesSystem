@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using VNS.Data.Models;
 
 namespace VNS.Web.Models.Visits
 {
@@ -7,6 +8,19 @@ namespace VNS.Web.Models.Visits
     {
         private readonly int descriptionMaxLen = 200;
         private string description;
+
+        public VisitCardViewModel()
+        {
+
+        }
+
+        public VisitCardViewModel(Visit visit)
+        {
+            this.Id = visit.Id;
+            this.Date = visit.Date;
+            this.NurseName = visit.Nurse.UserName;
+            this.Description = visit.Description;
+        }
 
         public Guid Id { get; set; }
 

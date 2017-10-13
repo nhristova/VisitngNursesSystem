@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using VNS.Data.Models;
 using VNS.Services.Contracts;
 using VNS.Web.Models.Visits;
-using static VNS.Web.Helpers.Helpers;
+using static VNS.Web.Helpers.HtmlHelpers;
 
 namespace VNS.Web.Controllers
 {
@@ -65,16 +65,9 @@ namespace VNS.Web.Controllers
             //var test = Request.Url.Query;
             //var test2 = Request.QueryString["name"];
 
-            var v = this.visitsService.GetById(id);
-            var vm = new VisitDetailsViewModel()
-            {
-                Id = v.Id,                
-                Date = v.Date,
-                NurseName = v.Nurse.UserName,
-                Description = v.Description,
-                CreatedOn = v.CreatedOn, //.Value,
-                LastModifiedOn = v.ModifiedOn//.Value
-            };
+            var visit = this.visitsService.GetById(id);
+
+            VisitDetailsViewModel vm = new VisitDetailsViewModel(visit);
 
             return PartialView("_VisitDetailsPartial", vm);
         }
@@ -84,16 +77,8 @@ namespace VNS.Web.Controllers
         [Authorize]
         public ActionResult Edit(Guid id)
         {
-            var v = this.visitsService.GetById(id);
-            var vm = new VisitDetailsViewModel()
-            {
-                Id = v.Id,
-                Date = v.Date,
-                NurseName = v.Nurse.UserName,
-                Description = v.Description,
-                CreatedOn = v.CreatedOn, //.Value,
-                LastModifiedOn = v.ModifiedOn//.Value
-            };
+            var visit = this.visitsService.GetById(id);
+            var vm = new VisitDetailsViewModel(visit);
 
             return PartialView("_VisitEditPartial", vm);
         }
@@ -145,7 +130,6 @@ namespace VNS.Web.Controllers
             {
                 Date = visit.Date,
                 Description = visit.Description,
-                // TODO: check if works search based on username
                 Nurse = this.usersService.GetByName(visit.NurseName)
             };
 
@@ -160,13 +144,7 @@ namespace VNS.Web.Controllers
         {
             var pagedVisits = this.visitsService
                 .GetPage(page, pageSize, orderBy)
-                .Select(v => new VisitCardViewModel()
-                {
-                    Id = v.Id,
-                    Date = v.Date,
-                    NurseName = v.Nurse.UserName,
-                    Description = v.Description
-                });
+                .Select(v => new VisitCardViewModel(v));
 
             var pages = this.visitsService.Count / pageSize;
             pages = this.visitsService.Count % pageSize == 0 ? pages : ++pages;

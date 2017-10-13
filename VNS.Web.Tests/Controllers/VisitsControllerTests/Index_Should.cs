@@ -39,30 +39,31 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
             }
 
             [TestMethod]
-            public void RendersViewResultWithCorrectViewModel_WhenCalled()
+            public void RenderViewResultWithCorrectViewModel_WhenCalled()
             {
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUsersService>();
+
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+
                 var municipalities = new List<Municipality>()
                 {
                     new Municipality { Name = "MVM", Towns = new List<Town>() }
                 };
 
                 municipalitiesServiceMock.Setup(m => m.GetAll()).Returns(municipalities);
-
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
-
-                var expected = new MunicipalityViewModel() { Name = "MVM", Towns = new List<string>() };
+                
+                var expectedVM = new MunicipalityViewModel() { Name = "MVM", Towns = new List<string>() };
 
                 // Act & Assert
                 controller
-                    .WithCallTo(m => m.Index(1, 9, "CreatedOn"))
+                    .WithCallTo(c => c.Index(1, 9, "CreatedOn"))
                     .ShouldRenderDefaultView()
                     .WithModel<SearchViewModel>(vm =>
                    {
-                       Assert.IsTrue(vm.Municipalities.Any(m => m.Name == expected.Name));
+                       Assert.IsTrue(vm.Municipalities.Any(m => m.Name == expectedVM.Name));
                    });
             }
         }

@@ -13,7 +13,7 @@ REM ======================================
 -register:Path32 ^
 -target:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mstest.exe" ^
 -targetargs:"/testcontainer:\"%WORKSPACE%\VNS.Web.Tests\bin\Release\VNS.Web.Tests.dll\" /resultsfile:\"%WORKSPACE%\VNS-OpenCover-Tests-Result.trx\"" ^
--filter:"+[VNS*]* -[VNS.Web.Tests]* -[VNS.Data*]*Migrations* -[*]*ViewModel" ^
+-filter:"+[VNS*]* -[VNS.Web.Tests]* -[VNS.Data*]*Migrations*" ^
 -mergebyhash ^
 -skipautoprops ^
 -output:"%WORKSPACE%\GeneratedReports\VNS-OpenCover-Report.xml"

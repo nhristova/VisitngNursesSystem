@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Web.Mvc;
+using TestStack.FluentMVCTesting;
 using VNS.Services.Contracts;
 using VNS.Web.Controllers;
 
@@ -23,6 +24,19 @@ namespace VNS.Web.Tests.Controllers.HomeControllerTests
 
                 // Assert
                 Assert.AreEqual("Helping nurses help families with babies.", result.ViewBag.Message);
+            }
+
+            [TestMethod]
+            public void RenderDefaultView_WhenCalled()
+            {
+                // Arrange
+                var visitServiceMock = new Mock<IVisitsService>();
+                HomeController controller = new HomeController(visitServiceMock.Object);
+
+                // Act & Assert
+                controller
+                    .WithCallTo(c => c.About())
+                    .ShouldRenderDefaultView();
             }
         }
     }

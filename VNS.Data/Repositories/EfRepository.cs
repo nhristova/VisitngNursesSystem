@@ -32,6 +32,11 @@ namespace VNS.Data.Repositories
             }
         }
 
+        public T GetById(Guid id)
+        {
+            return this.context.Set<T>().Find(id);
+        }
+
         public void Add(T entity)
         {
             DbEntityEntry entry = this.context.Entry(entity);

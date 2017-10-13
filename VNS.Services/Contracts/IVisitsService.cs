@@ -17,6 +17,6 @@ namespace VNS.Services.Contracts
 
         void Add(Visit visit);
 
-        Visit GetById(Guid id);
+        Visit GetById(Guid? id);
     }
 }

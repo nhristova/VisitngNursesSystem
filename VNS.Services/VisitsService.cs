@@ -33,10 +33,11 @@ namespace VNS.Services
             return this.visitRepo.All;
         }
 
-        public IEnumerable<Visit> GetPage(short page, short pageSize, string orderBy)
+        public IEnumerable<Visit> GetPage(short page = 1, short pageSize = 9, string orderBy = "CreatedOn")
         {
             // TODO: add different order types with if statements??
             // TODO: does returning a list slow app, if I call ToList() in service too ??
+            // TODO: add checks for zero and negative values
             var skipCount = (page - 1) * pageSize;
             var result = this.visitRepo
                 .All
@@ -60,12 +61,15 @@ namespace VNS.Services
             this.context.Commit();
         }
 
-        public Visit GetById(Guid id)
+        public Visit GetById(Guid? id)
         {
-            var result = this.visitRepo
-                .All
-                .SingleOrDefault(v => v.Id == id);
+            Visit result = null;
 
+            if (id.HasValue)
+            {
+                result = this.visitRepo
+                    .GetById(id.Value);
+            }
             return result;
         }
     }
