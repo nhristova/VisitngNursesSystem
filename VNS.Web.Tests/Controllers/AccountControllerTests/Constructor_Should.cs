@@ -1,12 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
-using VNS.Services.Contracts;
+using VNS.Auth.Contracts;
 using VNS.Web.Controllers;
 
 namespace VNS.Web.Tests.Controllers.AccountControllerTests
@@ -18,18 +14,18 @@ namespace VNS.Web.Tests.Controllers.AccountControllerTests
         public class Constructor_Should
         {
             [TestMethod]
-            public void CreateIControllerInstance_WhenParameterIsNotNull()
+            public void CreateControllerInstance_WhenNoParametersPassed()
             {
-                // TODO: complete
                 // Arrange
-                var usersServiceMock = new Mock<IFamiliesService>();
+                var userManager = new Mock<IUserService>();
+                var signInManager = new Mock<ISignInService>();
 
                 // Act
-                //var accountController = new AccountController(null, null);
+                var accountController = new AccountController();
 
                 // Assert
-                //Assert.IsNotNull(accountController);
-                //Assert.IsInstanceOfType(accountController, typeof(Controller));
+                Assert.IsNotNull(accountController);
+                Assert.IsInstanceOfType(accountController, typeof(Controller));
             }
 
             [TestMethod]

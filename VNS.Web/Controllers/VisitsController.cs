@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Web.Mvc;
+using VNS.Auth.Contracts;
 using VNS.Data.Models;
 using VNS.Services.Contracts;
 using VNS.Web.Models.Visits;
@@ -15,9 +16,9 @@ namespace VNS.Web.Controllers
 
         private readonly IMunicipalitiesService municipalitiesService;
         private readonly IVisitsService visitsService;
-        private readonly IUsersService usersService;
+        private readonly IUserService usersService;
 
-        public VisitsController(IVisitsService visitsService, IMunicipalitiesService municipalitiesService, IUsersService usersService)
+        public VisitsController(IVisitsService visitsService, IMunicipalitiesService municipalitiesService, IUserService usersService)
         {
             Guard.WhenArgument(visitsService, "visitsService").IsNull().Throw();
             Guard.WhenArgument(municipalitiesService, "municipalitiesService").IsNull().Throw();

@@ -7,6 +7,7 @@ using VNS.Services.Contracts;
 using VNS.Web.Controllers;
 using VNS.Web.Models.Visits;
 using Microsoft.AspNet.Identity.EntityFramework;
+using VNS.Auth.Contracts;
 
 namespace VNS.Web.Tests.Controllers.VisitsControllerTests
 {
@@ -21,7 +22,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
-                var usersServiceMock = new Mock<IUsersService>();
+                var usersServiceMock = new Mock<IUserService>();
 
                 var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
 
@@ -57,7 +58,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
-                var usersServiceMock = new Mock<IUsersService>();
+                var usersServiceMock = new Mock<IUserService>();
 
                 var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
 
@@ -78,7 +79,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
-                var usersServiceMock = new Mock<IUsersService>();
+                var usersServiceMock = new Mock<IUserService>();
 
                 var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
 
@@ -101,7 +102,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
-                var usersServiceMock = new Mock<IUsersService>();
+                var usersServiceMock = new Mock<IUserService>();
 
                 var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
 

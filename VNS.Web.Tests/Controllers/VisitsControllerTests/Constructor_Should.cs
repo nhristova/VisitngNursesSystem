@@ -2,6 +2,7 @@
 using Moq;
 using System;
 using System.Web.Mvc;
+using VNS.Auth.Contracts;
 using VNS.Services.Contracts;
 using VNS.Web.Controllers;
 
@@ -19,7 +20,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
-                var usersServiceMock = new Mock<IUsersService>();
+                var usersServiceMock = new Mock<IUserService>();
 
                 // Act
                 var visitsController = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);

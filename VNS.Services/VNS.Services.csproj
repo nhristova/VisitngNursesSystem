@@ -49,12 +49,10 @@
   <ItemGroup>
     <Compile Include="Contracts\IMunicipalitiesService.cs" />
     <Compile Include="Contracts\IService.cs" />
-    <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="Contracts\IVisitsService.cs" />
     <Compile Include="FamiliesService.cs" />
     <Compile Include="Contracts\IFamiliesService.cs" />
     <Compile Include="MunicipalitiesService.cs" />
-    <Compile Include="UsersService.cs" />
     <Compile Include="VisitsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

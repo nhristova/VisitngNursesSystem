@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using TestStack.FluentMVCTesting;
+using VNS.Auth.Contracts;
 using VNS.Data.Models;
 using VNS.Services.Contracts;
 using VNS.Web.Controllers;
@@ -24,7 +25,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
-                var usersServiceMock = new Mock<IUsersService>();
+                var usersServiceMock = new Mock<IUserService>();
 
                 municipalitiesServiceMock.Setup(m => m.GetAll()).Returns(new List<Municipality>());
 
@@ -44,7 +45,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
-                var usersServiceMock = new Mock<IUsersService>();
+                var usersServiceMock = new Mock<IUserService>();
 
                 var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
 

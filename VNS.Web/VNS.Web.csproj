@@ -192,10 +192,8 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FamiliesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -214,7 +212,6 @@
     <Compile Include="Models\Visits\VisitDetailsViewModel.cs" />
     <Compile Include="Models\Visits\VisitsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
     <Content Include="Content\images\duck.svg" />
     <Content Include="Content\images\girl-01.svg" />
     <Content Include="Content\images\nurse-logo.svg" />
@@ -321,6 +318,10 @@
     <Content Include="Content\scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VNS.Auth\VNS.Auth.csproj">
+      <Project>{7D94809C-0560-4C03-A494-FE13EE7F3072}</Project>
+      <Name>VNS.Auth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VNS.Data.Models\VNS.Data.Models.csproj">
       <Project>{79711143-7F87-43BE-9266-B387784E78C0}</Project>
       <Name>VNS.Data.Models</Name>
