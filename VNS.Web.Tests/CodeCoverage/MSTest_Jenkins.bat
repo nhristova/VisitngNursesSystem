@@ -1,13 +1,20 @@
+@ECHO off
 
-REM ======================================
-REM CREATE REPORT FOLDER
-REM ======================================
+ECHO ================================================================== 
+ECHO.
+ECHO                 CREATING REPORT FOLDER
+ECHO.
+ECHO ================================================================== 
+ECHO.
 
 mkdir "%WORKSPACE%\GeneratedReports"
 
-REM ======================================
-REM GENERATE OPENCOVER REPORT
-REM ======================================
+ECHO ================================================================== 
+ECHO.
+ECHO                 GENERATING OPENCOVER REPORT
+ECHO.
+ECHO ================================================================== 
+ECHO.
 
 "%WORKSPACE%\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe" ^
 -register:Path32 ^
@@ -18,17 +25,32 @@ REM ======================================
 -skipautoprops ^
 -output:"%WORKSPACE%\GeneratedReports\VNS-OpenCover-Report.xml"
 
-REM ======================================
-REM CONVERT OPENCOVER REPORT TO COBERTURA FORMAT
-REM ======================================
+ECHO ================================================================== 
+ECHO.
+ECHO             CONVERTING OPENCOVER REPORT TO COBERTURA FORMAT
+ECHO.
+ECHO ================================================================== 
+ECHO.
 
 "%WORKSPACE%\packages\OpenCoverToCoberturaConverter.0.2.6.0\tools\OpenCoverToCoberturaConverter.exe" ^
 -input:"%WORKSPACE%\GeneratedReports\VNS-OpenCover-Report.xml" -output:"%WORKSPACE%\GeneratedReports\VNS-Converted-Report.xml" -sources:"%WORKSPACE%"
 
-REM ======================================
-REM GENERATE REPORT WITH REPORT GENERATOR
-REM ======================================
+ECHO ================================================================== 
+ECHO.
+ECHO                 GENERATING REPORT WITH REPORT GENERATOR
+ECHO.
+ECHO ================================================================== 
+ECHO.
 
 "%WORKSPACE%\packages\ReportGenerator.3.0.2\tools\ReportGenerator.exe" ^
 -reports:"%WORKSPACE%\GeneratedReports\VNS-OpenCover-Report.xml" ^
 -targetdir:"%WORKSPACE%\GeneratedReports\ReportGenerator_Output"
+
+ECHO ================================================================== 
+ECHO.
+ECHO                SENDING REPORT TO COVERALLS
+ECHO.
+ECHO ================================================================== 
+ECHO.
+
+"%WORKSPACE%\packages\coveralls.io.1.4.2\tools\coveralls.net.exe" --opencover "%WORKSPACE%\GeneratedReports\VNS-OpenCover-Report.xml" -r OqaQOgths99GfAcSGTxoMZm21UdbkM6ut
