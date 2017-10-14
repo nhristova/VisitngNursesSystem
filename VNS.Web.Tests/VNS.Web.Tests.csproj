@@ -138,6 +138,10 @@
     <Compile Include="Controllers\VisitsControllerTests\Open_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
+    <Compile Include="Services\FamiliesServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\FamiliesServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\MunicipalitiesServiceTests\Constructor_Should.cs" />
+    <Compile Include="Services\MunicipalitiesServiceTests\GetAll_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Add_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\GetAll_Should.cs" />

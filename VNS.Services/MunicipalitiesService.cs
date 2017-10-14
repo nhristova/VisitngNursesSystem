@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Bytes2you.Validation;
+using System.Collections.Generic;
 using System.Linq;
 using VNS.Data.Models;
 using VNS.Data.Repositories;
@@ -12,6 +13,7 @@ namespace VNS.Services
 
         public MunicipalitiesService(IEfRepository<Municipality> municipalityRepo)
         {
+            Guard.WhenArgument(municipalityRepo, "municipalityRepo").IsNull().Throw();
             this.municipalityRepo = municipalityRepo;
         }
 

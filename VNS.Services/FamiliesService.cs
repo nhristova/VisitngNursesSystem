@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Bytes2you.Validation;
+using System.Linq;
 using VNS.Data.Models;
 using VNS.Data.Repositories;
 using VNS.Services.Contracts;
@@ -11,6 +12,7 @@ namespace VNS.Services
 
         public FamiliesService(IEfRepository<Family> familyRepo)
         {
+            Guard.WhenArgument(familyRepo, "familyRepo").IsNull().Throw();
             this.familyRepo = familyRepo;
         }
 

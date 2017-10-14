@@ -70,7 +70,7 @@ exit /b %errorlevel%
 -register:user ^
 -target:"%VS140COMNTOOLS%\..\IDE\mstest.exe" ^
 -targetargs:"/testcontainer:\"%~dp0..\..\VNS.Web.Tests\bin\Release\VNS.Web.Tests.dll\" /resultsfile:\"%~dp0vns-test-result.trx\"" ^
--filter:"+[VNS*]* -[VNS.Web.Tests]* -[VNS.Data*]*Migrations*" ^
+-filter:"+[VNS*]*  -[VNS.Data*]*Migrations*" ^
 -mergebyhash ^
 -skipautoprops ^
 -output:"%~dp0\GeneratedReports\VNS-OpenCover-Report.xml"
