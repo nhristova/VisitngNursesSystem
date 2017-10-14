@@ -70,7 +70,7 @@ Used technologies, frameworks and development techniques:
 	* :white_check_mark: Changed the standard theme and applied own web design and visual styles
 * :no_mouth: Use the standard **ASP.NET Identity System** for managing users and roles
 	* :no_mouth: Your registered users should have at least one of the two roles: **user** and **administrator**
-* :white_check_mark:  **AJAX form** communication in some parts of your application 
+* :white_check_mark:  **AJAX form** communication in 'open/edit visit details' functionality
     - (:no_mouth: :interrobang: SignalR)
 * :no_mouth: Use **caching** of data where it makes sense (e.g. starting page)
 * :no_mouth: Apply **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side)
@@ -82,7 +82,7 @@ Used technologies, frameworks and development techniques:
     * :partly_sunny: Data models - 40%
     * :partly_sunny: View models - 44%
 * :white_check_mark: :scream: Used **Dependency Inversion** principle and **Dependency Injection** technique following the best practices 
-* :white_check_mark: :neckbeard: :ambulance: :sob: :scream: Integrated app with a Continuous Integration server (**Jenkins AND AppVeyor**) - configured unit tests to run on each commit to master branch 
+* :white_check_mark: :neckbeard: :ambulance: :sob: :scream: Integrated app with a Continuous Integration server (**Jenkins AND AppVeyor**) - configured unit tests to run on each commit to master branch and send code coverage report to CoverAlls
 * :no_mouth: **Documentation** of the project and project architecture (as `.md` file, including screenshots)
 
 ### Optional Requirements (bonus points) :sleeping:

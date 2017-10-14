@@ -8,14 +8,17 @@ namespace VNS.Web.App_Start
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
+    using Microsoft.AspNet.Identity.Owin;
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
+    using System.Data.Entity;
     using Data;
     using Data.Repositories;
-    using System.Data.Entity;
-    using Services.Contracts;
     using Data.SaveContext;
+    using Services.Contracts;
+    using Auth;
+    using Auth.Contracts;
 
     public static class NinjectConfig 
     {
@@ -85,6 +88,9 @@ namespace VNS.Web.App_Start
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
             kernel.Bind<ISaveContext>().To<SaveContext>();
+
+            kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<SignInManager>());
+            kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().GetUserManager<UserManager>());
         }        
     }
 }
