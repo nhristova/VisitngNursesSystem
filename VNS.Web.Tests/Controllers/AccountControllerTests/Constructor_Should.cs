@@ -14,14 +14,14 @@ namespace VNS.Web.Tests.Controllers.AccountControllerTests
         public class Constructor_Should
         {
             [TestMethod]
-            public void CreateControllerInstance_WhenNoParametersPassed()
+            public void CreateControllerInstance_WhenPassedManagersAreNotNull()
             {
                 // Arrange
                 var userManager = new Mock<IUserService>();
                 var signInManager = new Mock<ISignInService>();
 
                 // Act
-                var accountController = new AccountController();
+                var accountController = new AccountController(userManager.Object, signInManager.Object);
 
                 // Assert
                 Assert.IsNotNull(accountController);
@@ -29,10 +29,23 @@ namespace VNS.Web.Tests.Controllers.AccountControllerTests
             }
 
             [TestMethod]
-            public void ThrowArgumentNullException_WhenParametersAreNull()
+            public void ThrowArgumentNullException_WhenPassedUserManagerIsNull()
             {
+                // Arrange
+                var signInManager = new Mock<ISignInService>();
+
+                // Act & Assert
+                Assert.ThrowsException<ArgumentNullException>(() => new AccountController(null, signInManager.Object));
+            }
+
+            [TestMethod]
+            public void ThrowArgumentNullException_WhenPassedSignInManagerIsNull()
+            {
+                // Act
+                var userManager = new Mock<IUserService>();
+
                 // Arrange & Act & Assert
-                Assert.ThrowsException<ArgumentNullException>(() => new AccountController(null, null));
+                Assert.ThrowsException<ArgumentNullException>(() => new AccountController(userManager.Object, null));
             }
         }
     }

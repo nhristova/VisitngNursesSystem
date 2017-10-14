@@ -121,6 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\ForgotPassword_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\LogIn_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\Register_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\ResetPassword_Should.cs" />
     <Compile Include="Controllers\FamiliesControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\FamiliesControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\About_Should.cs" />
@@ -150,6 +154,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VNS.Auth\VNS.Auth.csproj">
+      <Project>{7d94809c-0560-4c03-a494-fe13ee7f3072}</Project>
+      <Name>VNS.Auth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VNS.Data.Models\VNS.Data.Models.csproj">
       <Project>{79711143-7f87-43be-9266-b387784e78c0}</Project>
       <Name>VNS.Data.Models</Name>

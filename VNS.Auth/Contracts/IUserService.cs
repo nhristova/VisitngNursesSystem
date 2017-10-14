@@ -10,6 +10,8 @@ namespace VNS.Auth.Contracts
     {
         User GetByName(string userName);
 
+        Task<IdentityResult> CreateAsync(User user);
+
         Task<IdentityResult> CreateAsync(User user, string password);
 
         Task<User> FindByNameAsync(string userName);
