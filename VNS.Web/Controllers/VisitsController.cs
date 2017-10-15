@@ -78,6 +78,7 @@ namespace VNS.Web.Controllers
         [Authorize]
         public ActionResult Edit(Guid id)
         {
+            // TODO: Check for null
             var visit = this.visitsService.GetById(id);
             var vm = new VisitDetailsViewModel(visit);
 
@@ -131,7 +132,7 @@ namespace VNS.Web.Controllers
             {
                 Date = visit.Date,
                 Description = visit.Description,
-                Nurse = this.usersService.GetByName(visit.NurseName)
+                Nurse = this.usersService.GetByUserName(visit.NurseName)
             };
 
             this.visitsService.Add(v);

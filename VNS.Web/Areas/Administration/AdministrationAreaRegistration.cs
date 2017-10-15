@@ -19,8 +19,8 @@ namespace VNS.Web.Areas.Administration
 
             context.MapRoute(
                 name: "Administration_default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional },
+                url: "{controller}/{action}/{username}",
+                defaults: new { action = "Index", username = "default" },
                 constraints: new { controller = "(Admin|Addresses|Users)" }
             );
         }

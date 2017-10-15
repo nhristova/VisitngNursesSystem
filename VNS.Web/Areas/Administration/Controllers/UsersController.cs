@@ -23,21 +23,26 @@ namespace VNS.Web.Areas.Administration.Controllers
             this.pageService = pageService;
         }
 
-        public ActionResult Details(Guid? id)
+        public ActionResult Details(string username)
         {
-            if(id == null)
+            if(username == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            // TODO find
-            var visit = "";
-            if (visit == null)
+            if(username == "default")
+            {
+                // TODO no such user redirect or??
+            }
+            // Find in database
+            var user = this.usersService.GetByUserName(username); ;
+            // TODO do something if user not found
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            // TODO convert to view
-            return View(visit);
+            // Convert data to view model
+            var vm = new UserRowViewModel(user);
+            return View(vm);
         }
 
         public ActionResult Add()
@@ -51,26 +56,30 @@ namespace VNS.Web.Areas.Administration.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO: Call user create method
+                // TODO: Call user create method??
                 return RedirectToAction("Index");
             }
 
             return View(user);
         }
 
-        public ActionResult Edit(Guid? id)
+        public ActionResult Edit(string username)
         {
-            if (id == null)
+            // TODO check should be for the default value from the route mapping
+            if (username == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // TODO: Find
-            var user = (User)null;
+            // Find in database
+            var user = this.usersService.GetByUserName(username);
+            // TODO do something if user not found
             if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            // Convert data to view model
+            var vm = new UserRowViewModel(user);
+            return View(vm);
         }
 
         [HttpPost]

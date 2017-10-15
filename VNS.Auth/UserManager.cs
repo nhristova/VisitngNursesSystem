@@ -25,13 +25,15 @@ namespace VNS.Auth
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<User>(manager)
             {
-                AllowOnlyAlphanumericUserNames = false,
+                // TODO: changed to true, check where it's set, update models, add client-side validation
+                AllowOnlyAlphanumericUserNames = true,
                 RequireUniqueEmail = true
             };
 
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
+                // TODO: return to true
                 RequiredLength = 6,
                 RequireNonLetterOrDigit = false,
                 RequireDigit = false,
@@ -66,7 +68,7 @@ namespace VNS.Auth
             return manager;
         }
 
-        public User GetByName(string userName)
+        public User GetByUserName(string userName)
         {
             var user = UserManagerExtensions.FindByName(this, userName);
 

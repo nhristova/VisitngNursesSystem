@@ -20,21 +20,26 @@ namespace VNS.Web.Areas.Administration.Models
             this.LastName = user.LastName;
             this.IsDeleted = user.IsDeleted;
             this.Email = user.Email;
+            this.UserName = user.UserName;
             this.UserRoles = user.Roles.Select(r => r.RoleId).ToList();
             // TODO: implement
             this.FamiliesCount = 0;
             this.VisitsCount = 0;
         }
 
+        // TODO add validation
         public string Id { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
         
-        [Display(Name = "Deactivated")]
+        [Display(Name = "Deactivate")]
         public bool IsDeleted { get; set; }
 
         public string Email { get; set; }
+
+        public string UserName { get; set; }
 
         public ICollection<string> UserRoles { get; set; }
 

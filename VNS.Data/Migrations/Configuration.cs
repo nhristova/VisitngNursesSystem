@@ -9,7 +9,8 @@ namespace VNS.Data.Migrations
 {
     public sealed class Configuration : DbMigrationsConfiguration<MsSqlDbContext>
     {
-        private const string AdministratorUserName = "admin@vns.com";
+        private const string AdministratorUserName = "admin";
+        private const string AdministratorEmail = "admin@vns.com";
         private const string AdministratorPassword = "123456";
 
         public Configuration()
@@ -46,7 +47,7 @@ namespace VNS.Data.Migrations
                 var user = new User
                 {
                     UserName = AdministratorUserName,
-                    Email = AdministratorUserName,
+                    Email = AdministratorEmail,
                     EmailConfirmed = true,
                     CreatedOn = DateTime.Now
                 };

@@ -8,7 +8,7 @@ namespace VNS.Auth.Contracts
 {
     public interface IUserService : IDisposable
     {
-        User GetByName(string userName);
+        User GetByUserName(string userName);
 
         Task<IdentityResult> CreateAsync(User user);
 

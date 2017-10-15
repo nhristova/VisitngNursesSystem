@@ -51,7 +51,7 @@ namespace VNS.Web.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -128,7 +128,7 @@ namespace VNS.Web.Controllers
             if (ModelState.IsValid)
             {
                 var user = new User {
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     Email = model.Email,
                     // TODO: Check if CreatedOn can be set in data layer
                     // TODO: consider extracting user creation to UserService

@@ -1,11 +1,11 @@
 ﻿@using VNS.Web.Areas.Administration.Models
 @model UserRowViewModel
 @{ 
-    var name = String.IsNullOrEmpty(Model.FirstName) ?  Model.Email : Model.FirstName;
+    var name = String.IsNullOrEmpty(Model.FirstName) ?  Model.UserName : Model.FirstName;
 }
 <tr>
     <td>
-        @Html.ActionLink(name, "Details", new { id = Model.Id })
+        @Html.ActionLink(name, "Details", "Users", new { userName = Model.UserName })
     </td>
     <td>
         @Html.DisplayFor(u => Model.LastName)
@@ -26,7 +26,7 @@
         @Html.DisplayFor(u => Model.IsDeleted)
     </td>
     <td class="text-center">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" }) 
-        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-sm" })
+        @Html.ActionLink("Edit", "Edit", "Users", routeValues: new { username = Model.UserName } , htmlAttributes: new { @class = "btn btn-warning btn-sm" }) 
+        @Html.ActionLink("Delete", "Delete", new { username = Model.UserName }, new { @class = "btn btn-danger btn-sm" })
     </td>
 </tr>

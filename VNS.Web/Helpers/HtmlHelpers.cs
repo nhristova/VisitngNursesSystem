@@ -12,9 +12,21 @@ namespace VNS.Web.Helpers
             var routeAction = routeData.Values["action"].ToString();
             var routeControl = routeData.Values["controller"].ToString();
 
-            if (control.ToLower() == routeControl.ToLower())// && action.ToLower() == routeAction.ToLower())
+            // In case of Home, want to check the action too
+            if (control == "Home" || control == "Account")
             {
-                return "active";
+                if (control.ToLower() == routeControl.ToLower() && action.ToLower() == routeAction.ToLower())
+                {
+                    return "active";
+                }
+            }
+            // In case of other controllers, only want to check the controller
+            else 
+            {
+                if (control.ToLower() == routeControl.ToLower())
+                {
+                    return "active";
+                }
             }
 
             return "";
