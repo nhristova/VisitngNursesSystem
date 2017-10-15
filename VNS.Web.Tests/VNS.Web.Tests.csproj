@@ -142,11 +142,12 @@
     <Compile Include="Services\FamiliesServiceTests\GetAll_Should.cs" />
     <Compile Include="Services\MunicipalitiesServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\MunicipalitiesServiceTests\GetAll_Should.cs" />
+    <Compile Include="Services\PageServiceTests\Count_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Add_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Constructor_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\GetAll_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\GetById_Should.cs" />
-    <Compile Include="Services\VisitsServiceTests\GetPage_Should.cs" />
+    <Compile Include="Services\PageServiceTests\GetPage_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Update_Should.cs" />
   </ItemGroup>
   <ItemGroup>

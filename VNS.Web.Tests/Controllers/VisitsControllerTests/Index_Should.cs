@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -26,10 +25,11 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
                 municipalitiesServiceMock.Setup(m => m.GetAll()).Returns(new List<Municipality>());
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 // Act
                 var result = controller.Index();
@@ -46,8 +46,9 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 var municipalities = new List<Municipality>()
                 {

@@ -1,7 +1,5 @@
 ﻿using Bytes2you.Validation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using VNS.Data.Models;
 using VNS.Data.Repositories;
 using VNS.Data.SaveContext;
@@ -22,23 +20,9 @@ namespace VNS.Services
             this.context = context;
         }
 
-        public int Count
-        {
-            get
-            {
-                return this.visitRepo.All.Count();
-            }
-        }
-
-        // TODO: Think how to return something other than IQueryable
-        public IQueryable<Visit> GetAll()
-        {
-            return this.visitRepo.All;
-        }
-
         public void Update(Visit visit)
         {
-            // TODO need this?
+            // TODO need this? 
             Guard.WhenArgument(visit, "visit").IsNull().Throw();
 
             this.visitRepo.Update(visit);

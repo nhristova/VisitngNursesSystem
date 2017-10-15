@@ -22,11 +22,12 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
-                
-                visitsServiceMock.Setup(vs => vs.GetPage(It.IsAny<short>(), It.IsAny<short>(), It.IsAny<string>())).Returns(new List<Visit>());
-                visitsServiceMock.Setup(vs => vs.Count).Returns(5);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
+
+                pageServiceMock.Setup(vs => vs.GetPage(It.IsAny<short>(), It.IsAny<short>(), It.IsAny<string>())).Returns(new List<Visit>());
+                pageServiceMock.Setup(vs => vs.Count).Returns(5);
 
                 // Act & Assert
                 controller
@@ -41,17 +42,18 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
-                visitsServiceMock.Setup(vs => vs.GetPage(It.IsAny<short>(), It.IsAny<short>(), It.IsAny<string>())).Returns(new List<Visit>());
-                visitsServiceMock.Setup(vs => vs.Count).Returns(5);
+                pageServiceMock.Setup(vs => vs.GetPage(It.IsAny<short>(), It.IsAny<short>(), It.IsAny<string>())).Returns(new List<Visit>());
+                pageServiceMock.Setup(vs => vs.Count).Returns(5);
 
                 // Act
                 controller.List();
 
                 // Assert
-                visitsServiceMock.Verify(vs => vs.GetPage(It.IsAny<short>(), It.IsAny<short>(), It.IsAny<string>()), Times.Once());
+                pageServiceMock.Verify(vs => vs.GetPage(It.IsAny<short>(), It.IsAny<short>(), It.IsAny<string>()), Times.Once());
             }
         }
     }

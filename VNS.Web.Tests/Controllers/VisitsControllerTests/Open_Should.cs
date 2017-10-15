@@ -24,8 +24,9 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 var testId = Guid.NewGuid();
                 var visitModel = new Visit()
@@ -55,29 +56,21 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
             }
 
             [TestMethod]
-            public void RenderVisitDetailsPartialViewWithNullViewModel_WhenPassedIdDoesntExist()
+            public void ThrowsArgumentNullException_WhenPassedIdDoesntExist()
             {
                 // Arrange
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 var testId = Guid.NewGuid();
                 visitsServiceMock.Setup(v => v.GetById(It.IsAny<Guid>())).Returns((Visit)null);
 
                 // Act & Assert
-                controller
-                    .WithCallTo(c => c.Open(testId))
-                    .ShouldRenderPartialView("_VisitDetailsPartial")
-                    .WithModel<VisitDetailsViewModel>(vm =>
-                    {
-                        Assert.IsTrue(vm.Date == default(DateTime));
-                        Assert.IsNull(vm.Description);
-                        Assert.IsNull(vm.NurseName);
-                        Assert.IsNull(vm.LastModifiedOn);
-                    });
+                Assert.ThrowsException<ArgumentNullException>(() => controller.Open(testId));
             }
 
             // TODO: Testcase when  passed Id is null, currently not nullable. Consider why it makes sense to be nullable.

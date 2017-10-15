@@ -22,8 +22,9 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 // Act & Assert
                 controller
@@ -38,8 +39,9 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 controller.ModelState.AddModelError("isValid", "view model not valid");
 
@@ -59,8 +61,9 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 var visitDetailsModel = new VisitDetailsViewModel();
 
@@ -80,8 +83,9 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 var visitsServiceMock = new Mock<IVisitsService>();
                 var municipalitiesServiceMock = new Mock<IMunicipalitiesService>();
                 var usersServiceMock = new Mock<IUserService>();
+                var pageServiceMock = new Mock<IPageService<Visit>>();
 
-                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object);
+                var controller = new VisitsController(visitsServiceMock.Object, municipalitiesServiceMock.Object, usersServiceMock.Object, pageServiceMock.Object);
 
                 var visitDetailsModel = new VisitDetailsViewModel();
 

@@ -150,8 +150,8 @@ namespace VNS.Web.Controllers
                 .GetPage(page, pageSize, orderBy)
                 .Select(v => new VisitCardViewModel(v));
 
-            var pages = this.visitsService.Count / pageSize;
-            pages = this.visitsService.Count % pageSize == 0 ? pages : ++pages;
+            var pages = this.pageService.Count / pageSize;
+            pages = this.pageService.Count % pageSize == 0 ? pages : ++pages;
             
             var vm = new VisitsViewModel()
             {
