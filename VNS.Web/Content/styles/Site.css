@@ -73,6 +73,15 @@ textarea {
     max-height: 60px;
 }
 
+.vns-page-dropbox {
+    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+.vns-inline-form{
+    display: inline-block;
+}
+
 /* ------ */
 /* Modals */
 /* ------ */

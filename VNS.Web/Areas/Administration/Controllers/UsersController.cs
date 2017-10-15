@@ -124,7 +124,7 @@ namespace VNS.Web.Areas.Administration.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult List(short page = 1, short pageSize = 5, string orderBy = "CreatedOn")
+        public ActionResult List(short page = 1, short pageSize = 6, string orderBy = "CreatedOn")
         {
             var pagedUsers = this.pageService
                 .GetPage(page, pageSize, orderBy)

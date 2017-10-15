@@ -17,8 +17,9 @@ namespace VNS.Web.Controllers
         private readonly IMunicipalitiesService municipalitiesService;
         private readonly IVisitsService visitsService;
         private readonly IUserService usersService;
+        private readonly IPageService<Visit> pageService;
 
-        public VisitsController(IVisitsService visitsService, IMunicipalitiesService municipalitiesService, IUserService usersService)
+        public VisitsController(IVisitsService visitsService, IMunicipalitiesService municipalitiesService, IUserService usersService, IPageService<Visit> pageService)
         {
             Guard.WhenArgument(visitsService, "visitsService").IsNull().Throw();
             Guard.WhenArgument(municipalitiesService, "municipalitiesService").IsNull().Throw();
@@ -26,6 +27,7 @@ namespace VNS.Web.Controllers
             this.visitsService = visitsService;
             this.municipalitiesService = municipalitiesService;
             this.usersService = usersService;
+            this.pageService = pageService;
         }
 
         public ActionResult Index(short page = 1, short pageSize = 9, string orderBy = "CreatedOn")
@@ -142,9 +144,9 @@ namespace VNS.Web.Controllers
             return Redirect("Index");
         }
 
-        public ActionResult List(short page = 1, short pageSize = 9, string orderBy = "CreatedOn")
+        public ActionResult List(short page = 1, short pageSize = 6, string orderBy = "CreatedOn")
         {
-            var pagedVisits = this.visitsService
+            var pagedVisits = this.pageService
                 .GetPage(page, pageSize, orderBy)
                 .Select(v => new VisitCardViewModel(v));
 

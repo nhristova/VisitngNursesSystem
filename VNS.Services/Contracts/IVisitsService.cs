@@ -11,8 +11,6 @@ namespace VNS.Services.Contracts
 
         IQueryable<Visit> GetAll();
 
-        IEnumerable<Visit> GetPage(short page, short size, string orderBy);
-
         void Update(Visit visit);
 
         void Add(Visit visit);

@@ -21,8 +21,12 @@
 
 <hr />
 
-<section id="vns-users-table" class="row">
+<section id="vns-cards-content" class="row">
 
     @Html.Action("List", "Users")
 
 </section>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryajax")
+}

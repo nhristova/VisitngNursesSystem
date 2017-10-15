@@ -1,46 +1,77 @@
 ﻿@* To use in view, pass only the pageCount from parent, not the whole model *@
+@* The controller must have a List action method *@
 
 @{
     // variable declared for clarity
     var pageCount = Model;
+
+    string controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+    string currentPage = Context.Request.QueryString["page"];
+    string currentPageSize = Context.Request.QueryString["pageSize"];
+    currentPage = currentPage != null ? currentPage : "1";
+    currentPageSize = currentPageSize != null ? currentPageSize : "6";
+    bool isFirstPage = currentPage == "1" ? true : false;
+    bool isLastPage = currentPage == pageCount.ToString() ? true : false;
+    string isPageActive = "";
+
+    var list = new SelectList(new List<int>() { 6, 12, 24 }, currentPageSize);
 }
 
-<ul class="pagination pagination-sm">
-    @{
-        string currentPage = Context.Request.QueryString["page"];
-        currentPage = currentPage != null ? currentPage : "1";
-        bool firstPage = currentPage == "1" ? true : false;
-        bool lastPage = currentPage == pageCount.ToString() ? true : false;
-        string isPageActive = "";
-    }
-    @if (!firstPage)
-    {
-        <li>
-            @Ajax.ActionLink("«", "List", "Visits",
-                new { page = 1 },
-                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-cards-content" },
-                null)
-        </li>
-    }
 
-    @for (var i = 1; i <= pageCount; i++)
+<div class="col-md-4 text-left">
+    Show &nbsp;
+    @using (Ajax.BeginForm("List", controllerName,
+            new { page = "1" },
+            new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "vns-cards-content"
+            },
+            new { @class = "small vns-inline-form" }
+            ))
     {
-        isPageActive = currentPage == i.ToString() ? "active" : "";
+        @Html.DropDownList("pageSize", list,
+                new { @class = "form-control input-sm vns-page-dropbox", onchange = "$(this.form).submit();" })
+    }
+    results per page
+</div>
 
-        <li class="@isPageActive">
-            @Ajax.ActionLink(i.ToString(), "List", "Visits",
-                new { page = i },
+<div class="col-md-4">
+    <ul class="pagination pagination-sm">
+
+
+        @if (!isFirstPage)
+        {
+            <li>
+                @Ajax.ActionLink("«", "List", controllerName,
+                new { page = "1", pageSize = currentPageSize },
                 new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-cards-content" },
                 null)
-        </li>
-    }
-    @if (!lastPage)
-    {
-        <li>
-            @Ajax.ActionLink("»", "List", "Visits",
-                new { page = pageCount },
+            </li>
+        }
+
+        @for (var i = 1; i <= pageCount; i++)
+            {
+                isPageActive = currentPage == i.ToString() ? "active" : "";
+
+            <li class="@isPageActive">
+                @Ajax.ActionLink(i.ToString(), "List", controllerName,
+                new { page = i, pageSize = currentPageSize },
                 new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-cards-content" },
                 null)
-        </li>
-    }
-</ul>
+            </li>
+        }
+
+        @if (!isLastPage)
+        {
+            <li>
+                @Ajax.ActionLink("»", "List", controllerName,
+                new { page = pageCount, pageSize = currentPageSize },
+                new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "vns-cards-content" },
+                null)
+            </li>
+        }
+    </ul>
+</div>
+

@@ -24,10 +24,11 @@ namespace VNS.Services
             }
         }
 
-        public IEnumerable<T> GetPage(short page = 1, short pageSize = 9, string orderBy = "CreatedOn")
+        public IEnumerable<T> GetPage(short page = 1, short pageSize = 6, string orderBy = "CreatedOn")
         {
+            // TODO: add different sort types with if statements??
             page = page > 0 ? page : (short)1;
-            pageSize = pageSize > 0 ? pageSize : (short)9;
+            pageSize = pageSize > 0 ? pageSize : (short)6;
 
             var skipCount = (page - 1) * pageSize;
             var result = this.repo
