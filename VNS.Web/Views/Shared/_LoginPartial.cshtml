@@ -1,4 +1,5 @@
-﻿@using VNS.Web.Helpers
+﻿@using Microsoft.AspNet.Identity
+@using VNS.Web.Helpers
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -6,17 +7,26 @@
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="/manage">
-                    <i class="fa fa-user fa-2x fa-fw hidden-md hidden-lg" title="Manage" data-toggle="tooltip" data-placement="bottom"></i>
-                    <span class="hidden-sm">Account</span>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                    <i class="fa fa-user fa-2x fa-fw hidden-md hidden-lg" title="Account" data-toggle="tooltip" data-placement="bottom"></i>
+                    <span class="hidden-sm">@User.Identity.GetUserName()</span>
+                    <span class="caret"></span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/manage">Manage</a></li>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                            @* TODO: remove *@
+                            @*<i class="fa fa-sign-out fa-2x fa-fw hidden-md hidden-lg" title="Log off" data-toggle="tooltip" data-placement="bottom"></i>*@
+                            @*<span class="hidden-sm">Log off</span>*@
+                            Log off
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <button type="submit" class="btn btn-link">
-                    <i class="fa fa-sign-out fa-2x fa-fw hidden-md hidden-lg" title="Log off" data-toggle="tooltip" data-placement="bottom"></i>
-                    <span class="hidden-sm">Log off</span>
-                </button>
+
             </li>
         </ul>
     }
@@ -38,3 +48,4 @@ else
         </li>
     </ul>
 }
+

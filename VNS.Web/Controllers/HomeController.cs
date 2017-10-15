@@ -22,6 +22,7 @@ namespace VNS.Web.Controllers
             return View();
         }
 
+        [Route("About")]
         public ActionResult About()
         {
             ViewBag.Message = "Helping nurses help families with babies.";
@@ -29,6 +30,7 @@ namespace VNS.Web.Controllers
             return View();
         }
 
+        [Route("Help")]
         public ActionResult Help()
         {
             ViewBag.Message = "Documentation page.";

@@ -1,0 +1,32 @@
+﻿@using VNS.Web.Areas.Administration.Models
+@model UserRowViewModel
+@{ 
+    var name = String.IsNullOrEmpty(Model.FirstName) ?  Model.Email : Model.FirstName;
+}
+<tr>
+    <td>
+        @Html.ActionLink(name, "Details", new { id = Model.Id })
+    </td>
+    <td>
+        @Html.DisplayFor(u => Model.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(u => Model.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(u => Model.UserRoles)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(u => Model.FamiliesCount)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(u => Model.VisitsCount)
+    </td>
+    <td class="text-center">
+        @Html.DisplayFor(u => Model.IsDeleted)
+    </td>
+    <td class="text-center">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" }) 
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-sm" })
+    </td>
+</tr>

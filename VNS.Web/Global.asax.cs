@@ -11,7 +11,9 @@ namespace VNS.Web
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            // Moved to RouteConfig - issue with attribute routing
+            // AreaRegistration.RegisterAllAreas();
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

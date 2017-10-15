@@ -3,7 +3,7 @@
     string home = "Home";
     string families = "Families";
     string visits = "Visits";
-    string administration = "Administration";
+    string admin = "Admin";
     string help = "Help";
     string about = "About";
 }
@@ -37,24 +37,34 @@
                     <span class="hidden-sm">&nbsp; @visits</span>
                 </a>
             </li>
-            <li class='@Html.IsActive(administration, "Index")'>
-                <a href="/@administration.ToLower()">
-                    <i class="fa fa-key fa-2x fa-fw hidden-md hidden-lg" title=@administration data-toggle="tooltip" data-placement="bottom"></i>
-                    <span class="hidden-sm">&nbsp; @administration</span>
+            <li class='@Html.IsActive(admin, "Index")'>
+                <a href="/@admin.ToLower()">                    
+                    <i class="fa fa-key fa-2x fa-fw hidden-md hidden-lg" title=@admin data-toggle="tooltip" data-placement="bottom"></i>
+                    <span class="hidden-sm">&nbsp; Administration</span>
                 </a>
             </li>
             <li class='@Html.IsActive(home, help)'>
-                <a href="/@home.ToLower()/@help.ToLower()">
+                <a href="/@help.ToLower()">
                     <i class="fa fa-question fa-2x fa-fw hidden-md hidden-lg" title=@help data-toggle="tooltip" data-placement="bottom"></i>
                     <span class="hidden-sm">&nbsp; @help</span>
                 </a>
             </li>
             <li class='@Html.IsActive(home, about)'>
-                <a href="/@home.ToLower()/@about.ToLower()">
+                <a href="/@about.ToLower()">
                     <i class="fa fa-info fa-2x fa-fw hidden-md hidden-lg" title=@about data-toggle="tooltip" data-placement="bottom"></i>
                     <span class="hidden-sm">&nbsp; @about</span>
                 </a>
             </li>
+
+            @* Alternative way to generate links with html helper*@
+            
+            @*@Html.LinkIsActiveLi("Home", "Index", "fa-home")
+            @Html.LinkIsActiveLi("Families", "Index", "fa-users")
+            @Html.LinkIsActiveLi("Visits", "Index", "fa-calendar")
+            @Html.LinkIsActiveLi("Administration", "Index", "fa-key")
+            @Html.LinkIsActiveLi("Help", "Index", "fa-question")
+            @Html.LinkIsActiveLi("About", "Index", "fa-info")*@
+
         </ul>
         @Html.Partial("_LoginPartial")
     </div>

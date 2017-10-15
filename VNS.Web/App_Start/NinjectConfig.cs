@@ -19,6 +19,8 @@ namespace VNS.Web.App_Start
     using Services.Contracts;
     using Auth;
     using Auth.Contracts;
+    using Services;
+    using Data.Models.Contracts;
 
     public static class NinjectConfig 
     {
@@ -91,6 +93,7 @@ namespace VNS.Web.App_Start
 
             kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<SignInManager>());
             kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().GetUserManager<UserManager>());
+            
         }        
     }
 }

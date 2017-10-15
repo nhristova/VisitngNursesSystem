@@ -1,0 +1,42 @@
+﻿@using VNS.Web.Areas.Administration.Models
+@model UsersViewModel
+
+@{
+    var user = Model.Users.First();
+}
+
+<table class="table table-striped table-hover table-responsive table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => user.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => user.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => user.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => user.UserRoles)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(m => user.FamiliesCount)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(m => user.VisitsCount)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(m => user.IsDeleted)
+        </th>
+        <th class="text-center">
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var u in Model.Users)
+    {
+        @Html.Partial("_UserRowPartial", u)
+    }
+
+</table>
+

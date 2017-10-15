@@ -1,22 +1,24 @@
 ﻿@using VNS.Web.Models.Visits
 @model VisitsViewModel
 
-@if (Model.Visits.Count() == 0)
+@if (Model.Visits.Count() > 0)
+{
+    <div class="row text-center">
+        @Html.Partial("_PaginationPartial", Model.PageCount)
+    </div>
+
+    <div class="row vns-valign">
+        @foreach (var visit in Model.Visits)
+        {
+            @Html.Partial("_VisitCardPartial", visit)
+        }
+    </div>
+
+    <div class="row text-center">
+        @Html.Partial("_PaginationPartial", Model.PageCount)
+    </div>
+}
+else
 {
     <p class="text-center">No visits to show</p>
 }
-
-<div class="row text-center">
-    @Html.Partial("_PaginationPartial", Model.PageCount)
-</div>
-
-<div class="row vns-valign">
-    @foreach (var visit in Model.Visits)
-    {
-        @Html.Partial("_VisitCardPartial", visit)
-    }
-</div>
-
-<div class="row text-center">
-    @Html.Partial("_PaginationPartial", Model.PageCount)
-</div>
