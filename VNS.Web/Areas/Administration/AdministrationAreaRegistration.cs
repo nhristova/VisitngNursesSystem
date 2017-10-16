@@ -21,7 +21,7 @@ namespace VNS.Web.Areas.Administration
                 name: "Administration_default",
                 url: "{controller}/{action}/{username}",
                 defaults: new { action = "Index", username = "default" },
-                constraints: new { controller = "(Admin|Addresses|Users)" }
+                constraints: new { controller = "(Admin|Users)" }
             );
         }
     }

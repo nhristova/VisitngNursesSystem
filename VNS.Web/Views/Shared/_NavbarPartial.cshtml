@@ -37,12 +37,15 @@
                     <span class="hidden-sm">&nbsp; @visits</span>
                 </a>
             </li>
-            <li class='@Html.IsActive(admin, "Index")'>
-                <a href="/@admin.ToLower()">                    
-                    <i class="fa fa-key fa-2x fa-fw hidden-md hidden-lg" title=@admin data-toggle="tooltip" data-placement="bottom"></i>
-                    <span class="hidden-sm">&nbsp; Administration</span>
-                </a>
-            </li>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                <li class='@Html.IsActive(admin, "Index")'>
+                    <a href="/@admin.ToLower()">
+                        <i class="fa fa-key fa-2x fa-fw hidden-md hidden-lg" title=@admin data-toggle="tooltip" data-placement="bottom"></i>
+                        <span class="hidden-sm">&nbsp; Administration</span>
+                    </a>
+                </li>
+            }
             <li class='@Html.IsActive(home, help)'>
                 <a href="/@help.ToLower()">
                     <i class="fa fa-question fa-2x fa-fw hidden-md hidden-lg" title=@help data-toggle="tooltip" data-placement="bottom"></i>
@@ -57,13 +60,13 @@
             </li>
 
             @* Alternative way to generate links with html helper*@
-            
+
             @*@Html.LinkIsActiveLi("Home", "Index", "fa-home")
-            @Html.LinkIsActiveLi("Families", "Index", "fa-users")
-            @Html.LinkIsActiveLi("Visits", "Index", "fa-calendar")
-            @Html.LinkIsActiveLi("Administration", "Index", "fa-key")
-            @Html.LinkIsActiveLi("Help", "Index", "fa-question")
-            @Html.LinkIsActiveLi("About", "Index", "fa-info")*@
+                @Html.LinkIsActiveLi("Families", "Index", "fa-users")
+                @Html.LinkIsActiveLi("Visits", "Index", "fa-calendar")
+                @Html.LinkIsActiveLi("Administration", "Index", "fa-key")
+                @Html.LinkIsActiveLi("Help", "Index", "fa-question")
+                @Html.LinkIsActiveLi("About", "Index", "fa-info")*@
 
         </ul>
         @Html.Partial("_LoginPartial")

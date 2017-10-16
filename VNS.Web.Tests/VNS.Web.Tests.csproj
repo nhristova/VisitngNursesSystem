@@ -145,7 +145,6 @@
     <Compile Include="Services\PageServiceTests\Count_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Add_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Constructor_Should.cs" />
-    <Compile Include="Services\VisitsServiceTests\GetAll_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\GetById_Should.cs" />
     <Compile Include="Services\PageServiceTests\GetPage_Should.cs" />
     <Compile Include="Services\VisitsServiceTests\Update_Should.cs" />

@@ -1,11 +1,14 @@
 ﻿@using VNS.Web.Areas.Administration.Models
 @model UserRowViewModel
-@{ 
-    var name = String.IsNullOrEmpty(Model.FirstName) ?  Model.UserName : Model.FirstName;
+@{
+    var name = String.IsNullOrEmpty(Model.FirstName) ? Model.UserName : Model.FirstName;
 }
 <tr>
     <td>
-        @Html.ActionLink(name, "Details", "Users", new { userName = Model.UserName })
+        @Html.ActionLink(name, "Details", "Users", routeValues: new { userName = Model.UserName }, htmlAttributes: null)
+    </td>
+    <td>
+        @Html.DisplayFor(u => Model.FirstName)
     </td>
     <td>
         @Html.DisplayFor(u => Model.LastName)
@@ -14,7 +17,10 @@
         @Html.DisplayFor(u => Model.Email)
     </td>
     <td>
-        @Html.DisplayFor(u => Model.UserRoles)
+        @foreach (var role in Model.UserRoles)
+        {
+            <label class="label label-default">@role</label>
+        }
     </td>
     <td class="text-center">
         @Html.DisplayFor(u => Model.FamiliesCount)
@@ -23,10 +29,9 @@
         @Html.DisplayFor(u => Model.VisitsCount)
     </td>
     <td class="text-center">
-        @Html.DisplayFor(u => Model.IsDeleted)
+        @Helpers.UserStatusLabel(Model.IsDeleted)
     </td>
     <td class="text-center">
-        @Html.ActionLink("Edit", "Edit", "Users", routeValues: new { username = Model.UserName } , htmlAttributes: new { @class = "btn btn-warning btn-sm" }) 
-        @Html.ActionLink("Delete", "Delete", new { username = Model.UserName }, new { @class = "btn btn-danger btn-sm" })
+        @Html.ActionLink("Edit", "Edit", "Users", routeValues: new { username = Model.UserName }, htmlAttributes: new { @class = "btn btn-warning btn-sm" })
     </td>
 </tr>

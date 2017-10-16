@@ -32,6 +32,22 @@ namespace VNS.Web.Helpers
             return "";
         }
 
+       // public static MvcHtmlString Status(this HtmlHelper html, bool isDeleted)
+       // {
+
+       //     if(!isDeleted)
+       //{
+       //         Html.Label("Inactive", new { @class = "label label-default" })
+       //}
+       //else
+       //{
+       //         @Html.Label("Active", new { @class = "label label-success" })
+       //}
+
+
+       //     return MvcHtmlString.Create
+       // }
+
         /// <summary>
         /// Creates a li element with anchor tag, fa icon and text.  
         /// Checks if the current url mathes the a tag and sets li class to active.

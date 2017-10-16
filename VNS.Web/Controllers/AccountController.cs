@@ -134,7 +134,8 @@ namespace VNS.Web.Controllers
                     // TODO: consider extracting user creation to UserService
                     CreatedOn = DateTime.Now 
                 };
-                var result = await userManager.CreateAsync(user, model.Password);
+                // TODO switched from CreateAsync method to use one which adds user to role, check if ok
+                var result = userManager.CreateUser(user, model.Password);
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

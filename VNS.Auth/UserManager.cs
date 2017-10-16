@@ -6,6 +6,7 @@ using Microsoft.Owin;
 using VNS.Data.Models;
 using VNS.Data;
 using VNS.Auth.Contracts;
+using System.Collections.Generic;
 
 namespace VNS.Auth
 {
@@ -70,9 +71,53 @@ namespace VNS.Auth
 
         public User GetByUserName(string userName)
         {
-            var user = UserManagerExtensions.FindByName(this, userName);
+            var user = this.FindByName(userName);
 
             return user;
+        }
+
+        public IdentityResult CreateUser(User user, string password)
+        {
+            var result = this.Create(user, password);
+
+            if (result.Succeeded)
+            {
+                return this.AddToRole(user.Id, "User");
+            }
+
+            return result;
+        }
+
+        public IdentityResult MakeAdmin(string userId)
+        {
+            var result = this.FindById(userId);
+            if (result != null)
+            {
+                return this.AddToRole(userId, "Admin");
+            }
+            
+            return IdentityResult.Failed(); 
+        }
+
+        public IList<string> GetUserRoles(string userId)
+        {
+            IList<string> result = null;
+            if (userId != null)
+            {
+                 result = this.GetRoles(userId);
+            }
+
+            return result;
+        }
+
+        public IdentityResult AddRole(string userId, string role)
+        {
+            if (userId != null)
+            {
+                return this.AddToRole(userId, role);
+            }
+
+            return IdentityResult.Failed();
         }
     }    
 }

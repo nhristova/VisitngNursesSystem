@@ -35,12 +35,16 @@ namespace VNS.Data.Migrations
         {
             if (!context.Roles.Any())
             {
-                var roleName = "Admin";
-
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
-                var role = new IdentityRole { Name = roleName };
-                roleManager.Create(role);
+
+                var adminRoleName = "Admin";
+                var roleAdmin = new IdentityRole { Name = adminRoleName };
+                roleManager.Create(roleAdmin);
+
+                var userRoleName = "User";
+                var roleUser = new IdentityRole { Name = userRoleName };
+                roleManager.Create(roleUser);
 
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
@@ -53,7 +57,7 @@ namespace VNS.Data.Migrations
                 };
 
                 userManager.Create(user, AdministratorPassword);
-                userManager.AddToRole(user.Id, roleName);
+                userManager.AddToRole(user.Id, adminRoleName);
             }
         }
 

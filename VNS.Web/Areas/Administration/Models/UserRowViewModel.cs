@@ -21,7 +21,7 @@ namespace VNS.Web.Areas.Administration.Models
             this.IsDeleted = user.IsDeleted;
             this.Email = user.Email;
             this.UserName = user.UserName;
-            this.UserRoles = user.Roles.Select(r => r.RoleId).ToList();
+            this.UserRoles = new List<string>();
             // TODO: implement
             this.FamiliesCount = 0;
             this.VisitsCount = 0;
@@ -34,14 +34,14 @@ namespace VNS.Web.Areas.Administration.Models
 
         public string LastName { get; set; }
         
-        [Display(Name = "Deactivate")]
+        [Display(Name = "Status")]
         public bool IsDeleted { get; set; }
 
         public string Email { get; set; }
 
         public string UserName { get; set; }
 
-        public ICollection<string> UserRoles { get; set; }
+        public IList<string> UserRoles { get; set; }
 
         public int FamiliesCount { get; set; }
 

@@ -10,6 +10,13 @@ namespace VNS.Auth.Contracts
     {
         User GetByUserName(string userName);
 
+        IdentityResult CreateUser(User user, string password);
+
+        IdentityResult AddRole(string userId, string role);
+
+        IList<string> GetUserRoles(string userId);
+
+        //
         Task<IdentityResult> CreateAsync(User user);
 
         Task<IdentityResult> CreateAsync(User user, string password);

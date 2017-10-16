@@ -10,38 +10,38 @@ using VNS.Web.Areas.Administration.Models;
 
 namespace VNS.Web.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly IPageService<User> pageService;
         private readonly IUserService usersService;
 
-        public UsersController(IUserService usersService, IPageService<User> pageService)
+        public UsersController(IUserService userManager, IPageService<User> pageService)
         {
-            Guard.WhenArgument(usersService, "usersService").IsNull().Throw();
+            Guard.WhenArgument(userManager, "usersService").IsNull().Throw();
             Guard.WhenArgument(pageService, "pageService").IsNull().Throw();
-            this.usersService = usersService;
+            this.usersService = userManager;
             this.pageService = pageService;
         }
 
         public ActionResult Details(string username)
         {
-            if(username == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            if(username == "default")
+            if(username == "default" || username == null)
             {
                 // TODO no such user redirect or??
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             // Find in database
-            var user = this.usersService.GetByUserName(username); ;
-            // TODO do something if user not found
+            var user = this.usersService.GetByUserName(username);
+
             if (user == null)
             {
                 return HttpNotFound();
             }
+
             // Convert data to view model
-            var vm = new UserRowViewModel(user);
+            var vm = new UserDetailsViewModel(user);
+            vm.UserRoles = this.usersService.GetUserRoles(vm.Id);
             return View(vm);
         }
 
@@ -52,15 +52,28 @@ namespace VNS.Web.Areas.Administration.Controllers
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Add(UserRowViewModel user)
+        public ActionResult Add(UserDetailsViewModel userViewModel)
         {
+            
             if (ModelState.IsValid)
             {
                 // TODO: Call user create method??
+                var user = new User()
+                {
+                    UserName = userViewModel.UserName,
+                    Email = userViewModel.Email,
+                    FirstName = userViewModel.FirstName,
+                    LastName = userViewModel.LastName,
+                    PhoneNumber = userViewModel.PhoneNumber,
+                    CreatedOn = DateTime.Now
+                    
+                };
+                this.usersService.CreateUser(user, userViewModel.PasswordHash);
+
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(userViewModel);
         }
 
         public ActionResult Edit(string username)
@@ -78,13 +91,13 @@ namespace VNS.Web.Areas.Administration.Controllers
                 return HttpNotFound();
             }
             // Convert data to view model
-            var vm = new UserRowViewModel(user);
+            var vm = new UserDetailsViewModel(user);
             return View(vm);
         }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Edit(UserRowViewModel user)
+        public ActionResult Edit(UserDetailsViewModel user)
         {
             if (ModelState.IsValid)
             {
@@ -128,8 +141,15 @@ namespace VNS.Web.Areas.Administration.Controllers
         {
             var pagedUsers = this.pageService
                 .GetPage(page, pageSize, orderBy)
-                .Select(v => new UserRowViewModel(v));
+                .Select(v => new UserRowViewModel(v))
+                .ToList();
 
+            // TODO how to do this better, doesn't work for many users only for one, why??
+            foreach (var user in pagedUsers)
+            {
+                user.UserRoles = this.usersService.GetUserRoles(user.Id);
+            }
+            
             var pages = this.pageService.Count / pageSize;
             pages = this.pageService.Count % pageSize == 0 ? pages : ++pages;
 
@@ -140,6 +160,20 @@ namespace VNS.Web.Areas.Administration.Controllers
             };
 
             return this.PartialView("_UsersListPartial", vm);
+        }
+
+
+        //[HttpPost]
+        public ActionResult MakeAdmin(string userId)
+        {
+            //if(this.Request.IsAjaxRequest)
+            // TODO return something better
+            if (userId != null)
+            {
+                this.usersService.AddRole(userId, "Admin");
+                return Content("OK");
+            }
+            return Content("Id is null");
         }
     }
 }
