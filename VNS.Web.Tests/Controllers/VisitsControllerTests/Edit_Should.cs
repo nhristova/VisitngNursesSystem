@@ -32,7 +32,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                 {
                     Id = testId,
                     Date = new DateTime(2017, 10, 18),
-                    Nurse = new User() { UserName = "test" },                    
+                    UserName = "test",                    
                     Description = "Test description",
                 };
 
@@ -48,7 +48,7 @@ namespace VNS.Web.Tests.Controllers.VisitsControllerTests
                            Assert.AreEqual(visitModel.Date, vm.Date);
                            Assert.AreEqual(visitModel.Description, vm.Description);
                            Assert.AreEqual(visitModel.CreatedOn, vm.CreatedOn);
-                           Assert.AreEqual(visitModel.Nurse.UserName, vm.NurseName);
+                           Assert.AreEqual(visitModel.UserName, vm.NurseName);
                            Assert.IsNull(vm.LastModifiedOn);
                        });
             }

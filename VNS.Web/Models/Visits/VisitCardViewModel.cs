@@ -18,7 +18,7 @@ namespace VNS.Web.Models.Visits
         {
             this.Id = visit.Id;
             this.Date = visit.Date;
-            this.NurseName = visit.Nurse.UserName;
+            this.NurseName = visit.UserName;
             this.Description = visit.Description;
         }
 

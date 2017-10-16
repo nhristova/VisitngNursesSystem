@@ -13,7 +13,7 @@ namespace VNS.Data.Models
 
         public string LastName { get; set; }
 
-        public virtual User Nurse { get; set; }
+        public virtual string UserName { get; set; }
 
         public virtual ICollection<FamilyMember> Members { get; set; }
 

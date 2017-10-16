@@ -5,6 +5,8 @@ namespace VNS.Services.Contracts
 {
     public interface IVisitsService
     {
+        int Count { get; }
+
         void Update(Visit visit);
 
         void Add(Visit visit);

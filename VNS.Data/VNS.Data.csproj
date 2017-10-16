@@ -57,21 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201710071002297_Initial.cs" />
-    <Compile Include="Migrations\201710071002297_Initial.Designer.cs">
-      <DependentUpon>201710071002297_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710071006235_DataModels.cs" />
-    <Compile Include="Migrations\201710071006235_DataModels.Designer.cs">
-      <DependentUpon>201710071006235_DataModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710071016140_RenameDataModels.cs" />
-    <Compile Include="Migrations\201710071016140_RenameDataModels.Designer.cs">
-      <DependentUpon>201710071016140_RenameDataModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710081244374_NonNullableDate.cs" />
-    <Compile Include="Migrations\201710081244374_NonNullableDate.Designer.cs">
-      <DependentUpon>201710081244374_NonNullableDate.cs</DependentUpon>
+    <Compile Include="Migrations\201710160540436_Initial.cs" />
+    <Compile Include="Migrations\201710160540436_Initial.Designer.cs">
+      <DependentUpon>201710160540436_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -92,17 +80,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710071002297_Initial.resx">
-      <DependentUpon>201710071002297_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071006235_DataModels.resx">
-      <DependentUpon>201710071006235_DataModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071016140_RenameDataModels.resx">
-      <DependentUpon>201710071016140_RenameDataModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710081244374_NonNullableDate.resx">
-      <DependentUpon>201710081244374_NonNullableDate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710160540436_Initial.resx">
+      <DependentUpon>201710160540436_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using System;
+using System.Linq;
 using VNS.Data.Models;
 using VNS.Data.Repositories;
 using VNS.Data.SaveContext;
@@ -19,6 +20,19 @@ namespace VNS.Services
             this.visitRepo = visitRepo;
             this.context = context;
         }
+
+        public int Count {
+            get
+            {
+                return this.visitRepo.All.Count();
+            }
+        }
+
+        //public int CountForUser(string username)
+        //{
+        //    this.visitRepo.All
+        //        .Select(v => v.Nurse)
+        //}
 
         public void Update(Visit visit)
         {
@@ -49,5 +63,6 @@ namespace VNS.Services
             }
             return result;
         }
+
     }
 }

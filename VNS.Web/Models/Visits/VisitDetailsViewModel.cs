@@ -23,7 +23,7 @@ namespace VNS.Web.Models.Visits
 
             Id = visit.Id;
             Date = visit.Date;
-            NurseName = visit.Nurse.UserName;
+            NurseName = visit.UserName;
             Description = visit.Description;
             CreatedOn = visit.CreatedOn; //.Value,
             LastModifiedOn = visit.ModifiedOn;//.Value

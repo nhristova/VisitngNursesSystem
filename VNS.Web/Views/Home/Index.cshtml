@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <h2>Welcome to the Visiting Nurses System</h2>
-        <p>This page blablablal blalbla bal very nice.</p>
+        <p>Data management for busy social workers.</p>
     </div>
 </div>
 
@@ -22,13 +22,14 @@
         <img src="~/Content/images/parents.svg" alt="parents" class="page-image" />
     </div>
     <div class="col-sm-5 col-xs-12">
-        <h2>Stats</h2>
-        <p>Hello, @visitor</p>
-        <p>In __ period, all __ nurses have visited __ families with __ children a total of __ times, including __ pregnant mothers.</p>
-        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+        <h2>Hello, @visitor</h2>
+        <p>We have @Model.VisitsTotal visits in total.</p>
+        <p>Head on to the visits section to add more information.</p>
+        @*<h2>Stats</h2>*@
+        @*<p>In __ period, all __ nurses have visited __ families with __ children a total of __ times, including __ pregnant mothers.</p>*@
     </div>
-    <div class="col-sm-4 col-xs-12">
+    @*<div class="col-sm-4 col-xs-12">
         <h2>Calendar/period picker</h2>
         <p>Please, select a period.</p>
-    </div>
+    </div>*@
 </div>

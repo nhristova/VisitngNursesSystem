@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace VNS.Web.Models.Home
+﻿namespace VNS.Web.Models.Home
 {
     public class HomeViewModel
     {
@@ -12,8 +10,5 @@ namespace VNS.Web.Models.Home
         public int ChildrenTotal { get; set; }
 
         public int PregnantTotal { get; set; }
-
-
-
     }
 }

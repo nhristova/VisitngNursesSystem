@@ -25,7 +25,7 @@ namespace VNS.Data.Models
         public string Description { get; set; }
 
         //[Required]
-        public virtual User Nurse { get; set; }
+        public virtual string UserName { get; set; }
 
         public virtual Family Family { get; set; }
 

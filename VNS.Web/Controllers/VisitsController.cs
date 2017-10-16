@@ -134,7 +134,7 @@ namespace VNS.Web.Controllers
             {
                 Date = visit.Date,
                 Description = visit.Description,
-                Nurse = this.usersService.GetByUserName(visit.NurseName)
+                UserName = visit.NurseName
             };
 
             this.visitsService.Add(v);

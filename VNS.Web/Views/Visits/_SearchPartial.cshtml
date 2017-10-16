@@ -1,10 +1,12 @@
 ﻿@using VNS.Web.Models.Visits
 @model SearchViewModel
 
-<h3>Select criteria</h3>
+@*
+TODO: extract to partial view, to be able to use for families too
+TODO: Filter based on selected muni
+    <h3>Select criteria</h3>
 <p>Municipality, Town, Family ref#, Nurse</p>
 
-@* TODO: extract to partial view, to be able to use for families too *@
 @using (Html.BeginForm("Action", "Controller", FormMethod.Get, new { id = "searchVisitsForm", @class = "", role = "form" }))
 {
     @Html.AntiForgeryToken()
@@ -28,7 +30,7 @@
                 <label for="towns">Town</label><br />
                 <select class="dropdown" name="towns">
                     <option>- All -</option>
-                    @* TODO: Filter based on selected muni *@
+                    
                     @foreach (var muni in Model.Municipalities)
                     {
                         foreach (var town in muni.Towns)
@@ -40,10 +42,10 @@
             </div>
         </div>
     </div>
+    }*@
 
     <div class="row">
-        <button type="reset" class="btn btn-default btn-sm">Clear</button>
-        <button type="submit" class="btn btn-success btn-sm">Search</button>
+        @*<button type="reset" class="btn btn-default btn-sm">Clear</button>*@
+        @*<button type="submit" class="btn btn-success btn-sm">Search</button>*@
         @Html.ActionLink("Add", "Add", "Visits", null, new { @class = "btn btn-info btn-sm" })
     </div>
-}

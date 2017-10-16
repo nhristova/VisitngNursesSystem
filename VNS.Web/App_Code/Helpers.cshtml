@@ -1,0 +1,13 @@
+﻿@helper UserStatusLabel(bool isDeleted)
+{
+
+if (!isDeleted)
+{
+        <label class="label label-success">Active</label>
+}
+else
+{
+        <label class="label label-default">Inactive</label>
+}
+
+}

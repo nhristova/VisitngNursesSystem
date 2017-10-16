@@ -18,6 +18,5 @@ namespace VNS.Data.Models
 
         public virtual Address Address { get; set; }
 
-        public virtual User Nurse { get; set; }
     }
 }

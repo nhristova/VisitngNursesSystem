@@ -1,6 +1,7 @@
 ﻿using Bytes2you.Validation;
 using System.Web.Mvc;
 using VNS.Services.Contracts;
+using VNS.Web.Models.Home;
 
 namespace VNS.Web.Controllers
 {
@@ -17,9 +18,13 @@ namespace VNS.Web.Controllers
         }
 
         public ActionResult Index()
-        {            
+        {
+            var vm = new HomeViewModel()
+            {
+                VisitsTotal = this.visitsService.Count,
 
-            return View();
+            };
+            return View(vm);
         }
 
         [Route("About")]
